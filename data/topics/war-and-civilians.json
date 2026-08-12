@@ -1,0 +1,218 @@
+{
+  "id": "war-and-civilians",
+  "title": "大规模战争离普通人有多远？如果来了怎么活？",
+  "scenario": "society",
+  "description": "台海、俄乌、中东——多个火药桶同时在烧。这不是'会不会打'的口水问题，而是'如果打了，你的存款、工作、甚至人身安全会怎样'的生存问题。大多数人在战争来临时才后悔没有提前准备。",
+  "tags": ["战争", "地缘政治", "生存", "资产安全"],
+  "status": "active",
+  "participants": 15643,
+  "updated": "2026-08-12T06:00:00",
+  "predictions": [
+    {
+      "id": "limited-conflict",
+      "branchName": "有限冲突：代理人战争持续，但不升级为全球热战",
+      "probability": 55,
+      "conclusion": "大国之间会维持'斗而不破'的默契——因为核威慑仍然有效。但代理人战争会持续升级，普通人通过通胀、能源危机、供应链断裂间接感受战争。",
+      "reasoning": [
+        {"step": 1, "description": "核威慑仍然有效——美中俄三方都明白直接军事冲突=互相毁灭，这个计算没有变", "dataRef": "核威慑理论"},
+        {"step": 2, "description": "但代理人战争烈度在升级：乌克兰→中东→下一个可能是台湾或南海", "dataRef": "CSIS 2026 全球冲突评估"},
+        {"step": 3, "description": "经济战已全面开打：芯片禁令、金融制裁、能源武器化——这些对普通人的影响比炸弹更直接", "dataRef": "Peterson Institute 经济战研究"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "2026 全球冲突风险评估", "source": "CSIS", "url": "#"},
+        {"type": "article", "title": "The new cold war is already hot", "source": "Foreign Affairs 2026", "url": "#"}
+      ],
+      "userChoiceCount": 7892,
+      "impact": "你的生活不会直接被炸，但你的钱包会——能源涨价、供应链断裂、股市波动",
+      "subQuestions": [
+        {
+          "id": "economic-war-impact",
+          "title": "经济战对普通人的钱包影响有多大？",
+          "description": "就算不扔炸弹，制裁和贸易战已经在改变你的生活成本。具体传导路径是什么？",
+          "predictions": [
+            {
+              "id": "supply-chain-prices",
+              "branchName": "供应链断裂→日常消费品涨价20-40%",
+              "probability": 65,
+              "conclusion": "芯片禁令→电子产品涨价；能源制裁→油费电费涨；贸易壁垒→服装食品涨。你每月多花的500-2000块就是'战争税'。",
+              "reasoning": [
+                {"step": 1, "description": "中美脱钩已导致电子产品均价上涨18%，半导体交期延长至26周", "dataRef": "Gartner 供应链追踪 2026"},
+                {"step": 2, "description": "红海航运受阻导致欧洲到亚洲运费涨3倍，转嫁到消费品价格", "dataRef": "Freightos 运价指数"},
+                {"step": 3, "description": "各国'友岸外包'意味着生产从低成本地区转移到高成本'盟友'地区——成本最终由消费者承担", "dataRef": "McKinsey 供应链重构报告"}
+              ],
+              "impact": "物价上涨已是结构性趋势，不是暂时的——学会降低生活成本"
+            },
+            {
+              "id": "financial-sanctions-risk",
+              "branchName": "金融制裁风险：你的存款可能被冻结",
+              "probability": 35,
+              "conclusion": "如果中国受到俄罗斯级别制裁，SWIFT断连、外汇冻结、海外资产没收——普通人存在银行里的外汇和海外资产可能一夜归零。",
+              "reasoning": [
+                {"step": 1, "description": "俄罗斯被制裁后，普通人的美元/欧元存款被冻结，至今无法取出", "dataRef": "2022-2026 俄罗斯金融制裁案例分析"},
+                {"step": 2, "description": "西方已建立'金融核武器'体系——SWIFT、CIPS、CHIPS都可控", "dataRef": "BIS 跨境支付系统分析"}
+              ],
+              "impact": "不要把所有资产放在单一司法管辖区——分散国籍、分散银行、分散货币"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hot-war-possible",
+      "branchName": "热战可能性在升高：台海是最大火药桶",
+      "probability": 30,
+      "conclusion": "未来5年台海发生军事冲突的概率不是零。不一定全面开战，但封锁、导弹打击、有限军事行动的可能性在上升。一旦发生，对全球经济的冲击将远超俄乌战争。",
+      "reasoning": [
+        {"step": 1, "description": "解放军2026年军演规模创纪录，'联合利剑'演习已逼近实战状态", "dataRef": "US Indo-Pacific Command 2026 评估报告"},
+        {"step": 2, "description": "台湾生产全球65%先进芯片，全球40%芯片——任何军事动作都会导致全球科技产业停摆", "dataRef": "SIA 半导体产业报告 2026"},
+        {"step": 3, "description": "美国对台'战略模糊'正在转为'战略清晰'——这让擦枪走火概率上升", "dataRef": "CSIS 台海危机兵棋推演 2026"},
+        {"step": 4, "description": "历史教训：一战中没有任何一方想要全面战争，但连锁反应导致失控", "dataRef": "Christopher Clark《梦游者》分析"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "台海军事平衡报告", "source": "US DoD 2026", "url": "#"},
+        {"type": "article", "title": "The Taiwan contingency: What happens to the global economy?", "source": "Bloomberg Economics 2026", "url": "#"},
+        {"type": "data", "title": "台海冲突兵棋推演结果", "source": "CSIS 2026", "url": "#"}
+      ],
+      "userChoiceCount": 4321,
+      "impact": "如果台海出事，全球股市可能暴跌30-50%，芯片短缺将比2021年严重10倍",
+      "subQuestions": [
+        {
+          "id": "what-happens-economy",
+          "title": "如果台海真打起来，全球经济会怎样？",
+          "description": "不是杞人忧天。如果冲突发生，你的股票、存款、工作会受什么影响？冲击有多大？持续多久？",
+          "predictions": [
+            {
+              "id": "instant-recession",
+              "branchName": "全球瞬间衰退：股市崩盘+芯片断供+供应链瘫痪",
+              "probability": 70,
+              "conclusion": "台海冲突第一天全球股市就会暴跌15-30%。台湾芯片断供会导致汽车、手机、电脑全部停产。全球GDP在3个月内收缩5-8%。这比2020年疫情冲击更严重。",
+              "reasoning": [
+                {"step": 1, "description": "台积电停产→全球半导体供应减少65%→汽车/手机/服务器全部停产", "dataRef": "SIA 半导体供应链分析"},
+                {"step": 2, "description": "全球60%海运经过台海周边→航线中断→运费暴涨10倍", "dataRef": "Lloyd's Maritime Intelligence"},
+                {"step": 3, "description": "美国很可能金融制裁中国→中国3.2万亿外汇储备面临冻结→全球金融体系震荡", "dataRef": "Peterson Institute 制裁影响模拟"}
+              ],
+              "impact": "如果你在科技/制造/出口行业工作，立刻准备失业风险。降低股票仓位至30%以下"
+            },
+            {
+              "id": "quick-resolution",
+              "branchName": "短暂冲击后恢复：类似俄乌模式",
+              "probability": 30,
+              "conclusion": "市场恐慌2-3个月后，如果冲突没有升级为中美直接战争，市场会逐渐消化。但世界将永久分裂为两个经济体系——'新冷战'常态化。",
+              "reasoning": [
+                {"step": 1, "description": "俄乌战争后全球市场3个月内恢复——但能源/粮食价格影响持续了2年", "dataRef": "2022-2024 市场数据"},
+                {"step": 2, "description": "中美脱钩将加速——两套技术标准、两套支付系统、两套供应链", "dataRef": "BlackRock 2026 地缘政治投资框架"}
+              ],
+              "impact": "做好'两个世界'的准备：如果你在中美之间有跨境业务，考虑分散到两边"
+            }
+          ]
+        },
+        {
+          "id": "civilian-survival",
+          "title": "普通人应该提前准备什么？",
+          "description": "不是危言耸听。如果最坏情况发生，提前准备的人和不准备的人命运完全不同。具体该做什么？",
+          "predictions": [
+            {
+              "id": "financial-prep",
+              "branchName": "金融准备：分散资产+持有实物",
+              "probability": 60,
+              "conclusion": "最重要的准备：不要把所有资产放在同一国家的银行里。持有一定比例的外币现金、黄金实物。如果银行系统瘫痪，你手上的实物就是全部。",
+              "reasoning": [
+                {"step": 1, "description": "乌克兰战争爆发后，银行取现限额立即降至每天等值100美元——ATM前排长队", "dataRef": "2022 乌克兰银行系统报告"},
+                {"step": 2, "description": "黄金实物在战争期间是硬通货——可以换食物、换燃料、换逃生机会", "dataRef": "战区生存经验记录"}
+              ],
+              "impact": "储备1-2个月生活费的现金（纸币）+一定量黄金实物在手上"
+            },
+            {
+              "id": "physical-prep",
+              "branchName": "物质准备：食物+能源+通讯+逃生路线",
+              "probability": 40,
+              "conclusion": "听起来极端，但在地震/洪水/战争等极端情况下，前72小时你得靠自己。储备2周食物、便携能源、离线通讯工具、护照和逃生路线。",
+              "reasoning": [
+                {"step": 1, "description": "任何重大灾害后72小时内基础设施瘫痪——没有电、没有网、没有超市补给", "dataRef": "FEMA 应急准备指南"},
+                {"step": 2, "description": "日本家家户户都有应急包——不是因为恐慌，而是因为理性", "dataRef": "日本内阁府防灾指南"}
+              ],
+              "impact": "准备一个应急包：2周食物、水、药品、手摇收音机、充电宝、护照复印件"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cold-war-2",
+      "branchName": "新冷战常态化：不打仗但世界永久分裂",
+      "probability": 15,
+      "conclusion": "最可能的长期剧本：不会有全面热战，但世界永久分裂为两个体系——中美各自的科技/金融/供应链圈。普通人生活在'铁幕'之下，跨境旅行/投资/通讯越来越困难。",
+      "reasoning": [
+        {"step": 1, "description": "科技脱钩已经发生：两套5G标准、两套芯片体系、两套AI生态", "dataRef": "ASPI 技术脱钩追踪 2026"},
+        {"step": 2, "description": "金融脱钩在加速：CIPS vs SWIFT、数字人民币 vs 数字美元", "dataRef": "BIS 跨境支付 fragmentation"},
+        {"step": 3, "description": "人员交流在减少：中美签证审批时间从2周延长至6个月，留学生数量下降40%", "dataRef": "State Department 签证数据 2026"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "The permanent bifurcation: Living in two worlds", "source": "Foreign Affairs 2026", "url": "#"},
+        {"type": "data", "title": "技术脱钩指数", "source": "ASPI 2026", "url": "#"}
+      ],
+      "userChoiceCount": 3430,
+      "impact": "选择站队还是骑墙——这将是未来10年每个人和每个企业必须回答的问题",
+      "subQuestions": [
+        {
+          "id": "which-side",
+          "title": "普通人该选哪一边？",
+          "description": "如果世界真的分裂成两个体系，你在中美之间该怎么选？还是说可以两边下注？",
+          "predictions": [
+            {
+              "id": "hedging",
+              "branchName": "两边下注：保持模糊身份最安全",
+              "probability": 55,
+              "conclusion": "不要选边站。保持在中美两边都有退路：双重身份、两地资产、跨境技能。铁幕落下时，两边都有门的人最安全。",
+              "reasoning": [
+                {"step": 1, "description": "冷战时期两边都有关系的人反而活得最好——信息差就是价值", "dataRef": "冷战历史研究"},
+                {"step": 2, "description": "数字游民/远程工作者天然具有'两边下注'能力", "dataRef": "MBO Partners 2026 数字游民报告"}
+              ],
+              "impact": "如果你有能力：获取第二身份、在多国配置资产、发展跨境可迁移技能"
+            },
+            {
+              "id": "pick-winning-side",
+              "branchName": "必须选边：模糊空间会越来越小",
+              "probability": 45,
+              "conclusion": "铁幕不是一夜落下的，而是慢慢收紧。到某个点你必须选——两边下注会被两边怀疑。问题是：哪个体系在未来20年更有生命力？",
+              "reasoning": [
+                {"step": 1, "description": "美国优势：金融霸权、创新生态、盟友网络。劣势：政治极化、债务失控", "dataRef": "Ray Dalio 大国兴衰分析"},
+                {"step": 2, "description": "中国优势：制造能力、市场规模、执行力。劣势：人口危机、信任赤字、技术封锁", "dataRef": "Lee Kuan Yew 地缘战略分析"}
+              ],
+              "impact": "关注两国制度韧性的长期趋势，提前5年做好选择——不要等到被迫选"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-war-1",
+      "author": "外贸老板",
+      "content": "做外贸10年了，从没见过这么难。不是没订单，是货发不出去——红海绕路运费涨3倍，美国客户要求'去中国化'供应链。我夹在中间，两头受气。",
+      "type": "fact",
+      "timestamp": "2026-08-08T16:20:00",
+      "likes": 612,
+      "relatedPrediction": "limited-conflict"
+    },
+    {
+      "id": "obs-war-2",
+      "author": "在台湾工作的程序员",
+      "content": "台北的防空演习变多了。同事开始讨论如果打起来去哪避难。说实话，一年前我还觉得不可能，现在不那么确定了。已经在考虑把家人先送到日本。",
+      "type": "fact",
+      "timestamp": "2026-08-10T22:15:00",
+      "likes": 489,
+      "relatedPrediction": "hot-war-possible"
+    },
+    {
+      "id": "obs-war-3",
+      "author": "硅谷工程师",
+      "content": "公司内部已经按'中国团队'和'非中国团队'分开了。数据不能互通，代码库分开，连开会都要注意'合规'。这不就是新冷战吗？只是没人说而已。",
+      "type": "fact",
+      "timestamp": "2026-08-11T09:40:00",
+      "likes": 356,
+      "relatedPrediction": "cold-war-2"
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "id": "inflation-or-deflation",
+  "title": "未来3年：物价会飞涨还是通缩崩盘？",
+  "scenario": "finance",
+  "description": "一边是各国疯狂印钱、供应链断裂、地缘冲突推高成本——按理说该通胀。另一边是AI消灭就业、消费需求萎缩、人口老龄化——按理说该通缩。到底哪股力量会赢？你的存款是会被通胀吃掉，还是通缩会让你庆幸持有现金？",
+  "tags": ["通胀", "通缩", "物价", "现金", "资产配置"],
+  "status": "active",
+  "participants": 9876,
+  "updated": "2026-08-12T08:00:00",
+  "predictions": [
+    {
+      "id": "stagflation",
+      "branchName": "滞胀：物价涨+经济停——最毒的组合",
+      "probability": 45,
+      "conclusion": "不是单纯的通胀或通缩，而是最恶毒的组合：物价在涨（因为供应链成本+货币超发），但经济在萎缩（因为AI失业+需求下降）。你的工资不涨但物价涨，现金贬值但资产也在跌。",
+      "reasoning": [
+        {"step": 1, "description": "成本端推高物价：地缘冲突→能源涨价→运输成本→食品涨价。这些不因消费需求下降而停止", "dataRef": "IMF 2026 大宗商品价格展望"},
+        {"step": 2, "description": "需求端拉低增长：AI失业→消费萎缩→企业收入下降→裁员→消费更少。但物价不降因为成本刚性", "dataRef": "Bloomberg 经济预测模型 2026"},
+        {"step": 3, "description": "1970年代美国滞胀持续了10年，最终靠沃尔克将利率加到20%才压住——代价是两次衰退", "dataRef": "美联储历史档案"},
+        {"step": 4, "description": "2026年已现端倪：核心CPI 3.2%但GDP增速仅1.1%，典型滞胀信号", "dataRef": "BEA 2026Q2 数据"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "全球滞胀风险指标", "source": "IMF World Economic Outlook 2026", "url": "#"},
+        {"type": "article", "title": "Welcome to stagflation 2.0", "source": "The Economist 2026", "url": "#"},
+        {"type": "data", "title": "1970s stagflation playbook", "source": "Federal Reserve History", "url": "#"}
+      ],
+      "userChoiceCount": 4421,
+      "impact": "滞胀中现金和股票双杀。硬资产（黄金、实物）+抗通胀债券是对冲组合",
+      "subQuestions": [
+        {
+          "id": "what-to-hold",
+          "title": "滞胀环境下普通人该持有什么？",
+          "description": "如果真的是滞胀，那现金在贬值、股票在跌、房子可能也跌。普通人到底该把钱放在哪？",
+          "predictions": [
+            {
+              "id": "gold-real-assets",
+              "branchName": "黄金和硬资产是唯一避风港",
+              "probability": 50,
+              "conclusion": "1970年代滞胀期间黄金涨了15倍，标普500实际回报为负。这次大概率重演：黄金、大宗商品、实物资产跑赢一切。",
+              "reasoning": [
+                {"step": 1, "description": "1971-1980年黄金从35美元涨到850美元，同期标普500实际回报-15%", "dataRef": "历史市场数据"},
+                {"step": 2, "description": "2026年各国央行黄金购买量创历史新高——他们在为滞胀做准备", "dataRef": "World Gold Council 2026"},
+                {"step": 3, "description": "比特币叙事正在从'数字黄金'变成真正的避险资产，与黄金相关性升至0.7", "dataRef": "Coinmetrics 2026 相关性分析"}
+              ],
+              "impact": "配置10-20%资产到黄金/比特币等硬资产，不要全持有法币",
+              "subQuestions": [
+                {
+                  "id": "gold-vs-crypto",
+                  "title": "黄金还是比特币？",
+                  "description": "两个都被叫'数字黄金'，但波动性和风险完全不同。该选哪个？",
+                  "predictions": [
+                    {
+                      "id": "gold-safer",
+                      "branchName": "黄金更靠谱：5000年共识不是开玩笑的",
+                      "probability": 60,
+                      "conclusion": "黄金有5000年的价值共识，波动率只有比特币的1/4。在真正的危机中，黄金是最后被接受的交换媒介。",
+                      "reasoning": [
+                        {"step": 1, "description": "黄金在每次重大危机中都涨：2008年涨25%，2020年涨17%，2022年涨8%", "dataRef": "黄金历史价格数据"},
+                        {"step": 2, "description": "比特币在极端压力下可能崩盘——2022年跌了65%，黄金只跌了1%", "dataRef": "2022年资产回报对比"}
+                      ],
+                      "impact": "普通人的避险配置：黄金为主(70%)，比特币为辅(30%)"
+                    },
+                    {
+                      "id": "crypto-wins",
+                      "branchName": "比特币年轻一代的黄金",
+                      "probability": 40,
+                      "conclusion": "年轻人不信黄金——他们信比特币。当财富从老一代转移到新一代时，比特币将取代黄金成为主要避险资产。",
+                      "reasoning": [
+                        {"step": 1, "description": "35岁以下投资者中，比特币持有率(28%)已超过黄金持有率(19%)", "dataRef": "Gallup 2026 投资者调查"},
+                        {"step": 2, "description": "比特币ETF资金流入速度是黄金ETF的3倍", "dataRef": "ETF.com 资金流数据 2026"}
+                      ],
+                      "impact": "如果你能承受50%的回撤，比特币的长期回报潜力远超黄金"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "cash-is-king-short-term",
+              "branchName": "短期持有现金，等资产暴跌后抄底",
+              "probability": 30,
+              "conclusion": "不管通胀怎么侵蚀，现金在危机初期的购买力最强。当所有人被迫卖出资产变现时，持有现金的人可以捡便宜。",
+              "reasoning": [
+                {"step": 1, "description": "2008年危机中，持现金的人在2009年3月抄底股票，之后5年回报300%", "dataRef": "2008-2014市场数据"},
+                {"step": 2, "description": "但前提是你能判断'底'在哪——大多数人抄底抄在半山腰", "dataRef": "行为金融学研究"}
+              ],
+              "impact": "保持50%现金仓位，等市场恐慌时再分批入场"
+            },
+            {
+              "id": "real-estate-split",
+              "branchName": "房产要看地段——核心区抗通胀，边缘区崩盘",
+              "probability": 20,
+              "conclusion": "房产在滞胀中表现分化：核心城市稀缺地段能抗通胀（因为土地供给刚性），但边缘地段和投资性房产会暴跌（因为没人接盘）。",
+              "reasoning": [
+                {"step": 1, "description": "1970年代美国滞胀期间，房价名义值涨了但实际值跌了——通胀掩盖了下跌", "dataRef": "Case-Shiller 房价指数历史"},
+                {"step": 2, "description": "2026年一线城市核心区房价微涨2-3%，但三四线城市跌8-15%", "dataRef": "国家统计局70城房价数据"}
+              ],
+              "impact": "只有核心地段的自住房才算避险资产，投资性房产尽快减仓"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deflation-collapse",
+      "branchName": "通缩崩盘：AI+老龄化让需求永久性萎缩",
+      "probability": 30,
+      "conclusion": "日本剧本全球重演。AI消灭就业→消费萎缩→物价下跌→企业利润下降→继续裁员→消费更少。通缩螺旋一旦形成，央行怎么印钱都没用——因为没人敢花钱。",
+      "reasoning": [
+        {"step": 1, "description": "日本过去30年：利率降到负的，CPI依然在0附近。印钱推不出通缩", "dataRef": "日本央行历史数据 1995-2025"},
+        {"step": 2, "description": "中国2026年CPI已降至0.3%，核心CPI仅0.1%，正在滑向通缩", "dataRef": "国家统计局 2026年7月CPI数据"},
+        {"step": 3, "description": "全球人口增长率降至0.8%，发达国家老龄化→需求结构性下降，这不是周期性问题", "dataRef": "UN 人口展望 2026修订版"},
+        {"step": 4, "description": "AI使生产成本趋近于零——数字产品边际成本为零，制造业自动化降低成本——通缩力量不可逆", "dataRef": "Brookings AI与价格水平研究"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "日本失去的三十年：通缩机制分析", "source": "Bank of Japan", "url": "#"},
+        {"type": "article", "title": "The deflationary singularity: When AI meets aging", "source": "BIS Working Paper 2026", "url": "#"},
+        {"type": "data", "title": "全球人口与消费趋势", "source": "UN World Population Prospects 2026", "url": "#"}
+      ],
+      "userChoiceCount": 2956,
+      "impact": "通缩中现金为王。不要负债，不要追高资产，持有现金等贬值",
+      "subQuestions": [
+        {
+          "id": "japan-repeat",
+          "title": "中国会重演日本失去的三十年吗？",
+          "description": "中国正在经历人口下降、房地产泡沫破裂、消费萎缩——和1990年的日本惊人相似。结局会一样吗？",
+          "predictions": [
+            {
+              "id": "worse-than-japan",
+              "branchName": "比日本更惨：因为同时面临AI冲击",
+              "probability": 55,
+              "conclusion": "日本衰退时至少还有全球化和人口红利托底。中国这次同时面临：人口下降+房地产崩盘+AI失业+去全球化。四重打击同时来。",
+              "reasoning": [
+                {"step": 1, "description": "日本1990年人均GDP已达3万美元，中国2026年仅1.3万——'未富先老'", "dataRef": "World Bank 人均GDP数据"},
+                {"step": 2, "description": "日本衰退时AI还不存在，至少没有大规模失业冲击", "dataRef": "中日衰退期对比分析"},
+                {"step": 3, "description": "中国居民杠杆率(62%)已超过日本1990年水平(58%)，但收入只有日本当时的1/3", "dataRef": "BIS 居民杠杆率历史数据"}
+              ],
+              "impact": "在中国的人：降杠杆、持现金、不要赌房价反弹"
+            },
+            {
+              "id": "different-path",
+              "branchName": "不会完全复制——但可能更久",
+              "probability": 45,
+              "conclusion": "中国有日本没有的优势：巨大的内部市场、产业升级空间、国家调控能力。但劣势是转型更慢，可能不是30年而是更长的低增长期。",
+              "reasoning": [
+                {"step": 1, "description": "中国新能源、电动车等新兴产业全球领先，创造新的增长点", "dataRef": "IEA 2026 清洁能源产业报告"},
+                {"step": 2, "description": "但旧经济(房地产+基建)占GDP比重仍25%，转型需要时间", "dataRef": "国家统计局产业结构数据"}
+              ],
+              "impact": "不要赌V型反弹，做好5-10年低增长的心理准备"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperinflation",
+      "branchName": "恶性通胀：政府疯狂印钱导致货币崩溃",
+      "probability": 25,
+      "conclusion": "如果AI失业潮逼政府推出大规模UBI，加上养老/医疗成本飙升，财政赤字失控——最终只能印钱。不是温和通胀，而是货币信用崩塌式的恶性通胀。",
+      "reasoning": [
+        {"step": 1, "description": "美国国债已破36万亿，利息支出超过军费。如果再加UBI支出，财政不可持续", "dataRef": "TreasuryDirect 国债数据 2026"},
+        {"step": 2, "description": "历史规律：当政府债务/GDP超过130%且持续上升时，恶性通胀概率显著增加", "dataRef": "Reinhart & Rogoff This Time Is Different"},
+        {"step": 3, "description": "2026年美国债务/GDP已达135%，且AI失业潮还没全面爆发——等它爆发了赤字只会更大", "dataRef": "CBO 2026 财政预测"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "全球主权债务风险报告", "source": "IMF Fiscal Monitor 2026", "url": "#"},
+        {"type": "article", "title": "The coming currency crisis: Why this time might actually be different", "source": "Ray Dalio 2026", "url": "#"},
+        {"type": "data", "title": "恶性通胀历史案例：魏玛/津巴布韦/委内瑞拉", "source": "Cato Institute 通胀数据库", "url": "#"}
+      ],
+      "userChoiceCount": 2499,
+      "impact": "如果发生恶性通胀，法币存款归零。实物资产+外币+黄金是生命线",
+      "subQuestions": [
+        {
+          "id": "which-currency-dies-first",
+          "title": "哪个国家的货币会先出问题？",
+          "description": "不是所有货币同时崩溃。谁的风险最大？谁相对安全？",
+          "predictions": [
+            {
+              "id": "emerging-first",
+              "branchName": "新兴市场先倒：阿根廷、土耳其、埃及模式",
+              "probability": 60,
+              "conclusion": "新兴市场货币会先崩溃——它们的外债高、外汇储备低、政治不稳定。等新兴市场倒了一片后，发达国家货币才开始出问题。",
+              "reasoning": [
+                {"step": 1, "description": "2024-2026年已有阿根廷、土耳其、埃及、黎巴嫩货币崩溃", "dataRef": "IMF 货币危机追踪"},
+                {"step": 2, "description": "美元/欧元/人民币的崩溃顺序取决于各自AI失业速度和财政状况", "dataRef": "BIS 货币稳定性评估"}
+              ],
+              "impact": "持有新兴市场资产的人：尽快转换为硬通货或实物资产"
+            },
+            {
+              "id": "yen-first-developed",
+              "branchName": "日元可能是发达国家第一个倒的",
+              "probability": 40,
+              "conclusion": "日本国债/GDP达260%，全球最高。日本央行已是最大国债持有者——这就是个庞氏结构。一旦信心动摇，日元可能急剧贬值。",
+              "reasoning": [
+                {"step": 1, "description": "日本国债/GDP 260%，是美国(135%)的近2倍", "dataRef": "IMF 财政监测"},
+                {"step": 2, "description": "日元已从2021年的100跌至2026年的165，贬值65%——趋势在加速", "dataRef": "USD/JPY 汇率历史"},
+                {"step": 3, "description": "日本海外资产庞大，但如果国内通胀迫使央行加息，国债利息支出将爆炸", "dataRef": "BOJ 压力测试分析"}
+              ],
+              "impact": "持有日元资产的人考虑分散到美元或其他避险货币"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-inf-1",
+      "author": "超市收银员观察",
+      "content": "我不知道什么通胀通缩，我只知道去年买一袋米40块，今年48块。但我工资一分没涨。这不是什么'温和通胀'，这是在割我们的肉。",
+      "type": "fact",
+      "timestamp": "2026-08-09T19:00:00",
+      "likes": 523,
+      "relatedPrediction": "stagflation"
+    },
+    {
+      "id": "obs-inf-2",
+      "author": "房产中介",
+      "content": "房价在跌但房租在涨——这不就是滞胀吗？房东还贷压力大了就涨房租，但房子本身卖不出价。买房的和租房的都在哭。",
+      "type": "fact",
+      "timestamp": "2026-08-10T11:30:00",
+      "likes": 289,
+      "relatedPrediction": "stagflation"
+    },
+    {
+      "id": "obs-inf-3",
+      "author": "退休工人",
+      "content": "我存了一辈子钱现在利息不到2%，但菜价涨了30%。政府说通胀才3%，我不知道他们去哪里买的菜。",
+      "type": "opinion",
+      "timestamp": "2026-08-11T07:45:00",
+      "likes": 467,
+      "relatedPrediction": "stagflation"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "id": "ai-unemployment-consumption",
+  "title": "AI引发大规模失业后，消费会崩盘吗？",
+  "scenario": "tech",
+  "description": "这不是一个孤立问题。AI正在消灭白领岗位，而白领是消费主力。如果几百万人突然没了收入，房贷断供、消费萎缩、企业裁员会形成死亡螺旋——还是说新岗位会及时出现接住所有人？",
+  "tags": ["AI", "失业", "消费崩盘", "经济危机"],
+  "status": "active",
+  "participants": 12453,
+  "updated": "2026-08-12T10:00:00",
+  "predictions": [
+    {
+      "id": "death-spiral",
+      "branchName": "死亡螺旋：失业→消费崩→更多失业",
+      "probability": 55,
+      "conclusion": "AI替代速度远快于新岗位创造速度。大量白领失业后消费骤降，企业收入下降被迫继续裁员，形成自我强化的下行螺旋。中产阶级将在3-5年内显著缩水。",
+      "reasoning": [
+        {"step": 1, "description": "AI替代速度是指数级的，但人的技能转型需要2-5年——这个时间差就是死亡螺旋的引擎", "dataRef": "OECD 2026 就业转型速度报告"},
+        {"step": 2, "description": "2026年Q2美国白领裁员同比增38%，被裁者中仅31%在6个月内找到同等收入工作", "dataRef": "Challenger Gray & Christmas 裁员报告"},
+        {"step": 3, "description": "美国消费者支出占GDP 68%，白领贡献了其中约45%——如果这批人停止消费，连锁反应是毁灭性的", "dataRef": "BEA 消费者支出数据 2026"},
+        {"step": 4, "description": "历史类比：2008年金融危机时失业率每升1%，消费支出下降约2.3%。这次AI失业规模可能是金融危机的3-5倍", "dataRef": "NBER 经济周期研究"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "白领裁员潮数据", "source": "Challenger Gray & Christmas 2026", "url": "#"},
+        {"type": "article", "title": "The AI job displacement wave is here", "source": "The Atlantic 2026", "url": "#"},
+        {"type": "data", "title": "消费者支出与就业的弹性关系", "source": "NBER Working Paper", "url": "#"}
+      ],
+      "userChoiceCount": 6842,
+      "impact": "如果你的工作涉及重复性脑力劳动，现在就要开始建立非劳动收入来源",
+      "subQuestions": [
+        {
+          "id": "who-hit-first",
+          "title": "谁会最先被冲击？",
+          "description": "不是所有人同时受冲击。第一批倒下的人会是谁？冲击波怎么传导？",
+          "predictions": [
+            {
+              "id": "white-collar-first",
+              "branchName": "中层白领是第一批牺牲品",
+              "probability": 70,
+              "conclusion": "中层管理者、文案、初级分析师、客服——这些'信息搬运工'岗位最先消失。他们的收入本来支撑着房贷、车贷、教育培训等中产消费链。",
+              "reasoning": [
+                {"step": 1, "description": "中层白领的工作本质是'信息加工和传递'——这正是AI最擅长的", "dataRef": "McKinsey 自动化可行性分析"},
+                {"step": 2, "description": "一个AI系统可以替代5-10个中层岗位，但只需要1个高级员工来监督", "dataRef": "Goldman Sachs 2026 AI影响报告"},
+                {"step": 3, "description": "2026年已有迹象：Meta、Google裁员中中层占比超60%", "dataRef": "Layoffs.fyi 2026 数据"}
+              ],
+              "impact": "如果你是中层白领，不要等着被裁——现在就考虑转型或降负债",
+              "subQuestions": [
+                {
+                  "id": "chain-reaction",
+                  "title": "消费崩盘的链式反应会怎么展开？",
+                  "description": "如果几百万人失业停止消费，接下来会发生什么？冲击波传到哪里？",
+                  "predictions": [
+                    {
+                      "id": "housing-crash-first",
+                      "branchName": "房贷断供→房价暴跌→银行危机",
+                      "probability": 50,
+                      "conclusion": "白领失业 → 断供 → 法拍房激增 → 房价下跌 → 更多人负资产 → 消费进一步萎缩。2008年重演，但这次是AI而非次贷引爆。",
+                      "reasoning": [
+                        {"step": 1, "description": "美国房贷月供占白领家庭收入35-45%，失业2-3个月就会断供", "dataRef": "Federal Reserve 家庭负债报告"},
+                        {"step": 2, "description": "2026年Q1法拍房申请同比增22%，集中在科技和金融行业密集区域", "dataRef": "ATTOM Data Solutions"},
+                        {"step": 3, "description": "一旦法拍潮出现，银行收紧贷款 → 买房更难 → 房价继续跌 → 负反馈", "dataRef": "2008年次贷危机传导路径分析"}
+                      ],
+                      "impact": "有房贷的人：确保有6-12个月应急资金；考虑卖掉投资性房产"
+                    },
+                    {
+                      "id": "deflation-spiral",
+                      "branchName": "需求崩塌→通缩→企业更不敢招人",
+                      "probability": 35,
+                      "conclusion": "消费减少 → 企业收入下降 → 降价求生 → 利润更薄 → 继续裁员 → 消费更少。这是日本失去的三十年的加速版。",
+                      "reasoning": [
+                        {"step": 1, "description": "2026年核心CPI已从4.2%降至2.1%，接近通缩边缘", "dataRef": "BLS 通胀数据"},
+                        {"step": 2, "description": "企业降价保销量 → 利润率下降 → 唯一出路是继续削减人力成本", "dataRef": "S&P 500 财报分析 2026Q2"}
+                      ],
+                      "impact": "通缩环境下现金为王，推迟大额消费，不要加杠杆"
+                    },
+                    {
+                      "id": "social-unrest",
+                      "branchName": "底层报复：社会动荡和政治极端化",
+                      "probability": 15,
+                      "conclusion": "大规模失业 + 贫富分化加剧 → 示威、犯罪率上升、民粹主义上台。这不是经济问题，是文明级风险。",
+                      "reasoning": [
+                        {"step": 1, "description": "历史规律：失业率超过15%时社会动荡概率急剧上升", "dataRef": "IMF 社会稳定性研究"},
+                        {"step": 2, "description": "AI让财富向极少数科技巨头集中——前1%掌握的财富比例已从32%升至41%", "dataRef": "World Inequality Report 2026"}
+                      ],
+                      "impact": "关注政治风向变化，极端政策可能突然出台影响资产安全"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "blue-collar-later",
+              "branchName": "蓝领反而暂时安全",
+              "probability": 30,
+              "conclusion": "水管工、电工、建筑工人的岗位AI暂时碰不了。讽刺的是，被AI替代的白领可能被迫去抢蓝领工作，导致蓝领市场也内卷。",
+              "reasoning": [
+                {"step": 1, "description": "物理世界的工作（维修、施工、护理）机器人成本仍然是人力的3-5倍", "dataRef": "Boston Dynamics 商业化进展分析"},
+                {"step": 2, "description": "但白领涌入蓝领市场会压低蓝领工资——'降维打击'已经开始", "dataRef": "BLS 职业转换数据 2026"}
+              ],
+              "impact": "蓝领技能可能成为未来10年最实用的'避险资产'"
+            }
+          ]
+        },
+        {
+          "id": "can-ubi-save",
+          "title": "全民基本收入(UBI)能救命吗？",
+          "description": "如果消费真的崩了，政府会不会被迫发钱？UBI能阻止死亡螺旋吗？还是说它本身会引发新问题？",
+          "predictions": [
+            {
+              "id": "ubi-works-temporary",
+              "branchName": "UBI能短期止血，但长期会引发通胀",
+              "probability": 60,
+              "conclusion": "政府会被迫推出某种形式的UBI来阻止消费崩盘。短期内有效，但印钱发福利最终会导致通胀——等于向所有人收'隐形税'。",
+              "reasoning": [
+                {"step": 1, "description": "2026年已有17个国家在试点UBI或类似政策，芬兰试点显示失业者心理健康改善", "dataRef": "UBI全球试点汇总 2026"},
+                {"step": 2, "description": "但大规模UBI需要巨额财政支出——美国全民每月1000美元需3.9万亿/年，占联邦预算60%", "dataRef": "Tax Foundation UI财政分析"},
+                {"step": 3, "description": "钱从哪来？要么印钞（通胀），要么向科技巨头加税（资本外逃风险）", "dataRef": "Peterson Institute 财政政策研究"}
+              ],
+              "impact": "如果UBI实施，固定收入者受损最大——通胀会吃掉你的存款"
+            },
+            {
+              "id": "ubi-wont-happen",
+              "branchName": "政客不会让UBI发生",
+              "probability": 40,
+              "conclusion": "UBI在政治上不可能通过。富人会阻挠加税，穷人没有足够政治影响力。结果就是消费持续崩盘，直到社会压力大到被迫采取更激进的措施。",
+              "reasoning": [
+                {"step": 1, "description": "美国国会对UBI支持率仅28%，两党主流都反对", "dataRef": "Pew Research 2026"},
+                {"step": 2, "description": "科技巨头游说支出创历史新高，核心诉求之一就是反对AI税", "dataRef": "OpenSecrets 游说数据 2026"}
+              ],
+              "impact": "不要指望政府救市，个人必须自保"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "new-jobs-absorb",
+      "branchName": "AI创造新需求，不会崩盘",
+      "probability": 30,
+      "conclusion": "每次技术革命都有人喊'这次不一样'，但每次都错了。AI会消灭旧岗位，但也会创造我们现在想象不到的新岗位。短期阵痛后，经济会找到新平衡。",
+      "reasoning": [
+        {"step": 1, "description": "工业革命消灭了90%的农业岗位，但失业率没有永久飙升——人找到了新的事做", "dataRef": "经济史数据 1800-2000"},
+        {"step": 2, "description": "AI本身就需要大量人：数据标注、模型训练、安全审计、AI心理咨询师等新职业已经在涌现", "dataRef": "LinkedIn 2026 新兴职业报告"},
+        {"step": 3, "description": "生产率提升 → 商品更便宜 → 实际购买力上升 → 新消费需求被释放", "dataRef": "Brookings 生产率与就业研究"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "This time is NOT different: AI and the labor market", "source": "Economist 2026", "url": "#"},
+        {"type": "data", "title": "新兴职业增长速度已超被消亡职业", "source": "LinkedIn 2026", "url": "#"}
+      ],
+      "userChoiceCount": 3712,
+      "impact": "保持学习能力和适应性比囤积现金更重要",
+      "subQuestions": [
+        {
+          "id": "what-new-jobs",
+          "title": "AI时代到底会出现什么新岗位？",
+          "description": "乐观派说'会创造新岗位'，但具体是什么岗位？普通人能做吗？",
+          "predictions": [
+            {
+              "id": "ai-adjacent",
+              "branchName": "AI相关服务岗位大爆发",
+              "probability": 55,
+              "conclusion": "AI训练师、提示词工程师、AI审计员、AI心理咨询师、人机协作设计师——这些岗位已经在出现，门槛没有想象的那么高。",
+              "reasoning": [
+                {"step": 1, "description": "每个AI系统部署后都需要3-5个人来维护、调优、监督", "dataRef": "Gartner AI部署成本分析"},
+                {"step": 2, "description": "这些岗位不需要CS学位，需要的是'懂业务+会使用AI工具'的跨界能力", "dataRef": "a16z 2026 AI就业报告"}
+              ],
+              "impact": "学会使用AI工具本身就是新岗位的入场券"
+            },
+            {
+              "id": "human-touch-economy",
+              "branchName": "'人味经济'崛起",
+              "probability": 45,
+              "conclusion": "当AI能做大部分脑力劳动时，'真人服务'反而成为奢侈品。手作、真人陪伴、线下体验、情感劳动的价值会飙升。",
+              "reasoning": [
+                {"step": 1, "description": "工业化后手工业反而复兴——星巴克比速溶咖啡贵10倍", "dataRef": "消费心理学研究"},
+                {"step": 2, "description": "日本'孤独经济'已证明：真人陪伴和情感服务市场规模可达万亿", "dataRef": "野村综合研究所"}
+              ],
+              "impact": "培养AI无法替代的'人的特质'：共情、创造、真实体验"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transition-pain",
+      "branchName": "短期巨痛，长期可能好也可能更差",
+      "probability": 15,
+      "conclusion": "不会平滑过渡，也不会直接崩盘。而是5-10年的剧烈动荡期——大量人失业、社会矛盾激化、政治反复——然后再看是新秩序建立还是持续混乱。",
+      "reasoning": [
+        {"step": 1, "description": "工业革命用80年完成转型，期间经历了多次经济危机、世界大战、社会革命", "dataRef": "经济史数据分析"},
+        {"step": 2, "description": "AI转型速度远快于工业革命，但人类制度的适应速度并没有加快", "dataRef": "MIT Technology Review 2026"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "The painful middle: Technology transitions in historical perspective", "source": "Foreign Affairs 2026", "url": "#"}
+      ],
+      "userChoiceCount": 1899,
+      "impact": "准备好应对5-10年的动荡期，而不是一个确定性的未来",
+      "subQuestions": [
+        {
+          "id": "how-to-survive-transition",
+          "title": "普通人怎么扛过这段动荡期？",
+          "description": "不管长期怎样，短期5-10年的动荡是大概率事件。普通人该怎么自保？",
+          "predictions": [
+            {
+              "id": "reduce-leverage",
+              "branchName": "降杠杆+多元化收入",
+              "probability": 65,
+              "conclusion": "最核心的一条：降低负债、储备现金、建立2-3个收入来源。不要把命运押在一份工资上。",
+              "reasoning": [
+                {"step": 1, "description": "动荡期最大的风险不是失业本身，而是失业+高负债=破产", "dataRef": "2008年危机幸存者分析"},
+                {"step": 2, "description": "有3个收入来源的人抗风险能力是单一收入的5倍", "dataRef": "Federal Reserve 家庭财务韧性研究"}
+              ],
+              "impact": "现在就开始：还清高息负债、存6个月生活费、发展副业"
+            },
+            {
+              "id": "geographic-hedge",
+              "branchName": "地理对冲：不要把鸡蛋放一个篮子",
+              "probability": 35,
+              "conclusion": "不同国家受AI冲击程度不同。在多个国家/地区有居住权、收入来源或资产配置，是终极避险策略。",
+              "reasoning": [
+                {"step": 1, "description": "AI冲击是不均匀的：美国白领受冲击最大，东南亚制造业相对安全", "dataRef": "ILO 全球AI就业影响地图"},
+                {"step": 2, "description": "越来越多数字游民在多个国家分散收入和生活成本", "dataRef": "MBO Partners 数字游民报告 2026"}
+              ],
+              "impact": "考虑获取第二身份、在海外配置部分资产、发展跨境收入"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-ai-1",
+      "author": "被裁的UX设计师",
+      "content": "我就是那个'第一批'。上个月被裁了，公司直接用Figma AI + 一个初级设计师替代了我。投了200份简历，面试3个，offer 0个。房贷还有23年。",
+      "type": "fact",
+      "timestamp": "2026-08-10T09:30:00",
+      "likes": 341,
+      "relatedPrediction": "death-spiral"
+    },
+    {
+      "id": "obs-ai-2",
+      "author": "AI创业公司CEO",
+      "content": "说句实话，我们公司用AI替代了8个岗位，产品产出反而提升了。但我知道这些人不一定 能找到新工作。我没有答案，但这个趋势不可逆。",
+      "type": "fact",
+      "timestamp": "2026-08-11T14:00:00",
+      "likes": 198,
+      "relatedPrediction": "death-spiral"
+    },
+    {
+      "id": "obs-ai-3",
+      "author": "经济学博士生",
+      "content": "大家忽略了一个变量：AI替代速度 vs 新岗位创造速度的时间差。历史证明新岗位最终会出现，但'最终'可能是10年后，你在这10年里怎么活？",
+      "type": "opinion",
+      "timestamp": "2026-08-11T18:20:00",
+      "likes": 267,
+      "relatedPrediction": "transition-pain"
+    }
+  ]
+}

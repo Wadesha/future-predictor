@@ -197,9 +197,9 @@ const App = {
     topicList.className = 'topic-list';
 
     const topicMap = {
-      'career': 'remote-work',
-      'finance': 'housing-market',
-      'tech': 'ai-replacement'
+      'tech': 'ai-unemployment-consumption',
+      'finance': 'inflation-or-deflation',
+      'society': 'war-and-civilians'
     };
 
     try {
@@ -693,11 +693,22 @@ const App = {
       return `
         <div class="record-item">
           <div class="record-title">${({
-            'extreme-weather': '🌤️ 未来5年极端天气会越来越频繁吗？',
-            'ai-replacement': '🚀 AI 会取代程序员吗？',
-            'intermittent-fasting': '💪 间歇性断食真的能延缓衰老吗？',
-            'remote-work': '💼 远程办公会成为未来主流工作模式吗？',
-            'housing-market': '💰 2027年一线城市房价会回暖吗？'
+            'ai-unemployment-consumption': '🚀 AI引发大规模失业后，消费会崩盘吗？',
+            'inflation-or-deflation': '💰 未来3年：物价会飞涨还是通缩崩盘？',
+            'war-and-civilians': '🌍 大规模战争离普通人有多远？',
+            'which-jobs-safe': '🔍 哪些岗位最先被冲击？',
+            'chain-reaction': '⚡ 消费崩盘的链式反应',
+            'can-ubi-save': '💵 UBI能救命吗？',
+            'what-new-jobs': '🆕 AI时代会出现什么新岗位？',
+            'how-to-survive-transition': '🛡️ 怎么扛过动荡期？',
+            'what-to-hold': '📊 滞胀环境下该持有什么？',
+            'gold-vs-crypto': '🥇 黄金还是比特币？',
+            'japan-repeat': '🇨🇳 中国会重演日本失去的三十年吗？',
+            'which-currency-dies-first': '💱 哪个货币先出问题？',
+            'economic-war-impact': '💹 经济战对钱包的影响',
+            'what-happens-economy': '📉 台海冲突后全球经济会怎样？',
+            'civilian-survival': '🎒 普通人该准备什么？',
+            'which-side': '🤔 该选哪一边？'
           })[topicId] || topicId}</div>
           <div>
             <span class="record-result ${resultClass}">${resultLabel}</span>
