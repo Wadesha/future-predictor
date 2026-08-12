@@ -94,7 +94,49 @@
                 {"step": 1, "description": "脱水3天后：头痛、头晕、心跳加速、尿量骤减。5天后：器官衰竭，意识模糊", "dataRef": "梅奥诊所脱水症状"},
                 {"step": 2, "description": "城市人90%不知道3公里内的自然水源位置——这个数字来自随机调查", "dataRef": "城市应急准备调查 2025"}
               ],
-              "impact": "花5分钟现在就打开地图查一下你家附近的水源——这不是多此一举"
+              "impact": "花5分钟现在就打开地图查一下你家附近的水源——这不是多此一举",
+              "subQuestions": [
+                {
+                  "id": "first-24h-water",
+                  "title": "断水后前24小时你该做什么？",
+                  "description": "断水不会给你反应时间。前24小时做什么决定了你能撑3天还是2周。具体行动清单是什么？",
+                  "predictions": [
+                    {
+                      "id": "shut-valve-save-pipe-water",
+                      "branchName": "立刻关闭进水阀+排空水管存水",
+                      "probability": 55,
+                      "conclusion": "断水后第一件事：关闭进水阀防止污染水倒灌，然后打开最低处水龙头排空水管——这样能收集20-50升存水。热水器里还有40-80升。这些是你的第一批救命水。",
+                      "reasoning": [
+                        {"step": 1, "description": "水管里的水如果被污染倒灌就不能用了——必须立刻关阀", "dataRef": "FEMA 家庭水源管理"},
+                        {"step": 2, "description": "热水器排水阀在底部——打开就能放出40-80升可饮用水", "dataRef": "家庭热水器应急水源指南"}
+                      ],
+                      "impact": "现在就找到你家进水阀和热水器排水阀的位置——别等断水了才找"
+                    },
+                    {
+                      "id": "rush-supermarket-water",
+                      "branchName": "冲去超市抢水（如果还有）",
+                      "probability": 30,
+                      "conclusion": "如果你能在断水后2小时内赶到超市，可能还能抢到几箱水。但6小时后货架空——这不是可靠方案，只是补救。",
+                      "reasoning": [
+                        {"step": 1, "description": "2023年日本地震后，瓶装水6小时内售罄——速度决定一切", "dataRef": "灾害后商品供给分析"},
+                        {"step": 2, "description": "但超市不是唯一来源——健身房/学校/办公楼的水箱也可以利用", "dataRef": "城市应急水源地图"}
+                      ],
+                      "impact": "平时就在家里存2-4箱瓶装水——别指望灾难时去抢"
+                    },
+                    {
+                      "id": "neighbor-water-share",
+                      "branchName": "找邻居/社区的水源共享",
+                      "probability": 15,
+                      "conclusion": "如果你有地下水井的邻居、或社区有蓄水池/游泳池——这些是隐藏水源。但前提是你认识邻居。不认识的人不会在灾难时帮你。",
+                      "reasoning": [
+                        {"step": 1, "description": "社区游泳池的水（经过处理）可以用于冲厕所和清洁，净化后可饮用", "dataRef": "应急水源利用指南"},
+                        {"step": 2, "description": "有水井的邻居是黄金资源——但你需要提前建立关系", "dataRef": "社区互助研究"}
+                      ],
+                      "impact": "现在就问邻居：你家有水井/游泳池/大水箱吗？灾难时互相帮助"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -113,7 +155,49 @@
                 {"step": 2, "description": "10公斤大米=约35000卡=一人23天口粮。一箱压缩饼干(24块)=约12000卡=8天口粮", "dataRef": "应急食品热量计算"},
                 {"step": 3, "description": "关键原则：先吃冰箱里易腐的，再吃冷冻的，最后吃常温储备", "dataRef": "FEMA 食品管理指南"}
               ],
-              "impact": "买20公斤米/面+一箱罐头+一箱压缩饼干，总成本不到300块，够一家三口吃2周"
+              "impact": "买20公斤米/面+一箱罐头+一箱压缩饼干，总成本不到300块，够一家三口吃2周",
+              "subQuestions": [
+                {
+                  "id": "food-rotation",
+                  "title": "储备食物怎么轮换才不浪费？",
+                  "description": "买了应急食物不是扔在角落就完了。保质期到了怎么办？怎么轮换才能既不浪费又随时可用？",
+                  "predictions": [
+                    {
+                      "id": "fifo-rotation",
+                      "branchName": "先进先出：定期吃旧补新",
+                      "probability": 55,
+                      "conclusion": "最简单的轮换方法：把应急食物当日常食物的一部分，先吃旧的、补新的。这样储备永远是新鲜的，也不会浪费。",
+                      "reasoning": [
+                        {"step": 1, "description": "米面保质期12-18个月，罐头3年——但口感和营养会下降", "dataRef": "食品保质期研究"},
+                        {"step": 2, "description": "每月吃掉10%储备并补新——1年完成一轮换，零浪费", "dataRef": "家庭应急储备管理指南"}
+                      ],
+                      "impact": "把应急食物放在厨房显眼处，当日常食材用——别锁在箱子里忘了"
+                    },
+                    {
+                      "id": "buy-normal-food",
+                      "branchName": "买能正常当饭吃的，别买怪味压缩粮",
+                      "probability": 30,
+                      "conclusion": "别买'军用压缩饼干'那种你平时绝对不吃的鬼东西。买你本来就吃的米面、罐头、方便面、脱水蔬菜——灾难时压力已经够大了，别再让自己吃难吃的东西。",
+                      "reasoning": [
+                        {"step": 1, "description": "心理研究表明：灾难时吃熟悉的食物能降低焦虑感", "dataRef": "灾难心理学饮食研究"},
+                        {"step": 2, "description": "压缩饼干热量高但难以下咽，且需要大量饮水配合——断水时反而危险", "dataRef": "应急食品食用评估"}
+                      ],
+                      "impact": "储备清单：米/面/油/盐/罐头/方便面/脱水蔬菜/巧克力——都是你平时吃的"
+                    },
+                    {
+                      "id": "quarterly-check",
+                      "branchName": "每季度盘点一次保质期",
+                      "probability": 15,
+                      "conclusion": "设一个日历提醒：每3个月检查一次应急食物保质期。把快过期的拿出来吃掉，补上新的。15分钟的检查可能救你一家人的命。",
+                      "reasoning": [
+                        {"step": 1, "description": "40%的家庭应急食物过期了自己不知道——真到用时才发现不能吃", "dataRef": "家庭应急准备调查"},
+                        {"step": 2, "description": "每季度检查还能顺便检查饮水/药品/电池——一锅端", "dataRef": "应急物资管理实践"}
+                      ],
+                      "impact": "在手机日历设一个每3个月的提醒：检查应急物资保质期"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "pantry-3-days",
@@ -124,7 +208,49 @@
                 {"step": 1, "description": "饥饿48小时后：血糖下降→判断力下降→容易做出冲动和错误的决策", "dataRef": "饥饿对认知功能影响研究"},
                 {"step": 2, "description": "饥饿72小时后：身体开始分解肌肉供能→体力急剧下降→行动能力受限", "dataRef": "生理学饥饿阶段研究"}
               ],
-              "impact": "这周末就去买两周的应急食物，放在固定位置，每半年检查一次保质期"
+              "impact": "这周末就去买两周的应急食物，放在固定位置，每半年检查一次保质期",
+              "subQuestions": [
+                {
+                  "id": "day4-find-food",
+                  "title": "断粮第4天，去哪找吃的？",
+                  "description": "家里的食物在第3天吃完了。第4天开始你饿得判断力下降。这时候去哪找食物？怎么找才不送命？",
+                  "predictions": [
+                    {
+                      "id": "community-distribution-points",
+                      "branchName": "社区互助点/政府发放点",
+                      "probability": 50,
+                      "conclusion": "灾难第3-7天，政府和社区通常会设立食物发放点。学校、体育馆、社区中心——这些是官方指定分发点。提前知道位置，灾难时直奔过去。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本地震后48小时内社区中心就开始分发食物和水", "dataRef": "日本灾害响应手册"},
+                        {"step": 2, "description": "但发放点信息通常通过广播通知——所以收音机是必须的", "dataRef": "FEMA 灾难通信指南"}
+                      ],
+                      "impact": "现在就查清楚你家附近3个社区中心/学校的位置——这是官方发放点"
+                    },
+                    {
+                      "id": "urban-foraging",
+                      "branchName": "野外觅食（如果你学了）",
+                      "probability": 30,
+                      "conclusion": "如果你平时学了识别可食用植物，城市公园、绿地、河边都有食物来源。蒲公英、车前草、桑葚、榆钱——这些常见植物能救命。但前提是你确定认得。",
+                      "reasoning": [
+                        {"step": 1, "description": "城市公园的蒲公英和车前草到处都是——全株可食", "dataRef": "城市可食用植物图鉴"},
+                        {"step": 2, "description": "但农药/狗粪污染是风险——必须洗净煮熟", "dataRef": "城市采集安全指南"}
+                      ],
+                      "impact": "下载植物识别App，周末去公园练习——这是零成本的生存保险"
+                    },
+                    {
+                      "id": "neighbor-food-pool",
+                      "branchName": "跟邻居组队共享资源",
+                      "probability": 20,
+                      "conclusion": "3家人各有一点食物，合在一起可能够一家吃2周。组队共享比各自独吞更有效率——且能互相保护不被抢。",
+                      "reasoning": [
+                        {"step": 1, "description": "卡特里娜飓风中，组队共享食物的社区存活率最高", "dataRef": "社区灾难响应研究"},
+                        {"step": 2, "description": "但前提是提前建立信任——灾难时现建关系来不及", "dataRef": "社区韧性研究"}
+                      ],
+                      "impact": "现在就认识3-5户邻居，约定灾难时共享食物和资源"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "forage-skills",
@@ -135,7 +261,49 @@
                 {"step": 1, "description": "蒲公英全株可食，维生素C含量是橙子的2倍。城市草坪上到处都是", "dataRef": "USDA 植物营养数据库"},
                 {"step": 2, "description": "但误食有毒植物的风险很高——不认识的植物绝对不要吃", "dataRef": "中毒控制中心数据"}
               ],
-              "impact": "下载一个植物识别App，周末去公园练习辨认5种可食用植物"
+              "impact": "下载一个植物识别App，周末去公园练习辨认5种可食用植物",
+              "subQuestions": [
+                {
+                  "id": "poisonous-plants",
+                  "title": "城市里哪些植物绝对不能吃？",
+                  "description": "觅食最大的风险不是找不到，而是吃错了。城市里有很多剧毒植物长得像可食用植物。哪些是致命的？怎么辨别？",
+                  "predictions": [
+                    {
+                      "id": "deadly-lookalikes",
+                      "branchName": "夹竹桃/曼陀罗/毒芹：一口致命",
+                      "probability": 55,
+                      "conclusion": "城市绿化带常见的夹竹桃全株剧毒，曼陀罗果实像秋葵但能致幻致死，毒芹像芹菜但几克就致命。这些植物在城市里到处都是——别乱吃。",
+                      "reasoning": [
+                        {"step": 1, "description": "夹竹桃是城市最常见绿化植物之一——一片叶子就能让成年人中毒", "dataRef": "中毒控制中心数据"},
+                        {"step": 2, "description": "曼陀罗果实被误当秋葵吃中毒的案例每年都有", "dataRef": "食物中毒案例统计"}
+                      ],
+                      "impact": "记住3种城市最常见剧毒植物的样子：夹竹桃、曼陀罗、毒芹"
+                    },
+                    {
+                      "id": "unknown-berries-mushrooms",
+                      "branchName": "不认识的莓果/蘑菇一律不吃",
+                      "probability": 30,
+                      "conclusion": "城市野生蘑菇和莓果风险极高。毒蘑菇和食用菇长得几乎一样——即使App识别也不能100%信任。除非你100%确定，否则别碰。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国每年毒蘑菇中毒5000+例，死亡率10%——鹅膏菌一口就致命", "dataRef": "中国疾病预防控制中心数据"},
+                        {"step": 2, "description": "野生蘑菇即使煮熟也不能去毒——高温破坏不了鹅膏毒素", "dataRef": "毒理学研究"}
+                      ],
+                      "impact": "铁律：不认识的蘑菇和莓果绝对不吃——饿死比毒死强"
+                    },
+                    {
+                      "id": "app-assist-not-rely",
+                      "branchName": "用App辅助但别全信",
+                      "probability": 15,
+                      "conclusion": "植物识别App（如形色/PlantNet）准确率70-85%——有用但不可靠。把它当辅助工具，不要当最终判断。不确定的植物宁可不吃。",
+                      "reasoning": [
+                        {"step": 1, "description": "植物App对常见植物识别率90%+，但对相似物种容易混淆", "dataRef": "植物识别App评测"},
+                        {"step": 2, "description": "最佳实践：App识别+人工对照图鉴+有经验者确认——三重验证", "dataRef": "觅食安全指南"}
+                      ],
+                      "impact": "下载2个植物App交叉验证，再买一本本地植物图鉴——三重保险"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -154,7 +322,49 @@
                 {"step": 2, "description": "日本每个家庭都有收音机——这是311大地震后的教训", "dataRef": "日本总务省应急通信指南"},
                 {"step": 3, "description": "手摇收音机不需要电池——摇1分钟可听10分钟。太阳能款更佳", "dataRef": "Emergency Radio Buyer's Guide"}
               ],
-              "impact": "买一个手摇太阳能收音机放家里，成本100-200块，永远不会过时"
+              "impact": "买一个手摇太阳能收音机放家里，成本100-200块，永远不会过时",
+              "subQuestions": [
+                {
+                  "id": "radio-frequencies",
+                  "title": "收音机听哪个频道？",
+                  "description": "有收音机不够，你得知道该听哪个频率。不同频段覆盖范围不同，不同灾难该听什么频道？",
+                  "predictions": [
+                    {
+                      "id": "save-local-frequencies",
+                      "branchName": "提前存好本地应急频率",
+                      "probability": 55,
+                      "conclusion": "每个城市都有官方应急广播频率。灾难前查好并存入收音机记忆——灾难时你不会有力气去搜台。中国各地应急广播频率可在当地应急管理局官网查到。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国应急广播频率通常在FM 88-108之间，各地不同", "dataRef": "国家应急广播中心"},
+                        {"step": 2, "description": "日本全国瞬时警报系统使用特定FM频率自动唤醒收音机", "dataRef": "日本应急广播系统"}
+                      ],
+                      "impact": "现在就搜'你所在城市+应急广播频率'，存入收音机"
+                    },
+                    {
+                      "id": "am-wider-coverage",
+                      "branchName": "AM频道覆盖更广，适合大范围灾难",
+                      "probability": 30,
+                      "conclusion": "FM覆盖50-100公里，AM可达数百甚至上千公里。如果你需要获取远方信息（比如家乡是否受灾），AM是更好的选择。但AM音质差、易受干扰。",
+                      "reasoning": [
+                        {"step": 1, "description": "AM中波传播距离远大于FM——夜间可达1000公里以上", "dataRef": "无线电传播原理"},
+                        {"step": 2, "description": "中国中央人民广播电台AM频率覆盖全国——是大范围灾难的信息源", "dataRef": "中央广播电台覆盖范围"}
+                      ],
+                      "impact": "买收音机一定要买AM/FM双频的——别只买FM"
+                    },
+                    {
+                      "id": "shortwave-international",
+                      "branchName": "短波收音机听国际广播",
+                      "probability": 15,
+                      "conclusion": "如果你担心本地信息被封锁或不准确，短波收音机可以接收国际广播（BBC/VOA/RFA）。这是信息封锁时的最后渠道——但需要更好的设备和天线。",
+                      "reasoning": [
+                        {"step": 1, "description": "短波可跨洲接收——BBC短波覆盖全球", "dataRef": "短波广播覆盖图"},
+                        {"step": 2, "description": "但短波收音机价格更贵(300-1000元)且需要外接天线", "dataRef": "短波收音机选购指南"}
+                      ],
+                      "impact": "如果你住信息敏感地区，投资一台短波收音机——这是信息保险"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "offline-maps",
@@ -165,7 +375,49 @@
                 {"step": 1, "description": "Google Maps/高德地图都支持离线下载——但大多数人没有提前下载", "dataRef": "手机离线地图使用调查"},
                 {"step": 2, "description": "家庭集合点：选一个近的（小区门口）、一个远的（另一个城区的亲友家）、一个最远的（其他城市）", "dataRef": "FEMA 家庭应急计划"}
               ],
-              "impact": "今天就做：下载离线地图+和家人约定3个集合点+打印一份纸质地图"
+              "impact": "今天就做：下载离线地图+和家人约定3个集合点+打印一份纸质地图",
+              "subQuestions": [
+                {
+                  "id": "escape-route-planning",
+                  "title": "逃生路线怎么规划？",
+                  "description": "有地图不够，你得知道往哪跑。主干道会堵死、桥梁会断、地铁会停——你的逃生路线考虑了这些吗？",
+                  "predictions": [
+                    {
+                      "id": "avoid-main-roads-bridges",
+                      "branchName": "避开主干道和桥梁（会堵/会断）",
+                      "probability": 55,
+                      "conclusion": "灾难时所有人都会涌上主干道——结果就是堵死。桥梁在地震/洪水中最先断。规划逃生路线时走小路、避开桥梁、准备步行方案。",
+                      "reasoning": [
+                        {"step": 1, "description": "卡特里娜飓风后新奥尔良主干道堵了48小时——开车不如走路", "dataRef": "灾害交通瘫痪案例"},
+                        {"step": 2, "description": "地震后桥梁垮塌率30%+——过河路线必须有多条备选", "dataRef": "地震桥梁损毁统计"}
+                      ],
+                      "impact": "规划3条逃生路线：1条主干道(备用)+2条小路(优先)"
+                    },
+                    {
+                      "id": "walk-bike-routes",
+                      "branchName": "准备步行+骑行路线，别只靠车",
+                      "probability": 30,
+                      "conclusion": "车在灾难中可能变成棺材——堵在路上、没油、被淹。每条逃生路线都要有步行版和骑行版。自行车在灾难中是最佳交通工具——不耗油、能走小路、载重够用。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本311地震后，自行车是唯一能移动的工具——车全堵死", "dataRef": "日本地震交通分析"},
+                        {"step": 2, "description": "城市步行3公里需要40分钟——这是你到安全区的最短时间", "dataRef": "城市步行速度数据"}
+                      ],
+                      "impact": "家里备一辆折叠自行车+每人一双舒适步行鞋"
+                    },
+                    {
+                      "id": "scout-three-directions",
+                      "branchName": "提前踩点3条不同方向路线",
+                      "probability": 15,
+                      "conclusion": "纸上看路线不够——你必须亲自走过。周末花2小时走一遍3条逃生路线，标记水源、避难所、危险点。走过和没走过完全是两回事。",
+                      "reasoning": [
+                        {"step": 1, "description": "实地踩点能发现地图上看不到的障碍——围墙、施工、断路", "dataRef": "城市逃生路线研究"},
+                        {"step": 2, "description": "肌肉记忆：走过一次的路在黑暗中也能走——这是生存优势", "dataRef": "空间认知心理学"}
+                      ],
+                      "impact": "这个周末带家人走一遍逃生路线——当成户外活动"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -204,7 +456,49 @@
                 {"step": 2, "description": "糖尿病停药1周：血糖失控，可能引发酮症酸中毒——危及生命", "dataRef": "ADA 糖尿病应急指南"},
                 {"step": 3, "description": "哮喘停药：随时可能急性发作，没有急救药就是等死", "dataRef": "AAAAI 哮喘管理指南"}
               ],
-              "impact": "跟医生说明情况，多开1-3个月药量。或者用互联网药店多买一些"
+              "impact": "跟医生说明情况，多开1-3个月药量。或者用互联网药店多买一些",
+              "subQuestions": [
+                {
+                  "id": "how-to-stockpile-meds",
+                  "title": "处方药怎么多开？医生不给开怎么办？",
+                  "description": "囤药说起来简单，但处方药有开药限制。怎么合法多开？医生拒绝怎么办？有哪些替代渠道？",
+                  "predictions": [
+                    {
+                      "id": "travel-excuse",
+                      "branchName": "跟医生说旅游/出差需要备用",
+                      "probability": 50,
+                      "conclusion": "最实用的方法：跟医生说你要出国/长途旅行，需要备用药。大多数医生会理解并多开1-3个月量。这不是撒谎——你确实在为不确定的未来'旅行'做准备。",
+                      "reasoning": [
+                        {"step": 1, "description": "慢性病用药出差/旅游备用是合理需求——医生通常会配合", "dataRef": "门诊用药管理规范"},
+                        {"step": 2, "description": "一次多开1-3个月量不违规——医保对慢性病有长处方政策", "dataRef": "国家医保局长处方政策"}
+                      ],
+                      "impact": "下次开药时跟医生说'下个月要出差2个月'——多开2个月量"
+                    },
+                    {
+                      "id": "online-pharmacy-multi-source",
+                      "branchName": "互联网药店+多地开方",
+                      "probability": 35,
+                      "conclusion": "京东健康、阿里健康等互联网医院可以线上开方+送药上门。在2-3个平台各开一次，合法多备2-3个月量。不同医院也可以各开一次。",
+                      "reasoning": [
+                        {"step": 1, "description": "互联网医院处方药开具已合法化——慢性病线上复诊很方便", "dataRef": "互联网医疗政策"},
+                        {"step": 2, "description": "但每个平台处方记录联网——短期内多次开同一种药可能被风控", "dataRef": "药品监管系统"}
+                      ],
+                      "impact": "注册2-3个互联网医疗平台，轮流开方储备药品"
+                    },
+                    {
+                      "id": "otc-alternatives",
+                      "branchName": "了解非处方替代方案",
+                      "probability": 15,
+                      "conclusion": "某些处方药有非处方替代品（如布洛芬替代某些止痛药）。还有些保健品/草药有一定辅助效果。这些不能完全替代处方药，但断药时能争取时间。",
+                      "reasoning": [
+                        {"step": 1, "description": "如硝酸甘油断货时，速效救心丸可作为中药替代——虽然机制不同但能争取时间", "dataRef": "中药急救药替代研究"},
+                        {"step": 2, "description": "鱼油/辅酶Q10对心血管有辅助作用——不能替代降压药但聊胜于无", "dataRef": "营养补充剂与心血管健康"}
+                      ],
+                      "impact": "查清楚你的处方药有哪些OTC替代——记在备忘录里"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "natural-alternatives",
@@ -215,7 +509,49 @@
                 {"step": 1, "description": "低血糖应急：15克快速糖（3块糖/半杯果汁），15分钟后复测", "dataRef": "ADA 低血糖处理指南"},
                 {"step": 2, "description": "哮喘急性发作无药时：喝咖啡（咖啡因有轻微支气管扩张作用）能争取1-2小时", "dataRef": "Cochrane 咖啡因与哮喘研究"}
               ],
-              "impact": "查一下你或家人所用药物的应急替代方案，记在手机备忘录里"
+              "impact": "查一下你或家人所用药物的应急替代方案，记在手机备忘录里",
+              "subQuestions": [
+                {
+                  "id": "extend-meds-time",
+                  "title": "断药后怎么争取时间？",
+                  "description": "药只够3天了，补给还要1周才到。这段时间怎么办？怎么延长有限药量？哪些行为能降低用药需求？",
+                  "predictions": [
+                    {
+                      "id": "half-dose-extend",
+                      "branchName": "减量延续：把药掰半吃延长天数",
+                      "probability": 45,
+                      "conclusion": "如果药快断了，可以把剂量减半来延长天数。半量不如全量，但比完全断药好得多。关键慢性病药（降压/降糖/抗凝）可以减量但不能停。",
+                      "reasoning": [
+                        {"step": 1, "description": "半量降压药能维持70%的控压效果——比完全停药强10倍", "dataRef": "高血压减量用药研究"},
+                        {"step": 2, "description": "缓释片/肠溶片不能掰开——只有普通片剂可以减量", "dataRef": "药剂学用药指南"}
+                      ],
+                      "impact": "断药前3天开始减量到2/3，再3天减到1/2——给补给争取时间"
+                    },
+                    {
+                      "id": "diet-exercise-reduce-need",
+                      "branchName": "饮食+运动替代（短期有效）",
+                      "probability": 35,
+                      "conclusion": "严格低盐饮食+每日步行可降低血压10-15mmHg；低糖饮食+运动可降血糖1-2mmol/L。这些不能替代药物，但断药时能延缓恶化速度。",
+                      "reasoning": [
+                        {"step": 1, "description": "DASH饮食（低盐+高钾）2周内可降压8-14mmHg", "dataRef": "NIH DASH饮食研究"},
+                        {"step": 2, "description": "每日30分钟步行可降空腹血糖0.5-1mmol/L", "dataRef": "运动与血糖研究"}
+                      ],
+                      "impact": "断药期间：严格低盐低糖饮食+每日步行1小时——延缓恶化"
+                    },
+                    {
+                      "id": "find-emergency-meds",
+                      "branchName": "找社区医院/急救点求药",
+                      "probability": 20,
+                      "conclusion": "灾难期间社区卫生中心/临时医疗点/红十字会通常会储备基础慢性病药。带上病历和药盒去求助——大多数情况下能要到几天的应急药量。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国社区卫生中心常规备有高血压/糖尿病基础药物", "dataRef": "基层医疗机构药品目录"},
+                        {"step": 2, "description": "红十字会/NGO在灾害期间会设临时药房——免费发放基础药物", "dataRef": "红十字会灾害响应"}
+                      ],
+                      "impact": "带上药盒和病历去最近社区医院/急救点——说明断药情况求助"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -252,7 +588,49 @@
                 {"step": 1, "description": "卡特里娜飓风中，预先组织起来的社区损失最小——邻里互助比等待救援有效10倍", "dataRef": "社区韧性研究"},
                 {"step": 2, "description": "现在就认识你左右邻居和楼上楼下。灾难时你不认识的人不会帮你", "dataRef": "社区灾害应对研究"}
               ],
-              "impact": "今天就做：敲开邻居的门，互相加个微信。灾难时这就是你的安全网"
+              "impact": "今天就做：敲开邻居的门，互相加个微信。灾难时这就是你的安全网",
+              "subQuestions": [
+                {
+                  "id": "build-neighbor-trust",
+                  "title": "怎么跟邻居建立信任？",
+                  "description": "知道'要跟邻居合作'没用，问题是具体怎么做。中国城市邻里关系冷淡，怎么破冰？怎么组织起来？",
+                  "predictions": [
+                    {
+                      "id": "organize-before-disaster",
+                      "branchName": "灾难前就组织社区活动",
+                      "probability": 50,
+                      "conclusion": "不要等灾难来了才找邻居。平时就组织楼栋聚餐、亲子活动、物品共享——这些日常互动在灾难时就是救命的信任基础。社区微信群是最简单的起点。",
+                      "reasoning": [
+                        {"step": 1, "description": "有社区微信群的小区灾难响应速度快3倍——沟通成本几乎为零", "dataRef": "社区韧性研究"},
+                        {"step": 2, "description": "日本'町内会'制度证明：平时有组织的社区灾难死亡率最低", "dataRef": "日本社区防灾研究"}
+                      ],
+                      "impact": "今天就建一个楼栋微信群——拉邻居进来，平时聊日常，灾难时用得上"
+                    },
+                    {
+                      "id": "share-skills-resources",
+                      "branchName": "分享技能/资源建立互助网络",
+                      "probability": 35,
+                      "conclusion": "搞清楚邻居里谁是医生、谁会修水电、谁有车、谁有食物储备。把这些技能和资源列个清单——灾难时这就是你的'人力银行'。主动分享你的技能换取信任。",
+                      "reasoning": [
+                        {"step": 1, "description": "一个有医生+电工+司机的5户互助组，生存能力远超10户散户", "dataRef": "社区互助模型"},
+                        {"step": 2, "description": " reciprocity效应：先帮助别人的人，灾难时获得帮助的概率高3倍", "dataRef": "互惠心理学研究"}
+                      ],
+                      "impact": "在楼栋群里发起'技能/资源登记'——主动列出你能提供的帮助"
+                    },
+                    {
+                      "id": "appoint-coordinator",
+                      "branchName": "选出一个'协调人'避免混乱",
+                      "probability": 15,
+                      "conclusion": "群体行动需要协调人，否则各说各话、效率低下。选一个有时间、有威信、有组织能力的人当'楼栋长'——平时组织活动，灾难时统筹资源分配和巡逻。",
+                      "reasoning": [
+                        {"step": 1, "description": "有协调人的群体决策效率是民主讨论的5倍", "dataRef": "群体决策研究"},
+                        {"step": 2, "description": "中国居委会制度本质就是这个——但很多小区居委会形同虚设，需要自发补充", "dataRef": "社区治理研究"}
+                      ],
+                      "impact": "在楼栋群里推选一个'协调人'（或自己当）——平时组织，灾时统筹"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "hardening-home",
@@ -263,7 +641,49 @@
                 {"step": 1, "description": "入侵者不会在一个门上花超过2分钟——如果门扛住了，他们会换目标", "dataRef": "犯罪学入侵行为研究"},
                 {"step": 2, "description": "安全房间：选一个有锁、有逃生出口、有通讯工具的房间作为最后避难所", "dataRef": "FEMA 住所加固指南"}
               ],
-              "impact": "花200块买个门加固件+准备一个安全房间+规划2条逃生路线"
+              "impact": "花200块买个门加固件+准备一个安全房间+规划2条逃生路线",
+              "subQuestions": [
+                {
+                  "id": "harden-doors-windows",
+                  "title": "门窗加固具体怎么做？",
+                  "description": "加固住所不是装铁门铁窗——那是把自己关进监狱。真正的加固是让入侵者觉得'换一家更容易'，从而争取逃生时间。具体怎么做？",
+                  "predictions": [
+                    {
+                      "id": "door-reinforcement",
+                      "branchName": "换防撬锁+加固铰链+门框加固件",
+                      "probability": 55,
+                      "conclusion": "90%的入户盗窃从门进，而门最薄弱处是锁、铰链和门框。换C级锁芯(200元)+加固铰链(50元)+门框防踢板(150元)——总成本400块，让破门时间从30秒延长到5分钟。",
+                      "reasoning": [
+                        {"step": 1, "description": "A级/B级锁芯技术开锁只需10-30秒，C级锁芯需要5分钟以上", "dataRef": "锁具安全等级标准"},
+                        {"step": 2, "description": "门框防踢板能把踹门破拆时间从30秒延长到5分钟——入侵者通常放弃", "dataRef": "防盗门安全测试"}
+                      ],
+                      "impact": "花400块换C级锁芯+加固铰链+门框防踢板——这是性价比最高的安全投资"
+                    },
+                    {
+                      "id": "window-security-film",
+                      "branchName": "窗户贴防爆膜+加栏杆",
+                      "probability": 30,
+                      "conclusion": "窗户是第二薄弱点。贴防爆膜(50元/平米)能让玻璃碎裂但保持整体——入侵者要花3-5分钟才能钻进来。一楼/低楼层窗户可以加装可拆卸栏杆。",
+                      "reasoning": [
+                        {"step": 1, "description": "8mil防爆膜能让普通玻璃扛住3-5次铁锤击打——争取逃生时间", "dataRef": "防爆膜性能测试"},
+                        {"step": 2, "description": "可拆卸栏杆平时不装、灾难时装上——兼顾日常和安全", "dataRef": "家庭安防方案"}
+                      ],
+                      "impact": "低楼层窗户贴防爆膜+备一套可拆卸栏杆——平时不影响生活"
+                    },
+                    {
+                      "id": "safe-room-setup",
+                      "branchName": "安全房间：选卫生间/储藏室",
+                      "probability": 15,
+                      "conclusion": "选一个有锁、有小窗（或无窗）、靠近逃生通道的房间作为安全房间。里面放手机/充电宝/手电/哨子/防身工具。门被破时的最后退路。",
+                      "reasoning": [
+                        {"step": 1, "description": "卫生间通常有水管（声音掩盖+水源）且窗户小难进入——适合做安全房间", "dataRef": "FEMA 安全房间指南"},
+                        {"step": 2, "description": "安全房间内备防身工具（防狼喷雾/棒球棍）和逃生绳（低楼层）", "dataRef": "家庭防卫方案"}
+                      ],
+                      "impact": "把主卫生间改成安全房间：加固门锁+放应急包+备逃生绳"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

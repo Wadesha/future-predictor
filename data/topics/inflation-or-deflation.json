@@ -84,7 +84,49 @@
                 {"step": 1, "description": "2008年危机中，持现金的人在2009年3月抄底股票，之后5年回报300%", "dataRef": "2008-2014市场数据"},
                 {"step": 2, "description": "但前提是你能判断'底'在哪——大多数人抄底抄在半山腰", "dataRef": "行为金融学研究"}
               ],
-              "impact": "保持50%现金仓位，等市场恐慌时再分批入场"
+              "impact": "保持50%现金仓位，等市场恐慌时再分批入场",
+              "subQuestions": [
+                {
+                  "id": "which-cash-to-hold",
+                  "title": "持现金的话，持哪种现金？",
+                  "description": "现金不是都一样的。美元、人民币、欧元——哪种更安全？利率、汇率、流动性都要算。",
+                  "predictions": [
+                    {
+                      "id": "usd-still-king",
+                      "branchName": "美元仍是首选避险货币",
+                      "probability": 50,
+                      "conclusion": "不管你怎么骂美国，美元在全球支付中占比42%，是全球储备货币。危机来临时所有人都会涌入美元——这是自我实现的预言。",
+                      "reasoning": [
+                        {"step": 1, "description": "2024-2026年每次地缘危机，美元指数都涨3-5%——资金避险首选", "dataRef": "美元指数危机期间表现"},
+                        {"step": 2, "description": "美联储利率仍在4%以上，持有美元国债/货币基金有正向收益", "dataRef": "美联储利率决议 2026"}
+                      ],
+                      "impact": "普通人配置20-30%美元资产（美元存款/美债ETF/美元货币基金）"
+                    },
+                    {
+                      "id": "rmb-short-term-stable",
+                      "branchName": "人民币短期稳定，长期有贬值压力",
+                      "probability": 30,
+                      "conclusion": "人民币短期可控（资本管制+巨额外汇储备），但长期看M2已超300万亿，购买力持续下降。国内用人民币够用，但别全押。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国M2/GDP达230%，远超美国的75%——超发货币最终会反映在汇率上", "dataRef": "央行货币供应数据"},
+                        {"step": 2, "description": "但资本管制让人民币'贬值不崩'——你出不去，所以感受不强烈", "dataRef": "外汇管理局资本流动分析"}
+                      ],
+                      "impact": "国内生活用人民币，但结余部分换成硬资产或外币对冲"
+                    },
+                    {
+                      "id": "minor-safe-havens",
+                      "branchName": "瑞士法郎/新加坡元等小众避险货币",
+                      "probability": 20,
+                      "conclusion": "瑞士法郎和新加坡元是'小而美'的避险选择。国家治理好、通胀低、货币信用强。但普通人难买，且汇率波动也不小。",
+                      "reasoning": [
+                        {"step": 1, "description": "瑞士法郎在历次危机中表现稳定，瑞士国家银行信誉全球顶级", "dataRef": "瑞士国家银行货币政策报告"},
+                        {"step": 2, "description": "新加坡元与新元挂钩一篮子货币，波动率低于大多数货币", "dataRef": "MAS 货币政策"}
+                      ],
+                      "impact": "高净值人群可考虑开立新加坡/瑞士账户配置5-10%资产"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "real-estate-split",
@@ -95,7 +137,49 @@
                 {"step": 1, "description": "1970年代美国滞胀期间，房价名义值涨了但实际值跌了——通胀掩盖了下跌", "dataRef": "Case-Shiller 房价指数历史"},
                 {"step": 2, "description": "2026年一线城市核心区房价微涨2-3%，但三四线城市跌8-15%", "dataRef": "国家统计局70城房价数据"}
               ],
-              "impact": "只有核心地段的自住房才算避险资产，投资性房产尽快减仓"
+              "impact": "只有核心地段的自住房才算避险资产，投资性房产尽快减仓",
+              "subQuestions": [
+                {
+                  "id": "what-counts-as-core",
+                  "title": "核心地段房产也撑不住的话怎么办？",
+                  "description": "核心地段的定义在变化。学区房神话破灭、CBD概念过时——什么样的房产才算真'核心'？",
+                  "predictions": [
+                    {
+                      "id": "core-also-falls-less",
+                      "branchName": "核心地段也跌，只是跌得少",
+                      "probability": 55,
+                      "conclusion": "不要以为核心地段只涨不跌。2026年北京上海核心区也跌了5-10%。但相比边缘区跌30-50%，核心区的抗跌性确实更强——这是相对优势，不是绝对安全。",
+                      "reasoning": [
+                        {"step": 1, "description": "2026年北京西城区学区房跌12%，但燕郊跌45%——差距就是这样拉开的", "dataRef": "贝壳房价数据 2026"},
+                        {"step": 2, "description": "核心区跌得少是因为供给稀缺+需求刚性——但不代表不跌", "dataRef": "房地产周期研究"}
+                      ],
+                      "impact": "核心区房产是'跌得少'，不是'不跌'——别把它当无风险资产"
+                    },
+                    {
+                      "id": "rental-yield-matters",
+                      "branchName": "租金回报率才是真指标",
+                      "probability": 30,
+                      "conclusion": "房价可以骗人，租金不会。如果一套房租金回报率低于3%，说明价格虚高。真正值得持有的房产，租金回报率应该能覆盖贷款利息。",
+                      "reasoning": [
+                        {"step": 1, "description": "北京上海租金回报率仅1.5-2%，低于房贷利率——持有即亏损", "dataRef": "各大城市租金回报率统计"},
+                        {"step": 2, "description": "日本东京租金回报率5-6%，美国休斯顿8%——这些才是正现金流资产", "dataRef": "全球主要城市租金回报率对比"}
+                      ],
+                      "impact": "买房前先算租金回报率，低于4%的不要碰"
+                    },
+                    {
+                      "id": "reits-better-than-direct",
+                      "branchName": "REITs比直接持有房产更灵活",
+                      "probability": 15,
+                      "conclusion": "直接持有房产流动性差、交易成本高、管理麻烦。REITs（房地产信托基金）可以让你用很少的钱分散持有商业地产、物流地产、长租公寓——而且随时能卖。",
+                      "reasoning": [
+                        {"step": 1, "description": "REITs年化分红4-8%，流动性等同股票", "dataRef": "全球REITs市场表现"},
+                        {"step": 2, "description": "中国公募REITs刚起步，但美国/日本/新加坡市场已经很成熟", "dataRef": "REITs市场发展报告"}
+                      ],
+                      "impact": "想配置房产敞口又不想被一套房套死，买REITs ETF"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -135,7 +219,49 @@
                 {"step": 2, "description": "日本衰退时AI还不存在，至少没有大规模失业冲击", "dataRef": "中日衰退期对比分析"},
                 {"step": 3, "description": "中国居民杠杆率(62%)已超过日本1990年水平(58%)，但收入只有日本当时的1/3", "dataRef": "BIS 居民杠杆率历史数据"}
               ],
-              "impact": "在中国的人：降杠杆、持现金、不要赌房价反弹"
+              "impact": "在中国的人：降杠杆、持现金、不要赌房价反弹",
+              "subQuestions": [
+                {
+                  "id": "china-personal-response",
+                  "title": "在中国的人具体该怎么应对？",
+                  "description": "知道'比日本更惨'没用，问题是具体怎么做。资产怎么出海？国内怎么防御？什么时候是抄底时机？",
+                  "predictions": [
+                    {
+                      "id": "asset-offshore",
+                      "branchName": "资产出海：合法渠道把钱转出去",
+                      "probability": 45,
+                      "conclusion": "5万美元年度购汇额度是合法渠道。港股通、QDII基金、跨境保险也是路径。不要贪多——能把10-20%资产转成外币资产就已经是有效对冲。",
+                      "reasoning": [
+                        {"step": 1, "description": "5万美元/年购汇+港股通/QDII，合法渠道每年可转出30-50万人民币等值", "dataRef": "外汇管理局个人额度政策"},
+                        {"step": 2, "description": "香港保险（美元计价）是长期对冲工具，但需要亲赴香港签约", "dataRef": "香港保险业监管局数据"}
+                      ],
+                      "impact": "现在就用足每年5万购汇额度，分散到美元存款/美债ETF/港股"
+                    },
+                    {
+                      "id": "domestic-defense",
+                      "branchName": "国内防御：持现金+国债+黄金",
+                      "probability": 40,
+                      "conclusion": "出不去的钱就老老实实防御。国债逆回购、货币基金、实物黄金——低收益但低风险。动荡期保本比增值重要。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国国债年化2.5-3%，跑赢CPI就是赢", "dataRef": "中国国债收益率曲线"},
+                        {"step": 2, "description": "实物黄金（金条/金币）是国内唯一不依赖金融系统的硬资产", "dataRef": "上海金交所黄金产品"}
+                      ],
+                      "impact": "出不去的资产：50%货币基金/国债+30%黄金+20%优质股票"
+                    },
+                    {
+                      "id": "wait-for-bottom",
+                      "branchName": "抄底时机：等房价再跌30%",
+                      "probability": 15,
+                      "conclusion": "现在不是抄底的时候。中国房价从顶部可能要跌40-60%才见底。等租售比回到合理区间（1:200以内）再考虑。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本房价从顶到底跌了65%，用了14年——中国不会更快", "dataRef": "日本房地产周期数据"},
+                        {"step": 2, "description": "北京当前租售比1:600，合理区间1:200——意味着还要跌60%以上才合理", "dataRef": "主要城市租售比统计"}
+                      ],
+                      "impact": "手里留着现金，等到租售比1:300以内再考虑出手买房"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "different-path",
@@ -146,7 +272,49 @@
                 {"step": 1, "description": "中国新能源、电动车等新兴产业全球领先，创造新的增长点", "dataRef": "IEA 2026 清洁能源产业报告"},
                 {"step": 2, "description": "但旧经济(房地产+基建)占GDP比重仍25%，转型需要时间", "dataRef": "国家统计局产业结构数据"}
               ],
-              "impact": "不要赌V型反弹，做好5-10年低增长的心理准备"
+              "impact": "不要赌V型反弹，做好5-10年低增长的心理准备",
+              "subQuestions": [
+                {
+                  "id": "china-growth-sectors",
+                  "title": "哪些行业在中国还能增长？",
+                  "description": "整体低增长不代表没有机会。哪些行业能在'失去的年代'里逆势增长？普通人怎么切入？",
+                  "predictions": [
+                    {
+                      "id": "new-energy-chain",
+                      "branchName": "新能源/电动车产业链",
+                      "probability": 50,
+                      "conclusion": "中国新能源和电动车是全球少数领先的产业。光伏、储能、电池、整车——这条产业链未来5年仍会增长，但头部效应越来越强。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国光伏占全球80%产能，电动车占60%——这是真领先", "dataRef": "IEA 全球新能源产业报告"},
+                        {"step": 2, "description": "但行业内部洗牌激烈——宁德时代赚走全行业70%利润，其他在亏", "dataRef": "新能源行业财报分析"}
+                      ],
+                      "impact": "想入行就去头部企业，别去二三线——这个行业赢家通吃"
+                    },
+                    {
+                      "id": "elderly-care-medical",
+                      "branchName": "养老服务/医疗",
+                      "probability": 35,
+                      "conclusion": "老龄化是不可逆趋势。养老护理、康复医疗、慢病管理、老年消费品——这些赛道需求确定性极高，但毛利率不高且政策风险大。",
+                      "reasoning": [
+                        {"step": 1, "description": "中国60岁以上人口3.1亿，2035年将达4亿——这是最大的确定性需求", "dataRef": "国家统计局人口数据"},
+                        {"step": 2, "description": "但养老机构盈利难——床位空置率40%，护工流失率60%", "dataRef": "养老行业发展报告"}
+                      ],
+                      "impact": "养老行业适合长期深耕，别想短期暴富——做服务比做机构更稳"
+                    },
+                    {
+                      "id": "export-oriented-brands",
+                      "branchName": "出海企业：把产能卖到海外",
+                      "probability": 15,
+                      "conclusion": "国内需求萎缩，但海外市场还在增长。SHEIN、Temu、TikTok证明中国供应链+海外市场是可行模式。普通人可以通过跨境电商/内容出海分一杯羹。",
+                      "reasoning": [
+                        {"step": 1, "description": "Temu 2026年海外GMV突破500亿美元，增速仍是亚马逊的3倍", "dataRef": "电商出海数据"},
+                        {"step": 2, "description": "TikTok创作者中，中文内容出海（教中文/美食/文化）变现能力最强", "dataRef": "内容出海变现报告"}
+                      ],
+                      "impact": "学英语/小语种+做跨境内容或电商——把中国产能卖到海外是未来5年最大的机会"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -184,7 +352,49 @@
                 {"step": 1, "description": "2024-2026年已有阿根廷、土耳其、埃及、黎巴嫩货币崩溃", "dataRef": "IMF 货币危机追踪"},
                 {"step": 2, "description": "美元/欧元/人民币的崩溃顺序取决于各自AI失业速度和财政状况", "dataRef": "BIS 货币稳定性评估"}
               ],
-              "impact": "持有新兴市场资产的人：尽快转换为硬通货或实物资产"
+              "impact": "持有新兴市场资产的人：尽快转换为硬通货或实物资产",
+              "subQuestions": [
+                {
+                  "id": "em-market-impact",
+                  "title": "新兴市场货币崩了，怎么影响你？",
+                  "description": "就算你不持有新兴市场资产，货币崩盘也会通过进口价格、供应链、地缘政治传导到你身上。",
+                  "predictions": [
+                    {
+                      "id": "import-price-surge",
+                      "branchName": "进口商品涨价：能源/粮食/原材料",
+                      "probability": 55,
+                      "conclusion": "新兴市场货币崩盘→该国出口商品变便宜但进口变贵→全球大宗商品价格波动→你的油费、食品价格受影响。这是最直接的传导路径。",
+                      "reasoning": [
+                        {"step": 1, "description": "阿根廷比索崩盘后，大豆出口激增→全球大豆价格跌→但中国进口豆油反而涨（因为运费和中间商）", "dataRef": "大宗商品价格传导分析"},
+                        {"step": 2, "description": "土耳其里拉崩盘→欧洲对该国出口变贵→通胀输入欧洲", "dataRef": "欧洲央行通胀来源分析"}
+                      ],
+                      "impact": "关注新兴市场货币动向——它崩了你买东西就贵了"
+                    },
+                    {
+                      "id": "em-investment-wipeout",
+                      "branchName": "投资新兴市场的人血本无归",
+                      "probability": 30,
+                      "conclusion": "如果你买了新兴市场ETF、QDII基金、或直接持有新兴市场股票/债券——货币贬值会让你的投资缩水50-90%。这不是概率问题，是时间问题。",
+                      "reasoning": [
+                        {"step": 1, "description": "阿根廷MERVAL指数本币计价涨了1000%，但美元计价跌了90%——汇率吃掉一切", "dataRef": "新兴市场本币vs美元回报对比"},
+                        {"step": 2, "description": "新兴市场债券违约率在货币危机期间飙升至25%+", "dataRef": "IMF 主权债务数据库"}
+                      ],
+                      "impact": "如果你有新兴市场基金/股票，现在就查清楚敞口，该撤就撤"
+                    },
+                    {
+                      "id": "refugee-spillover",
+                      "branchName": "难民潮冲击邻国",
+                      "probability": 15,
+                      "conclusion": "经济崩溃+货币贬值→人道危机→难民涌向邻国→邻国财政和安全压力增大→地缘紧张。委内瑞拉已有700万人外逃。",
+                      "reasoning": [
+                        {"step": 1, "description": "委内瑞拉危机导致700万人逃往哥伦比亚/巴西/秘鲁——邻国不堪重负", "dataRef": "UNHCR 难民署数据"},
+                        {"step": 2, "description": "难民潮会推高接收国住房/治安成本，并引发本地人排外情绪", "dataRef": "移民冲击研究"}
+                      ],
+                      "impact": "如果你住在新兴市场邻国，关注边境动态并做好应对准备"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "yen-first-developed",
@@ -196,7 +406,49 @@
                 {"step": 2, "description": "日元已从2021年的100跌至2026年的165，贬值65%——趋势在加速", "dataRef": "USD/JPY 汇率历史"},
                 {"step": 3, "description": "日本海外资产庞大，但如果国内通胀迫使央行加息，国债利息支出将爆炸", "dataRef": "BOJ 压力测试分析"}
               ],
-              "impact": "持有日元资产的人考虑分散到美元或其他避险货币"
+              "impact": "持有日元资产的人考虑分散到美元或其他避险货币",
+              "subQuestions": [
+                {
+                  "id": "yen-collapse-impact",
+                  "title": "日元崩了，对全球什么影响？",
+                  "description": "日本是全球最大债权国，日元是全球套利交易的核心货币。日元崩盘不是日本自己的事——它会冲击全球债市、股市和汇率体系。",
+                  "predictions": [
+                    {
+                      "id": "jgb-crisis-global-bonds",
+                      "branchName": "日本国债危机→全球债市震荡",
+                      "probability": 45,
+                      "conclusion": "日本央行持有50%以上国债，一旦被迫加息，国债价格暴跌→日本金融机构巨亏→全球债市连锁反应。日本保险公司是全球最大美债持有者之一，他们会被迫抛售。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本央行持有约50%的JGB——一旦加息，账面亏损将达GDP的100%+", "dataRef": "BOJ 资产负债表分析"},
+                        {"step": 2, "description": "日本机构持有1.2万亿美元美债——被迫抛售将推高美债收益率", "dataRef": "美国财政部国际资本流动报告"}
+                      ],
+                      "impact": "日元危机=全球债市地震——减仓长债基金，增配短债或现金"
+                    },
+                    {
+                      "id": "japan-asset-fire-sale",
+                      "branchName": "日资抛售海外资产→美债/美股下跌",
+                      "probability": 35,
+                      "conclusion": "日元贬值+国内通胀→日本机构和散户被迫撤回海外投资换成本币救急。这是'资产回流'效应——全球资本市场会出现一波抛售潮。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本是全球最大净债权国，海外资产4万亿美元——回流冲击巨大", "dataRef": "IMF 国际投资头寸"},
+                        {"step": 2, "description": "2022-2026年日元贬值期间，日资已净卖出2000亿美元海外资产", "dataRef": "日本财政部证券投资数据"}
+                      ],
+                      "impact": "日元持续贬值期间，减仓美债/美股——日资抛售会压低价格"
+                    },
+                    {
+                      "id": "japan-tourism-students-drop",
+                      "branchName": "日本游客/留学生消费骤降",
+                      "probability": 20,
+                      "conclusion": "日元暴跌让日本人出国消费变贵→赴日旅游变便宜。表面看是'日本旅游火了'，但日本人的海外消费（留学/旅游/购物）会断崖式下降，冲击依赖日本游客的国家。",
+                      "reasoning": [
+                        {"step": 1, "description": "日元贬值后赴日外国游客增40%，但日本人出国减少25%", "dataRef": "JNTO 旅游统计"},
+                        {"step": 2, "description": "日本留学生赴美/澳数量已降至20年来最低", "dataRef": "日本文部科学省留学生数据"}
+                      ],
+                      "impact": "做日本游客/留学生生意的人要准备转型——他们的消费力在缩水"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

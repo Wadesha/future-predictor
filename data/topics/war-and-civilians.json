@@ -40,7 +40,49 @@
                 {"step": 2, "description": "红海航运受阻导致欧洲到亚洲运费涨3倍，转嫁到消费品价格", "dataRef": "Freightos 运价指数"},
                 {"step": 3, "description": "各国'友岸外包'意味着生产从低成本地区转移到高成本'盟友'地区——成本最终由消费者承担", "dataRef": "McKinsey 供应链重构报告"}
               ],
-              "impact": "物价上涨已是结构性趋势，不是暂时的——学会降低生活成本"
+              "impact": "物价上涨已是结构性趋势，不是暂时的——学会降低生活成本",
+              "subQuestions": [
+                {
+                  "id": "how-to-cut-cost",
+                  "title": "物价涨了，普通人怎么省？",
+                  "description": "知道'会涨'没用，问题是具体怎么省。哪些消费能砍、哪些不能砍、哪些可以替代？",
+                  "predictions": [
+                    {
+                      "id": "domestic-substitute",
+                      "branchName": "国产替代：买本地品牌省30%",
+                      "probability": 55,
+                      "conclusion": "进口商品涨价最快，国产替代品质量在提升且价格稳定。从手机到服装到食品——切换到国产品牌可以省20-40%，且差距在缩小。",
+                      "reasoning": [
+                        {"step": 1, "description": "2026年国产手机市占率升至78%，质量与苹果差距已很小", "dataRef": "Counterpoint 手机市场报告"},
+                        {"step": 2, "description": "国产食品/日化品牌比进口便宜30-50%，且供应链更稳定", "dataRef": "快消品价格对比"}
+                      ],
+                      "impact": "把消费清单里的进口品牌换成国产——一年省几千块"
+                    },
+                    {
+                      "id": "minimalist-consumption",
+                      "branchName": "极简消费：砍掉所有非必需",
+                      "probability": 30,
+                      "conclusion": "审视你的月度支出，砍掉一切'伪需求'：外卖会员、流媒体订阅、健身卡、奶茶。只保留吃住行和真正提升生活质量的消费。",
+                      "reasoning": [
+                        {"step": 1, "description": "城市白领月支出中30-40%是'习惯性消费'而非真实需求", "dataRef": "消费行为研究"},
+                        {"step": 2, "description": "砍掉非必需消费后，月省2000-5000元——相当于涨薪10%", "dataRef": "家庭支出结构分析"}
+                      ],
+                      "impact": "这个月做一次消费审计：列出所有订阅和习惯性支出，砍掉一半"
+                    },
+                    {
+                      "id": "bulk-stockpile",
+                      "branchName": "囤货对冲：趁现在囤不易腐品",
+                      "probability": 15,
+                      "conclusion": "如果判断物价还会涨，提前囤积不易腐日用品（卫生纸、洗衣液、罐头、米面）是有效的对冲。但别过度——囤3-6个月量足够，多了浪费空间和资金。",
+                      "reasoning": [
+                        {"step": 1, "description": "2020年疫情前囤货的人省了20-30%——因为之后价格确实涨了", "dataRef": "疫情期间物价追踪"},
+                        {"step": 2, "description": "但囤货有资金成本和保质期——6个月量是合理上限", "dataRef": "家庭储备指南"}
+                      ],
+                      "impact": "趁打折时多买3-6个月用量的日用品和食品——这是最简单的对冲"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "financial-sanctions-risk",
@@ -51,7 +93,49 @@
                 {"step": 1, "description": "俄罗斯被制裁后，普通人的美元/欧元存款被冻结，至今无法取出", "dataRef": "2022-2026 俄罗斯金融制裁案例分析"},
                 {"step": 2, "description": "西方已建立'金融核武器'体系——SWIFT、CIPS、CHIPS都可控", "dataRef": "BIS 跨境支付系统分析"}
               ],
-              "impact": "不要把所有资产放在单一司法管辖区——分散国籍、分散银行、分散货币"
+              "impact": "不要把所有资产放在单一司法管辖区——分散国籍、分散银行、分散货币",
+              "subQuestions": [
+                {
+                  "id": "how-to-diversify-assets",
+                  "title": "怎么分散资产才能避免被冻结？",
+                  "description": "分散不是简单'放两个银行'。要分散到不同国家、不同货币、不同资产形态——才能在极端情况下保住一部分。",
+                  "predictions": [
+                    {
+                      "id": "physical-gold-cash",
+                      "branchName": "实物黄金+外币现金放家里",
+                      "probability": 50,
+                      "conclusion": "最原始也最有效：把10-20%资产变成实物黄金和外币现金放在家里。银行可以冻结你的账户，但拿不走你手里的金条和美元现钞。",
+                      "reasoning": [
+                        {"step": 1, "description": "俄罗斯被制裁后，持有美元现钞的人是唯一能正常消费的——电子支付全瘫痪", "dataRef": "俄罗斯金融制裁实地报告"},
+                        {"step": 2, "description": "实物黄金全球通用，且不依赖任何银行系统——这是最后的保险", "dataRef": "黄金在战时的作用历史"}
+                      ],
+                      "impact": "储备家庭资产5-10%的实物黄金+1-2个月生活费的外币现金"
+                    },
+                    {
+                      "id": "offshore-account-second-id",
+                      "branchName": "海外账户+第二身份",
+                      "probability": 35,
+                      "conclusion": "如果你有条件，开立海外银行账户+获取第二身份（投资移民/技术移民）是最彻底的分散。但门槛高、成本大、且有合规风险——需要提前2-3年规划。",
+                      "reasoning": [
+                        {"step": 1, "description": "新加坡/瑞士/开曼等离岸账户可在极端情况下提供资产避风港", "dataRef": "离岸银行业务指南"},
+                        {"step": 2, "description": "第二身份（如葡萄牙黄金签证、加勒比投资入籍）可以让你在被限制出境时有退路", "dataRef": "投资移民项目对比"}
+                      ],
+                      "impact": "如果你资产超500万，现在就开始规划海外账户和第二身份——至少要2年"
+                    },
+                    {
+                      "id": "crypto-anti-sanction",
+                      "branchName": "加密货币：抗制裁但波动大",
+                      "probability": 15,
+                      "conclusion": "比特币等加密货币天生抗制裁——私钥在你脑子里，谁也冻结不了。但波动极大、技术门槛高、且政府可能禁止法币兑换。只适合少量配置。",
+                      "reasoning": [
+                        {"step": 1, "description": "俄罗斯被制裁后，比特币交易量激增300%——人们用加密货币绕过SWIFT", "dataRef": "Chainalysis 制裁期间加密交易报告"},
+                        {"step": 2, "description": "但中国已禁止加密货币交易——持有和变现都有法律风险", "dataRef": "各国加密货币政策追踪"}
+                      ],
+                      "impact": "配置2-5%资产到比特币等主流加密货币——只当保险，不当投资"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -91,7 +175,49 @@
                 {"step": 2, "description": "全球60%海运经过台海周边→航线中断→运费暴涨10倍", "dataRef": "Lloyd's Maritime Intelligence"},
                 {"step": 3, "description": "美国很可能金融制裁中国→中国3.2万亿外汇储备面临冻结→全球金融体系震荡", "dataRef": "Peterson Institute 制裁影响模拟"}
               ],
-              "impact": "如果你在科技/制造/出口行业工作，立刻准备失业风险。降低股票仓位至30%以下"
+              "impact": "如果你在科技/制造/出口行业工作，立刻准备失业风险。降低股票仓位至30%以下",
+              "subQuestions": [
+                {
+                  "id": "job-protection-recession",
+                  "title": "全球衰退来了，你的工作怎么保？",
+                  "description": "经济衰退+台海冲击=大规模裁员。哪些岗位最危险？哪些最稳？失业了怎么办？",
+                  "predictions": [
+                    {
+                      "id": "essential-industries-safe",
+                      "branchName": "刚需行业最抗跌：医疗/食品/公用事业",
+                      "probability": 55,
+                      "conclusion": "不管经济多差，人要吃饭、看病、用电。医疗、食品生产、公用事业、基础教育——这些行业的从业者是最稳的。如果你在这些行业，恭喜。",
+                      "reasoning": [
+                        {"step": 1, "description": "2020年疫情衰退中，医疗/食品/公用事业裁员率不到3%，远低于科技业的15%", "dataRef": "BLS 行业裁员数据"},
+                        {"step": 2, "description": "日本失去的三十年中，医疗和养老行业反而逆势增长", "dataRef": "日本行业结构变迁分析"}
+                      ],
+                      "impact": "如果你在非刚需行业，考虑往刚需方向转型——哪怕降薪也值得"
+                    },
+                    {
+                      "id": "remote-oversea-diversify",
+                      "branchName": "远程工作+海外客户分散风险",
+                      "probability": 30,
+                      "conclusion": "如果你能远程工作且服务海外客户，你就有了'地理对冲'。一个国家衰退不代表所有国家衰退——跨境收入是最强的抗周期资产。",
+                      "reasoning": [
+                        {"step": 1, "description": "2026年全球远程工作机会增长40%，薪资往往是本地的2-3倍", "dataRef": "Remote Work Report 2026"},
+                        {"step": 2, "description": "Upwork/Toptal等平台上中文内容创作者和开发者需求激增", "dataRef": "自由职业平台趋势"}
+                      ],
+                      "impact": "学英语+学一项可远程交付的技能（编程/设计/写作/咨询）"
+                    },
+                    {
+                      "id": "unemployment-survival-plan",
+                      "branchName": "失业后立刻降级消费+动用储备",
+                      "probability": 15,
+                      "conclusion": "如果真的失业了，前48小时就要行动：砍掉一切非必需支出、申请失业金、动用应急储备、开始降级求职。拖一个月就多一个月的消耗。",
+                      "reasoning": [
+                        {"step": 1, "description": "失业后平均找到新工作需要3-6个月——储备必须覆盖这个周期", "dataRef": "BLS 失业再就业周期"},
+                        {"step": 2, "description": "失业后第一周消费降级的人，财务危机概率降低50%", "dataRef": "个人财务危机研究"}
+                      ],
+                      "impact": "失业第一天就砍消费，别等'找到工作再说'——那时已经晚了"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "quick-resolution",
@@ -102,7 +228,49 @@
                 {"step": 1, "description": "俄乌战争后全球市场3个月内恢复——但能源/粮食价格影响持续了2年", "dataRef": "2022-2024 市场数据"},
                 {"step": 2, "description": "中美脱钩将加速——两套技术标准、两套支付系统、两套供应链", "dataRef": "BlackRock 2026 地缘政治投资框架"}
               ],
-              "impact": "做好'两个世界'的准备：如果你在中美之间有跨境业务，考虑分散到两边"
+              "impact": "做好'两个世界'的准备：如果你在中美之间有跨境业务，考虑分散到两边",
+              "subQuestions": [
+                {
+                  "id": "cross-border-business-split",
+                  "title": "新冷常态下，怎么布局跨境业务？",
+                  "description": "两个世界意味着两套规则、两套供应链、两套支付体系。跨境企业怎么活下来？普通人怎么利用这个机会？",
+                  "predictions": [
+                    {
+                      "id": "dual-entity-setup",
+                      "branchName": "在两个体系都注册公司",
+                      "probability": 45,
+                      "conclusion": "最稳妥的方案：在中国和美国（或新加坡）各注册一个实体，数据隔离、团队隔离、业务隔离。这样不管哪边出事，另一边还能活。",
+                      "reasoning": [
+                        {"step": 1, "description": "TikTok模式：美国数据由甲骨文托管，中国母公司不直接接触——这是'双实体'的样板", "dataRef": "TikTok美国架构分析"},
+                        {"step": 2, "description": "越来越多中国企业用'新加坡总部+中国运营'架构规避地缘风险", "dataRef": "企业出海架构趋势"}
+                      ],
+                      "impact": "如果你做跨境业务，现在就把公司拆成两个实体——别等到制裁来了才动手"
+                    },
+                    {
+                      "id": "neutral-third-country",
+                      "branchName": "选'中立'第三国做跳板",
+                      "probability": 35,
+                      "conclusion": "新加坡、阿联酋、瑞士——这些中立国是两体系之间的'桥'。把总部/资产/身份放在这里，可以两边做生意而不被任何一边完全绑死。",
+                      "reasoning": [
+                        {"step": 1, "description": "新加坡2026年吸引的中国/美国企业注册量均创新高——它成了'两个世界的中转站'", "dataRef": "新加坡企业发展局数据"},
+                        {"step": 2, "description": "阿联酋迪拜正在成为中东的'中立金融中心'，对中美都友好", "dataRef": "迪拜金融中心报告"}
+                      ],
+                      "impact": "如果你的业务需要跨境，考虑在新加坡/迪拜设立控股公司"
+                    },
+                    {
+                      "id": "fully-commit-one-side",
+                      "branchName": "放弃一边，全力押注另一边",
+                      "probability": 20,
+                      "conclusion": "最极端的选择：彻底退出一个市场，全力做另一个。风险高但执行力强——不用分心应对两边的合规和地缘压力。",
+                      "reasoning": [
+                        {"step": 1, "description": "部分中国企业完全退出美国市场，专注东南亚/中东/非洲——反而活得更好", "dataRef": "中国企业出海策略调研"},
+                        {"step": 2, "description": "但也有反例：完全押注一边后，如果那边政策突变就全军覆没", "dataRef": "单一市场风险案例"}
+                      ],
+                      "impact": "选这条路的人：先判断哪个市场未来10年更确定，再all in"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -120,7 +288,49 @@
                 {"step": 1, "description": "乌克兰战争爆发后，银行取现限额立即降至每天等值100美元——ATM前排长队", "dataRef": "2022 乌克兰银行系统报告"},
                 {"step": 2, "description": "黄金实物在战争期间是硬通货——可以换食物、换燃料、换逃生机会", "dataRef": "战区生存经验记录"}
               ],
-              "impact": "储备1-2个月生活费的现金（纸币）+一定量黄金实物在手上"
+              "impact": "储备1-2个月生活费的现金（纸币）+一定量黄金实物在手上",
+              "subQuestions": [
+                {
+                  "id": "how-much-gold-where",
+                  "title": "持多少黄金实物？放哪里？",
+                  "description": "黄金不是越多越好——它不产生利息、占空间、有被盗风险。持多少合理？怎么藏才安全？",
+                  "predictions": [
+                    {
+                      "id": "five-to-ten-percent-gold",
+                      "branchName": "家庭资产的5-10%为实物黄金",
+                      "probability": 55,
+                      "conclusion": "合理配置是家庭总资产的5-10%为实物黄金（金条/金币）。太少没意义，太多浪费流动性。10公斤黄金（约600万人民币）对普通家庭已经足够。",
+                      "reasoning": [
+                        {"step": 1, "description": "央行平均黄金储备占外储10-15%——家庭可以参考这个比例", "dataRef": "WGC 各国黄金储备报告"},
+                        {"step": 2, "description": "实物黄金年化回报6-8%，与股票相当且危机时表现更好", "dataRef": "黄金长期回报分析"}
+                      ],
+                      "impact": "把家庭资产的5-10%换成小金条（10g/50g规格），别买金饰——溢价太高"
+                    },
+                    {
+                      "id": "分散藏放",
+                      "branchName": "分散藏放：家里+保险箱+海外",
+                      "probability": 30,
+                      "conclusion": "别把所有黄金放一个地方。家里藏一部分（保险柜+隐蔽处）、银行保险箱一部分、海外托管一部分。鸡蛋不放在一个篮子里。",
+                      "reasoning": [
+                        {"step": 1, "description": "战时银行可能关闭或被征用——家里藏一部分是必须的", "dataRef": "战时金融系统瘫痪案例"},
+                        {"step": 2, "description": "海外黄金托管（如新加坡Le Freeport）可在极端情况下提供跨境流动性", "dataRef": "贵金属托管服务对比"}
+                      ],
+                      "impact": "黄金分三份：50%家里+30%银行保险箱+20%海外托管"
+                    },
+                    {
+                      "id": "bars-not-jewelry",
+                      "branchName": "金条优于金饰，别买溢价品",
+                      "probability": 15,
+                      "conclusion": "金饰溢价30-50%，且变现时按重量折价。买认证金条（如中国黄金/周大福的投资金条）溢价只有2-5%，且全球可回收。金币（如熊猫币/鹰扬币）也合适。",
+                      "reasoning": [
+                        {"step": 1, "description": "一条50g金条约3.5万元，溢价仅2-3%；同样重量的金饰要5万+", "dataRef": "黄金产品溢价对比"},
+                        {"step": 2, "description": "认证金条/金币全球可回购，金饰变现要折价20%+", "dataRef": "黄金回购市场分析"}
+                      ],
+                      "impact": "只买银行或正规金店的投资金条/金币——带证书的"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "physical-prep",
@@ -131,7 +341,49 @@
                 {"step": 1, "description": "任何重大灾害后72小时内基础设施瘫痪——没有电、没有网、没有超市补给", "dataRef": "FEMA 应急准备指南"},
                 {"step": 2, "description": "日本家家户户都有应急包——不是因为恐慌，而是因为理性", "dataRef": "日本内阁府防灾指南"}
               ],
-              "impact": "准备一个应急包：2周食物、水、药品、手摇收音机、充电宝、护照复印件"
+              "impact": "准备一个应急包：2周食物、水、药品、手摇收音机、充电宝、护照复印件",
+              "subQuestions": [
+                {
+                  "id": "emergency-kit-contents",
+                  "title": "应急包具体装什么？",
+                  "description": "应急包不是'随便塞点东西'。要按优先级准备：什么必须带、什么可以不带、什么容易遗漏？",
+                  "predictions": [
+                    {
+                      "id": "basic-survival-kit",
+                      "branchName": "基础版：食物+水+药+照明",
+                      "probability": 50,
+                      "conclusion": "最基础的应急包：14天食物（压缩饼干+罐头+脱水食品）、14天饮用水（或净水片）、急救药品、手电筒+电池、哨子。成本500-1000块，能让你活14天。",
+                      "reasoning": [
+                        {"step": 1, "description": "FEMA推荐家庭至少储备14天物资——比72小时包更现实", "dataRef": "FEMA 应急准备指南"},
+                        {"step": 2, "description": "压缩饼干保质期5年，罐头3-5年——买一次可以用很久", "dataRef": "应急食品保质期数据"}
+                      ],
+                      "impact": "这周末就去超市：买14天食物+水+手电+急救包，装一个箱子里"
+                    },
+                    {
+                      "id": "advanced-kit",
+                      "branchName": "进阶版：加通讯+自卫+逃生工具",
+                      "probability": 35,
+                      "conclusion": "基础版之上加：手摇太阳能收音机、对讲机、多功能工具钳、防身喷雾、绳索、防火毯、纸质地图、护照/身份证复印件。成本2000-3000块。",
+                      "reasoning": [
+                        {"step": 1, "description": "断网后收音机是唯一信息来源——日本家家都有", "dataRef": "日本应急通信准备"},
+                        {"step": 2, "description": "对讲机可以在无信号时和家人保持联系——5公里范围够用", "dataRef": "民用对讲机通信范围测试"}
+                      ],
+                      "impact": "在基础版上再加：收音机+对讲机+工具钳+防身喷雾+纸质地图"
+                    },
+                    {
+                      "id": "extreme-survival-kit",
+                      "branchName": "极端版：离网发电+长期生存装备",
+                      "probability": 15,
+                      "conclusion": "如果你住灾难高发区或对未来极度悲观：便携太阳能板(100W)+储能电源+净水器+种子包+野外炊具。成本5000-10000块。适合'就地生存'场景。",
+                      "reasoning": [
+                        {"step": 1, "description": "100W太阳能板+500Wh储能可以维持手机/收音机/照明无限运行", "dataRef": "便携太阳能系统评测"},
+                        {"step": 2, "description": "净水器（如LifeStraw）可以过滤1000升水——足够一家三口用半年", "dataRef": "便携净水器性能对比"}
+                      ],
+                      "impact": "如果你担心长期断电：配一套便携太阳能+储能+净水器，约5000块"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -168,7 +420,49 @@
                 {"step": 1, "description": "冷战时期两边都有关系的人反而活得最好——信息差就是价值", "dataRef": "冷战历史研究"},
                 {"step": 2, "description": "数字游民/远程工作者天然具有'两边下注'能力", "dataRef": "MBO Partners 2026 数字游民报告"}
               ],
-              "impact": "如果你有能力：获取第二身份、在多国配置资产、发展跨境可迁移技能"
+              "impact": "如果你有能力：获取第二身份、在多国配置资产、发展跨境可迁移技能",
+              "subQuestions": [
+                {
+                  "id": "how-to-get-second-id",
+                  "title": "怎么获取第二身份？",
+                  "description": "'第二身份'听起来遥远，但路径比你想的多。投资移民、技术移民、出生地血统——哪种适合你？成本和周期是多少？",
+                  "predictions": [
+                    {
+                      "id": "investment-immigration",
+                      "branchName": "投资移民：贵但快",
+                      "probability": 45,
+                      "conclusion": "最直接的路径：花钱买身份。加勒比五国（圣基茨、格林纳达等）投资入籍15-25万美元，3-6个月拿护照。葡萄牙黄金签证50万欧起，5年拿永居。贵但确定。",
+                      "reasoning": [
+                        {"step": 1, "description": "加勒比投资入籍是全球最快的'花钱买身份'方案——3-6个月拿护照", "dataRef": "CBI 投资入籍报告"},
+                        {"step": 2, "description": "葡萄牙黄金签证5年后可申请永居/入籍——是进入欧盟的跳板", "dataRef": "葡萄牙移民局数据"}
+                      ],
+                      "impact": "如果你有300万+可投资资产，葡萄牙黄金签证是性价比最高的欧盟身份"
+                    },
+                    {
+                      "id": "skill-immigration",
+                      "branchName": "技术移民/雇主担保",
+                      "probability": 35,
+                      "conclusion": "如果你有专业技能（IT/医疗/工程），技术移民是低成本路径。加拿大EE、澳洲189、日本高度人才——不需要投资，凭技能和英语即可。",
+                      "reasoning": [
+                        {"step": 1, "description": "加拿大EE快速通道，IT/医疗从业者6个月内可获PR——成本不到5万人民币", "dataRef": "加拿大移民局EE数据"},
+                        {"step": 2, "description": "日本高度人才签证70分即可申请，硕博学历/年薪/年龄都能加分", "dataRef": "日本高度人才签证评分表"}
+                      ],
+                      "impact": "如果你35岁以下+有专业技能+英语过关，立刻研究技术移民——别等"
+                    },
+                    {
+                      "id": "birthright-immigration",
+                      "branchName": "出生地/血统移民：最便宜",
+                      "probability": 20,
+                      "conclusion": "如果你有海外血统（如祖父母是爱尔兰/意大利/波兰人），可能可以申请血统入籍。这是最便宜的方式——只需要文件和时间。出生在美国的孩子自动有美国国籍。",
+                      "reasoning": [
+                        {"step": 1, "description": "爱尔兰血统可申请爱尔兰护照——全球最强护照之一，免签190国", "dataRef": "爱尔兰血统入籍政策"},
+                        {"step": 2, "description": "赴美生子让孩子获得美国国籍——虽然争议大但仍然合法", "dataRef": "出生公民权法律分析"}
+                      ],
+                      "impact": "查一下你祖父母的出生地和国籍——可能有意外惊喜"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "pick-winning-side",
@@ -179,7 +473,49 @@
                 {"step": 1, "description": "美国优势：金融霸权、创新生态、盟友网络。劣势：政治极化、债务失控", "dataRef": "Ray Dalio 大国兴衰分析"},
                 {"step": 2, "description": "中国优势：制造能力、市场规模、执行力。劣势：人口危机、信任赤字、技术封锁", "dataRef": "Lee Kuan Yew 地缘战略分析"}
               ],
-              "impact": "关注两国制度韧性的长期趋势，提前5年做好选择——不要等到被迫选"
+              "impact": "关注两国制度韧性的长期趋势，提前5年做好选择——不要等到被迫选",
+              "subQuestions": [
+                {
+                  "id": "judge-system-vitality",
+                  "title": "怎么判断哪个体系更有生命力？",
+                  "description": "选边不是凭感觉。判断一个体系未来20年是否有生命力，要看什么指标？哪些信号说明它在衰落？",
+                  "predictions": [
+                    {
+                      "id": "innovation-speed",
+                      "branchName": "看科技创新速度和商业化能力",
+                      "probability": 45,
+                      "conclusion": "科技创新是国运的根本。美国在AI、生物、航天仍领先，但中国在新能源、电动车、应用层创新已反超。看谁能把技术变成产业，而不是只发论文。",
+                      "reasoning": [
+                        {"step": 1, "description": "全球前10独角兽中美各占4-5席——创新格局已两极化", "dataRef": "CB Insights 独角兽榜单"},
+                        {"step": 2, "description": "中国专利数量全球第一但转化率低；美国专利少但商业化强", "dataRef": "WIPO 知识产权报告"}
+                      ],
+                      "impact": "看一个国家不是看它有多少技术，而是看它能把多少技术变成赚钱的生意"
+                    },
+                    {
+                      "id": "demographics-attraction",
+                      "branchName": "看人口结构和吸引力",
+                      "probability": 35,
+                      "conclusion": "人口是长期国运的底层变量。美国靠移民维持人口增长，中国人口已开始下降。谁能吸引全球人才，谁就赢。",
+                      "reasoning": [
+                        {"step": 1, "description": "美国每年吸引100万+移民，中国净迁出——人才流向说明一切", "dataRef": "UN 国际移民报告"},
+                        {"step": 2, "description": "中国2026年人口减少300万，且老龄化加速——这是结构性劣势", "dataRef": "国家统计局人口数据"}
+                      ],
+                      "impact": "看一个国家是否有未来：看年轻人愿不愿意去那里"
+                    },
+                    {
+                      "id": "financial-credibility",
+                      "branchName": "看金融体系和货币信用",
+                      "probability": 20,
+                      "conclusion": "金融信用是软实力但最致命。美元霸权让美国能印钱不崩，人民币国际化还在早期。看谁的钱被全球接受，谁就有'收税权'。",
+                      "reasoning": [
+                        {"step": 1, "description": "美元占全球支付42%，人民币仅3.5%——差距巨大但后者在追赶", "dataRef": "SWIFT 货币使用数据"},
+                        {"step": 2, "description": "美国国债市场是全球最深最流动的——这是美元霸权的基石", "dataRef": "BIS 债券市场深度分析"}
+                      ],
+                      "impact": "判断一个体系强弱：看它的货币和债券市场是否被全球信任"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

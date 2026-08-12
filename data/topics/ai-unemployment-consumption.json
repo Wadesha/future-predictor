@@ -96,7 +96,38 @@
                 {"step": 1, "description": "物理世界的工作（维修、施工、护理）机器人成本仍然是人力的3-5倍", "dataRef": "Boston Dynamics 商业化进展分析"},
                 {"step": 2, "description": "但白领涌入蓝领市场会压低蓝领工资——'降维打击'已经开始", "dataRef": "BLS 职业转换数据 2026"}
               ],
-              "impact": "蓝领技能可能成为未来10年最实用的'避险资产'"
+              "impact": "蓝领技能可能成为未来10年最实用的'避险资产'",
+              "subQuestions": [
+                {
+                  "id": "white-to-blue-transition",
+                  "title": "白领转蓝领，具体怎么转？",
+                  "description": "白领失业后涌入蓝领市场，但不是马上就能接住水电工的活。转型路径是什么？多快能上手？薪资真的能接住房贷吗？",
+                  "predictions": [
+                    {
+                      "id": "fast-cert-path",
+                      "branchName": "速成考证：3-6个月拿到电工/焊工证",
+                      "probability": 55,
+                      "conclusion": "短期技校和职业培训可以让白领在3-6个月内拿到基础职业证书。但证书只是入场券，真正的手艺需要2-3年现场磨练。第一批转型的人现在已经在干了。",
+                      "reasoning": [
+                        {"step": 1, "description": "电工/焊工/水管工考证通过率70%以上，门槛比想象中低", "dataRef": "人社部职业技能鉴定数据"},
+                        {"step": 2, "description": "但持证≠能独立接活，前1-2年只能当助手，工资只有成熟工的40%", "dataRef": "蓝领职业转型调研 2026"}
+                      ],
+                      "impact": "现在就报名周末培训班，别等被裁了才开始"
+                    },
+                    {
+                      "id": "blue-collar-saturated",
+                      "branchName": "蓝领市场也会内卷到崩",
+                      "probability": 45,
+                      "conclusion": "大量白领涌入会把蓝领工资压下去。现在水管工日薪500，3年后可能只有300。蓝领的'避险溢价'会被快速消灭。",
+                      "reasoning": [
+                        {"step": 1, "description": "任何岗位涌入过量劳动力都会压低工资——蓝领不例外", "dataRef": "劳动力供需与工资弹性研究"},
+                        {"step": 2, "description": "但真正稀缺的高级技工（数控、特种设备）反而更值钱，因为门槛高", "dataRef": "制造业人才缺口报告 2026"}
+                      ],
+                      "impact": "别选门槛低的蓝领岗位，选需要3年以上才能精通的技术工种"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -115,7 +146,49 @@
                 {"step": 2, "description": "但大规模UBI需要巨额财政支出——美国全民每月1000美元需3.9万亿/年，占联邦预算60%", "dataRef": "Tax Foundation UI财政分析"},
                 {"step": 3, "description": "钱从哪来？要么印钞（通胀），要么向科技巨头加税（资本外逃风险）", "dataRef": "Peterson Institute 财政政策研究"}
               ],
-              "impact": "如果UBI实施，固定收入者受损最大——通胀会吃掉你的存款"
+              "impact": "如果UBI实施，固定收入者受损最大——通胀会吃掉你的存款",
+              "subQuestions": [
+                {
+                  "id": "ubi-amount-and-form",
+                  "title": "UBI真发了，你能拿多少？怎么花？",
+                  "description": "UBI不是天上掉馅饼。发多少、发给谁、能买什么——这些细节决定了它是救命稻草还是废纸。",
+                  "predictions": [
+                    {
+                      "id": "small-universal-ubi",
+                      "branchName": "小额普惠：每月500-1000美元，刚好不饿死",
+                      "probability": 50,
+                      "conclusion": "最可能的方案是每月500-1000美元的普惠型UBI。够吃饱但不够还房贷。它的作用是兜底，不是让你过得舒服。",
+                      "reasoning": [
+                        {"step": 1, "description": "财政可承受的UBI上限约为每月800美元/人——超过这个数财政会崩", "dataRef": "Tax Foundation UBI财政模型"},
+                        {"step": 2, "description": "芬兰试点每月560欧元，参与者基本生活有保障但消费没有显著提升", "dataRef": "芬兰UBI试点最终报告"}
+                      ],
+                      "impact": "别指望UBI能替代工资，它只是让你不至于饿死的底线"
+                    },
+                    {
+                      "id": "targeted-ubi",
+                      "branchName": "定向发放：只给失业者，但有门槛",
+                      "probability": 35,
+                      "conclusion": "更可能是'有条件UBI'——只发给AI失业者，需要证明失业状态、参加再培训。这会催生庞大的审核官僚体系，且容易腐败。",
+                      "reasoning": [
+                        {"step": 1, "description": "政治上'给失业者钱'比'给所有人钱'更容易通过", "dataRef": "Pew Research 福利政策民调"},
+                        {"step": 2, "description": "但审核成本巨大——美国失业金欺诈率已达15%", "dataRef": "DOL 失业金审计报告"}
+                      ],
+                      "impact": "如果你被AI替代，保留好所有失业证明文件，这可能是你领钱的凭证"
+                    },
+                    {
+                      "id": "ubi-inflation-eats-it",
+                      "branchName": "发了也白发：通胀会吃掉购买力",
+                      "probability": 15,
+                      "conclusion": "最讽刺的结果：UBI发了，但房东涨租、商家涨价，最终购买力没变。UBI变成了一场数字游戏。",
+                      "reasoning": [
+                        {"step": 1, "description": "房东会根据UBI金额自动涨租——这是市场规律", "dataRef": "住房补贴与租金相关性研究"},
+                        {"step": 2, "description": "只要UBI是普遍发放的，商家就会把价格调整到'刚好能承受'的水平", "dataRef": "通胀与转移支付研究"}
+                      ],
+                      "impact": "UBI不是免费午餐，最终买单的还是消费者自己"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "ubi-wont-happen",
@@ -126,7 +199,38 @@
                 {"step": 1, "description": "美国国会对UBI支持率仅28%，两党主流都反对", "dataRef": "Pew Research 2026"},
                 {"step": 2, "description": "科技巨头游说支出创历史新高，核心诉求之一就是反对AI税", "dataRef": "OpenSecrets 游说数据 2026"}
               ],
-              "impact": "不要指望政府救市，个人必须自保"
+              "impact": "不要指望政府救市，个人必须自保",
+              "subQuestions": [
+                {
+                  "id": "alternative-to-ubi",
+                  "title": "没有UBI，政府会怎么处理失业潮？",
+                  "description": "政客不会推UBI，但失业潮不会消失。那政府会做什么？大概率是拖延+小修小补，直到危机爆发。",
+                  "predictions": [
+                    {
+                      "id": "delay-and-patch",
+                      "branchName": "拖延战术：小规模补贴+再培训骗局",
+                      "probability": 55,
+                      "conclusion": "政府会推出各种'再培训计划''失业补贴''企业雇佣补贴'，看起来在做事，实际上杯水车薪。真正大规模救助要等到社会压力临界点。",
+                      "reasoning": [
+                        {"step": 1, "description": "现有再培训计划就业率仅28%——大部分人培训完还是找不到工作", "dataRef": "GAO 职业再培训项目审计"},
+                        {"step": 2, "description": "政客更愿意做'看得见的小事'而不是'结构性大事'", "dataRef": "公共选择理论分析"}
+                      ],
+                      "impact": "别指望政府培训能救你，自己学值钱的技能"
+                    },
+                    {
+                      "id": "workfare-not-ubi",
+                      "branchName": "工作福利：发钱但强制你干活",
+                      "probability": 45,
+                      "conclusion": "更可能推出'工作福利'——给你钱但必须参加公共工程、社区服务或低薪岗位。本质是用最低成本维持社会稳定，不是真的帮你。",
+                      "reasoning": [
+                        {"step": 1, "description": "美国TANF、中国以工代赈都是这个模式——发钱但附加劳动条件", "dataRef": "社会福利制度比较研究"},
+                        {"step": 2, "description": "这会创造一批'假岗位'，让人有活干但不创造真实价值", "dataRef": "公共就业项目效率分析"}
+                      ],
+                      "impact": "如果被安排到'工作福利'岗位，把它当过渡，同时发展副业"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -163,7 +267,49 @@
                 {"step": 1, "description": "每个AI系统部署后都需要3-5个人来维护、调优、监督", "dataRef": "Gartner AI部署成本分析"},
                 {"step": 2, "description": "这些岗位不需要CS学位，需要的是'懂业务+会使用AI工具'的跨界能力", "dataRef": "a16z 2026 AI就业报告"}
               ],
-              "impact": "学会使用AI工具本身就是新岗位的入场券"
+              "impact": "学会使用AI工具本身就是新岗位的入场券",
+              "subQuestions": [
+                {
+                  "id": "ai-job-entry-path",
+                  "title": "这些AI岗位具体怎么入行？门槛多高？",
+                  "description": "'AI相关岗位'听起来美好，但具体怎么入行？需要什么基础？多久能上手？薪资真的高吗？",
+                  "predictions": [
+                    {
+                      "id": "prompt-engineer-low-barrier",
+                      "branchName": "提示词工程/AI运营：1个月速成但很快贬值",
+                      "probability": 45,
+                      "conclusion": "提示词工程、AI内容运营、AI客服配置——这些岗位门槛最低，1-2个月就能入门。但正因为门槛低，竞争激烈且薪资不高。",
+                      "reasoning": [
+                        {"step": 1, "description": "提示词工程不需要编程基础，会写清楚话就行——但'会写'的人太多", "dataRef": "LinkedIn AI岗位增长数据"},
+                        {"step": 2, "description": "这类岗位起薪只有传统产品运营的60-70%，因为供给太大", "dataRef": "Glassdoor AI岗位薪资分析"}
+                      ],
+                      "impact": "速成可以入行，但要往'AI产品经理'或'AI审计'方向升级才能值钱"
+                    },
+                    {
+                      "id": "ai-auditor-high-value",
+                      "branchName": "AI审计/合规：高薪但需要专业背景",
+                      "probability": 40,
+                      "conclusion": "AI安全审计、合规审查、偏见检测——这些岗位值钱，因为需要法律+技术+行业的复合背景。门槛高但3年后年薪可达30-50万。",
+                      "reasoning": [
+                        {"step": 1, "description": "EU AI Act和各国监管要求企业必须做AI审计——这是强制性需求", "dataRef": "EU AI Act 合规要求"},
+                        {"step": 2, "description": "全球AI审计人才缺口预计达50万人，供需严重失衡", "dataRef": "Deloitte AI人才报告 2026"}
+                      ],
+                      "impact": "如果你有法律/审计/合规背景，立刻补AI知识——这是最好的转型方向"
+                    },
+                    {
+                      "id": "ai-jobs-eaten-by-ai",
+                      "branchName": "讽刺：AI岗位也会被AI自己吃掉",
+                      "probability": 15,
+                      "conclusion": "最狠的预测：提示词工程师、数据标注员这些岗位本身会被AI自动化。你刚学会的技能，6个月后就过时了。",
+                      "reasoning": [
+                        {"step": 1, "description": "AI已经在自动生成提示词、自动标注数据——人做这些越来越没必要", "dataRef": "AutoML发展报告"},
+                        {"step": 2, "description": "任何'教AI'的岗位最终都会被'学会了的AI'取代", "dataRef": "AI自我迭代能力评估"}
+                      ],
+                      "impact": "别选'服务AI'的岗位，选'AI无法做的决策'岗位——比如需要责任承担的岗位"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "human-touch-economy",
@@ -174,7 +320,49 @@
                 {"step": 1, "description": "工业化后手工业反而复兴——星巴克比速溶咖啡贵10倍", "dataRef": "消费心理学研究"},
                 {"step": 2, "description": "日本'孤独经济'已证明：真人陪伴和情感服务市场规模可达万亿", "dataRef": "野村综合研究所"}
               ],
-              "impact": "培养AI无法替代的'人的特质'：共情、创造、真实体验"
+              "impact": "培养AI无法替代的'人的特质'：共情、创造、真实体验",
+              "subQuestions": [
+                {
+                  "id": "human-touch-money",
+                  "title": "人味经济具体有哪些赚钱机会？",
+                  "description": "'人味经济'不是空话。当AI能做大部分脑力劳动时，哪些'真人服务'最值钱？普通人怎么切入？",
+                  "predictions": [
+                    {
+                      "id": "premium-personal-service",
+                      "branchName": "高端真人服务：私人教练/私厨/陪伴",
+                      "probability": 50,
+                      "conclusion": "有钱人愿意为'真人服务'付高溢价。私人健身教练、私厨、旅行陪伴、个人造型师——这些服务无法被AI替代，因为客户买的就是'被人服务'的感觉。",
+                      "reasoning": [
+                        {"step": 1, "description": "高净值人群对'专属真人服务'的需求年增25%", "dataRef": "Wealth-X 高净值消费报告"},
+                        {"step": 2, "description": "私人教练时薪300-800元，私厨单次1000-3000元——远超普通白领时薪", "dataRef": "高端服务业薪资调查"}
+                      ],
+                      "impact": "学一个'必须真人提供'的高溢价技能，服务前20%的人群"
+                    },
+                    {
+                      "id": "craft-revival",
+                      "branchName": "手作和匠人经济复兴",
+                      "probability": 30,
+                      "conclusion": "工业品泛滥后，'手作'反而稀缺。手工皮具、手作面包、手工家具——这些产品的溢价来自'人做的'这个标签。Etsy和淘宝手作区已经在爆发。",
+                      "reasoning": [
+                        {"step": 1, "description": "Etsy手作商品GMV年增40%，客单价是工业品的3-5倍", "dataRef": "Etsy 财报 2026"},
+                        {"step": 2, "description": "消费者愿意为'故事'和'人'付溢价——这是AI无法复制的", "dataRef": "消费心理学手作溢价研究"}
+                      ],
+                      "impact": "如果你有手艺，现在就开网店+做内容——你的手就是你的护城河"
+                    },
+                    {
+                      "id": "emotional-labor-priced",
+                      "branchName": "情感劳动被定价：心理咨询/陪聊",
+                      "probability": 20,
+                      "conclusion": "孤独是未来最大的市场。AI可以聊天但给不了'真人理解'。心理咨询、陪诊、老人陪伴、儿童陪玩——这些'情感劳动'会被正式定价并成为职业。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本'孤独经济'市场规模已达1.2万亿日元/年，中国正在复制", "dataRef": "野村综合研究所 孤独经济报告"},
+                        {"step": 2, "description": "心理咨询师执照持有人近3年增长200%，但需求增长更快", "dataRef": "心理行业协会数据"}
+                      ],
+                      "impact": "考一个心理咨询师/社工证——未来10年最稀缺的是'会听人说话'的人"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -209,7 +397,49 @@
                 {"step": 1, "description": "动荡期最大的风险不是失业本身，而是失业+高负债=破产", "dataRef": "2008年危机幸存者分析"},
                 {"step": 2, "description": "有3个收入来源的人抗风险能力是单一收入的5倍", "dataRef": "Federal Reserve 家庭财务韧性研究"}
               ],
-              "impact": "现在就开始：还清高息负债、存6个月生活费、发展副业"
+              "impact": "现在就开始：还清高息负债、存6个月生活费、发展副业",
+              "subQuestions": [
+                {
+                  "id": "how-to-reduce-debt",
+                  "title": "具体怎么降杠杆？先还哪个债？",
+                  "description": "降杠杆不是空喊。具体先还哪个债、卖什么资产、怎么跟银行谈——这些细节决定了你能不能在失业后撑过去。",
+                  "predictions": [
+                    {
+                      "id": "kill-high-interest-first",
+                      "branchName": "先砍高息债：信用卡/消费贷/网贷",
+                      "probability": 55,
+                      "conclusion": "信用卡年化18%、消费贷15%、网贷24%——这些是吸血债，必须优先还清。房贷4-5%是最便宜的债，能拖就拖。",
+                      "reasoning": [
+                        {"step": 1, "description": "1万元信用卡欠款只还最低额，3年后变成2.3万——复利吃人", "dataRef": "信用卡复利计算"},
+                        {"step": 2, "description": "消费贷/网贷逾期会触发暴力催收+征信黑名单，比房贷违约更可怕", "dataRef": "消费者金融保护局数据"}
+                      ],
+                      "impact": "现在立刻列出所有负债按利率排序，从最高息的开始还"
+                    },
+                    {
+                      "id": "mortgage-last-line",
+                      "branchName": "房贷是最后的防线：能协商就别断供",
+                      "probability": 30,
+                      "conclusion": "房贷违约后果最严重——房子被法拍+征信黑名单+剩余债务仍需偿还。即使断供也要先跟银行协商延期或重组，不要直接消失。",
+                      "reasoning": [
+                        {"step": 1, "description": "银行宁愿协商也不愿法拍——法拍回收率只有60-70%", "dataRef": "银行业不良资产处置报告"},
+                        {"step": 2, "description": "2026年已有银行推出'失业延期还款'政策，最长可延6-12个月", "dataRef": "各大银行房贷宽限政策"}
+                      ],
+                      "impact": "失业第一时间联系银行申请延期，别等到逾期再处理"
+                    },
+                    {
+                      "id": "sell-assets-to-clear-debt",
+                      "branchName": "卖资产还债比攒钱还债更快",
+                      "probability": 15,
+                      "conclusion": "如果负债超过年收入2倍，光靠攒钱永远还不清。卖掉投资性房产、股票、甚至车，一次性清掉高息债——这是割肉求生。",
+                      "reasoning": [
+                        {"step": 1, "description": "5%的房贷 vs 18%的信用卡——卖房还卡债反而省利息", "dataRef": "个人财务优化计算"},
+                        {"step": 2, "description": "动荡期资产大概率会贬值，现在卖比以后卖更值钱", "dataRef": "资产价格周期分析"}
+                      ],
+                      "impact": "算一笔账：如果资产年化回报低于负债利率，立刻卖资产还债"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "geographic-hedge",
@@ -220,7 +450,49 @@
                 {"step": 1, "description": "AI冲击是不均匀的：美国白领受冲击最大，东南亚制造业相对安全", "dataRef": "ILO 全球AI就业影响地图"},
                 {"step": 2, "description": "越来越多数字游民在多个国家分散收入和生活成本", "dataRef": "MBO Partners 数字游民报告 2026"}
               ],
-              "impact": "考虑获取第二身份、在海外配置部分资产、发展跨境收入"
+              "impact": "考虑获取第二身份、在海外配置部分资产、发展跨境收入",
+              "subQuestions": [
+                {
+                  "id": "which-country-hedge",
+                  "title": "哪些国家是好的避险选择？",
+                  "description": "不是所有'外国'都安全。有些国家受AI冲击小但政治不稳，有些稳定但门槛高。具体怎么选？",
+                  "predictions": [
+                    {
+                      "id": "sea-low-cost-safe",
+                      "branchName": "东南亚：低成本+AI冲击小",
+                      "probability": 45,
+                      "conclusion": "泰国、马来西亚、越南——生活成本低、AI渗透率低、对中国友好。月花3000-5000人民币就能过得不错。适合远程工作者和退休避险。",
+                      "reasoning": [
+                        {"step": 1, "description": "东南亚AI岗位渗透率不到10%，远低于中美欧的35%", "dataRef": "McKinsey AI全球渗透报告"},
+                        {"step": 2, "description": "泰国精英签证5年80万泰铢(约16万人民币)，马来西亚第二家园门槛更低", "dataRef": "东南亚签证政策汇总"}
+                      ],
+                      "impact": "如果你能远程工作月入1万+，东南亚是性价比最高的避险地"
+                    },
+                    {
+                      "id": "japan-australia-stable",
+                      "branchName": "日本/澳洲：发达但门槛高",
+                      "probability": 35,
+                      "conclusion": "日本和澳洲制度稳定、法治健全、医疗教育好。但移民门槛高、生活成本贵、对外国人有隐性歧视。适合有专业技能和积蓄的人。",
+                      "reasoning": [
+                        {"step": 1, "description": "日本高度人才签证70分即可申请，3年可拿永居——但需要年收入约30万人民币+", "dataRef": "日本出入国在留管理厅"},
+                        {"step": 2, "description": "澳洲技术移民清单收紧，但医疗/工程/IT仍在列表上", "dataRef": "澳洲移民局职业清单 2026"}
+                      ],
+                      "impact": "如果你是医疗/工程/IT从业者，日本和澳洲是最优解"
+                    },
+                    {
+                      "id": "latam-cheap-risky",
+                      "branchName": "拉美：便宜但政治不稳",
+                      "probability": 20,
+                      "conclusion": "墨西哥、阿根廷、巴西——生活成本极低，但政治动荡、货币不稳、治安差。适合数字游民短期停留，不适合长期避险。",
+                      "reasoning": [
+                        {"step": 1, "description": "阿根廷比索3年贬值90%——持有当地货币等于自杀", "dataRef": "阿根廷汇率历史"},
+                        {"step": 2, "description": "墨西哥城/麦德林数字游民社区成熟，但治安风险真实存在", "dataRef": "Numbeo 全球安全指数"}
+                      ],
+                      "impact": "拉美适合'赚美元花比索'的数字游民，不适合普通工薪族避险"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
