@@ -1,20 +1,10 @@
 [
   {
-    "id": "extreme-weather",
-    "title": "未来5年极端天气会越来越频繁吗？",
-    "scenario": "weather",
-    "brief": "全球变暖背景下，极端天气频发趋势会持续加剧还是迎来转折？",
-    "probability": 75,
-    "participants": 3241,
-    "updated": "2天前",
-    "hot": true
-  },
-  {
     "id": "ai-replacement",
     "title": "AI 会取代程序员吗？",
     "scenario": "tech",
-    "brief": "分析AI技术发展对各层级程序员的影响",
-    "probability": 35,
+    "brief": "从岗位安全度到转型路径，逐层深挖AI对编程职业的冲击",
+    "probability": 65,
     "participants": 5678,
     "updated": "昨天",
     "hot": true
@@ -37,16 +27,6 @@
     "probability": 65,
     "participants": 6789,
     "updated": "昨天",
-    "hot": true
-  },
-  {
-    "id": "intermittent-fasting",
-    "title": "间歇性断食真的能延缓衰老吗？",
-    "scenario": "health",
-    "brief": "科学争议：断食的抗衰老效果有多大？",
-    "probability": 60,
-    "participants": 4567,
-    "updated": "3天前",
     "hot": true
   }
 ]

@@ -17,7 +17,7 @@
         {"step": 1, "description": "当前AI编程助手准确率约70-80%，复杂业务逻辑仍需人工设计", "dataRef": "GitHub Copilot 2026 年度报告"},
         {"step": 2, "description": "系统架构设计、需求分析和跨团队协作等软技能AI难以替代", "dataRef": "Stack Overflow 2026 开发者调查"},
         {"step": 3, "description": "企业级系统的安全审计、合规检查仍需人类专家负责", "dataRef": "Gartner 2026 技术趋势报告"},
-        {"step": 4, "description": "历史规律：新技术通常创造更多岗位而非完全替代（参考：互联网时代的到来）", "dataRef": "Bureau of Labor Statistics 就业数据"}
+        {"step": 4, "description": "历史规律：新技术通常创造更多岗位而非完全替代", "dataRef": "Bureau of Labor Statistics 就业数据"}
       ],
       "evidence": [
         {"type": "data", "title": "GitHub Copilot 年度报告", "source": "GitHub", "url": "#"},
@@ -25,7 +25,127 @@
         {"type": "expert", "title": "Andrej Karpathy 对AI编程的评论", "source": "Twitter/X", "url": "#"}
       ],
       "userChoiceCount": 3210,
-      "impact": "建议程序员加强系统设计能力和AI工具使用技能"
+      "impact": "建议程序员加强系统设计能力和AI工具使用技能",
+      "subQuestions": [
+        {
+          "id": "which-jobs-safe",
+          "title": "哪些编程岗位最不容易被AI取代？",
+          "description": "在AI不会完全取代程序员的前提下，不同岗位的\"安全度\"差异很大。哪些岗位最稳固？",
+          "predictions": [
+            {
+              "id": "architect-safe",
+              "branchName": "系统架构师 / 技术负责人",
+              "probability": 85,
+              "conclusion": "系统架构师是最安全的岗位。需要理解业务全貌、做技术选型权衡、处理跨团队协作，这些能力AI在可见未来内无法具备。",
+              "reasoning": [
+                {"step": 1, "description": "架构决策需要理解业务战略、团队能力、技术债务等非代码因素", "dataRef": "IEEE Software 2026 架构师角色研究"},
+                {"step": 2, "description": "技术选型涉及权衡：成本、维护性、招聘难度、社区生态 — AI无法全面评估", "dataRef": "ThoughtWorks Technology Radar 2026"}
+              ],
+              "impact": "建议向架构方向转型，积累跨领域系统设计经验",
+              "subQuestions": [
+                {
+                  "id": "architect-skills",
+                  "title": "成为不可替代的架构师需要哪些核心能力？",
+                  "description": "架构师的核心竞争力到底是什么？哪些能力是AI给不了的？",
+                  "predictions": [
+                    {
+                      "id": "business-acumen",
+                      "branchName": "业务理解 > 技术深度",
+                      "probability": 70,
+                      "conclusion": "未来架构师的核心价值在于深度理解业务，而非技术本身。能将业务问题翻译成技术方案的能力最难被替代。",
+                      "reasoning": [
+                        {"step": 1, "description": "AI能写代码，但不能理解\"为什么要写这个代码\" — 业务上下文是人类独有的", "dataRef": "MIT Sloan 2026 AI与决策研究"},
+                        {"step": 2, "description": "顶级架构师的70%时间在沟通和理解需求，30%在做技术决策", "dataRef": "Stripe 2026 开发者生产力报告"}
+                      ],
+                      "impact": "多花时间跟业务团队待在一起，理解\"为什么\"而不只是\"怎么做\""
+                    },
+                    {
+                      "id": "cross-domain",
+                      "branchName": "跨界整合能力",
+                      "probability": 30,
+                      "conclusion": "单一技术深度的价值在下降，跨领域整合（如AI+安全+合规）的能力才是护城河。",
+                      "reasoning": [
+                        {"step": 1, "description": "AI在单一领域已超越大多数人类，但跨领域关联和整合仍是人类优势", "dataRef": "McKinsey 2026 跨领域技能研究"},
+                        {"step": 2, "description": "未来系统复杂度要求架构师同时懂AI、云、安全、数据、合规", "dataRef": "Google Cloud 2026 架构趋势报告"}
+                      ],
+                      "impact": "主动参与跨团队项目，拓宽技术视野"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "frontend-risky",
+              "branchName": "前端 / UI 开发",
+              "probability": 40,
+              "conclusion": "前端开发是受AI冲击最大的领域之一。AI已能生成完整页面和组件，纯切图和布局工作将在3年内大幅减少。",
+              "reasoning": [
+                {"step": 1, "description": "v0、Bolt等AI工具已能从自然语言生成完整React页面", "dataRef": "Vercel 2026 AI前端工具评估"},
+                {"step": 2, "description": "设计系统成熟 + AI生成 = 80%的前端工作可自动化", "dataRef": "Figma 2026 设计到代码报告"}
+              ],
+              "impact": "前端开发者需向交互设计、性能优化或全栈方向转型",
+              "subQuestions": [
+                {
+                  "id": "frontend-转型",
+                  "title": "前端开发者该怎么转型？",
+                  "description": "如果前端岗位确实减少，转型方向有哪些？",
+                  "predictions": [
+                    {
+                      "id": "fullstack",
+                      "branchName": "向全栈 / AI应用开发转型",
+                      "probability": 60,
+                      "conclusion": "前端开发者最自然的转型方向是全栈和AI应用开发。已有的UI经验 + 后端能力 + AI编排能力 = 新的竞争力。",
+                      "reasoning": [
+                        {"step": 1, "description": "AI应用需要\"前端交互 + 后端编排 + 模型调用\"的全栈能力", "dataRef": "OpenAI 2026 应用开发趋势"}
+                      ],
+                      "impact": "开始学习后端和LLM应用开发"
+                    },
+                    {
+                      "id": "design-eng",
+                      "branchName": "向设计工程 / 创意技术转型",
+                      "probability": 40,
+                      "conclusion": "另一个方向是走向设计与技术的交叉地带：创意编码、交互体验、3D可视化等AI难以替代的创意领域。",
+                      "reasoning": [
+                        {"step": 1, "description": "创意和审美判断是AI最难以量化的领域", "dataRef": "Adobe 2026 创意技术报告"}
+                      ],
+                      "impact": "深入学习WebGL、Three.js、交互设计"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "how-to-adapt",
+          "title": "程序员现在应该怎么准备？",
+          "description": "不管AI是否完全取代，变化已经发生。程序员当下应该做哪些具体准备？",
+          "predictions": [
+            {
+              "id": "ai-collaboration",
+              "branchName": "成为AI协作专家",
+              "probability": 70,
+              "conclusion": "最重要的事：把AI工具用到极致。会用AI编程的程序员效率是不用的3-5倍，这个差距只会越来越大。",
+              "reasoning": [
+                {"step": 1, "description": "GitHub数据显示：熟练使用Copilot的开发者任务完成速度快55%", "dataRef": "GitHub 2026 生产力研究"},
+                {"step": 2, "description": "AI工具的使用本身就是一种技能 — prompt工程、上下文管理、结果验证", "dataRef": "Anthropic 2026 AI协作最佳实践"}
+              ],
+              "impact": "每天用AI工具写代码，刻意练习prompt和上下文管理"
+            },
+            {
+              "id": "domain-expertise",
+              "branchName": "深耕业务领域知识",
+              "probability": 30,
+              "conclusion": "代码能力在贬值，领域知识在升值。懂金融+编程的人比纯程序员值钱10倍，这个趋势会加速。",
+              "reasoning": [
+                {"step": 1, "description": "AI能写代码但不能理解\"为什么这个金融逻辑要这样设计\"", "dataRef": "Bloomberg 2026 金融科技人才趋势"},
+                {"step": 2, "description": "领域专家 + AI工具 = 最强组合，纯技术专家的竞争力下降", "dataRef": "LinkedIn 2026 技能价值报告"}
+              ],
+              "impact": "选择一个行业深度扎根，成为\"懂技术的行业专家\""
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "partial-replace-3-5",
@@ -44,7 +164,38 @@
         {"type": "data", "title": "LinkedIn 2026 开发者招聘趋势", "source": "LinkedIn", "url": "#"}
       ],
       "userChoiceCount": 1560,
-      "impact": "初级程序员需尽快提升技能，转向高级开发和AI协作方向"
+      "impact": "初级程序员需尽快提升技能，转向高级开发和AI协作方向",
+      "subQuestions": [
+        {
+          "id": "junior-survival",
+          "title": "初级程序员怎么在AI时代生存下来？",
+          "description": "如果初级岗位确实大幅减少，刚入行或即将入行的开发者该怎么办？",
+          "predictions": [
+            {
+              "id": "skip-junior",
+              "branchName": "跳过初级阶段，直接做中级项目",
+              "probability": 55,
+              "conclusion": "传统\"先做2年CRUD再升级\"的路径已失效。新人应该用AI工具直接承担中级难度的项目，在实践中快速成长。",
+              "reasoning": [
+                {"step": 1, "description": "AI工具让新人能快速产出中等工作量的代码，不需要靠初级项目练手", "dataRef": "Stack Overflow 2026 新人开发者调查"},
+                {"step": 2, "description": "企业更愿意招\"能借助AI快速交付\"的人，而非\"会手写CRUD\"的人", "dataRef": "Hacker News 2026 招聘讨论分析"}
+              ],
+              "impact": "不要花时间练基础CRUD，直接用AI辅助做有挑战的项目"
+            },
+            {
+              "id": "open-source",
+              "branchName": "通过开源项目建立影响力",
+              "probability": 45,
+              "conclusion": "学历和初级工作经验在贬值，开源贡献和公开作品在升值。GitHub就是最好的简历。",
+              "reasoning": [
+                {"step": 1, "description": "2026年35%的开发者招聘通过GitHub作品而非简历筛选", "dataRef": "GitHub 2026 开发者招聘报告"},
+                {"step": 2, "description": "AI辅助让新人也能参与开源贡献 — 门槛降低但价值不变", "dataRef": "Linux Foundation 2026 开源参与度报告"}
+              ],
+              "impact": "开始给开源项目提PR，建立公开作品集"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "full-replace-10",
@@ -55,7 +206,7 @@
         {"step": 1, "description": "AI技术呈指数级发展，2026年AI编程能力已达到中级工程师水平", "dataRef": "AI指数报告 2026"},
         {"step": 2, "description": "AGI预计在2030年前后实现，届时AI将具备人类级别的理解和创造能力", "dataRef": "多位AI专家预测汇总"},
         {"step": 3, "description": "自我改进的AI系统可以不断优化自身代码，形成正向循环", "dataRef": "DeepMind 自我改进AI研究"},
-        {"step": 4, "description": "历史证明：当技术成本足够低时，替代会快速发生（参考：自动驾驶对司机的影响）", "dataRef": "McKinsey 自动化影响报告"}
+        {"step": 4, "description": "历史证明：当技术成本足够低时，替代会快速发生", "dataRef": "McKinsey 自动化影响报告"}
       ],
       "evidence": [
         {"type": "article", "title": "AGI 时间线预测综述", "source": "AI Impacts", "url": "#"},
@@ -63,7 +214,46 @@
         {"type": "data", "title": "McKinsey 自动化对就业的影响", "source": "McKinsey Global Institute", "url": "#"}
       ],
       "userChoiceCount": 908,
-      "impact": "建议所有程序员开始规划职业转型，关注AI难以替代的领域"
+      "impact": "建议所有程序员开始规划职业转型，关注AI难以替代的领域",
+      "subQuestions": [
+        {
+          "id": "career-pivot",
+          "title": "如果编程真的被替代，转什么方向？",
+          "description": "假设10年后编程工作大幅消失，程序员的核心能力可以迁移到哪些方向？",
+          "predictions": [
+            {
+              "id": "ai-product",
+              "branchName": "AI产品经理 / AI应用设计",
+              "probability": 50,
+              "conclusion": "程序员的技术理解力 + 产品思维 = AI产品经理。这个岗位需要懂AI能力边界、能设计AI工作流、能评估模型效果。",
+              "reasoning": [
+                {"step": 1, "description": "AI应用需要有人定义\"AI做什么、人做什么\"的边界", "dataRef": "a16z 2026 AI产品趋势"}
+              ],
+              "impact": "开始学习产品设计、用户研究、AI模型评估"
+            },
+            {
+              "id": "physical-world",
+              "branchName": "转向物理世界：机器人 / 硬件",
+              "probability": 30,
+              "conclusion": "软件世界AI可以替代，但物理世界的机器人、硬件、制造等领域还有巨大空间，且程序员的系统思维可以迁移。",
+              "reasoning": [
+                {"step": 1, "description": "机器人行业2026年融资额超500亿美元，人才缺口巨大", "dataRef": "CB Insights 2026 机器人行业报告"}
+              ],
+              "impact": "学习ROS、嵌入式系统、机器人控制"
+            },
+            {
+              "id": "human-centric",
+              "branchName": "转向人际密集型工作",
+              "probability": 20,
+              "conclusion": "最终极的护城河是\"和人打交道\"的工作：技术管理、技术咨询、技术创业。AI越强，能驾驭AI的人越值钱。",
+              "reasoning": [
+                {"step": 1, "description": "技术领导力的本质是\"让一群人+AI高效协作\"，这需要人类独有的同理心和判断力", "dataRef": "HBR 2026 AI时代领导力"}
+              ],
+              "impact": "培养管理能力、沟通能力、商业判断力"
+            }
+          ]
+        }
+      ]
     }
   ],
   "observations": [

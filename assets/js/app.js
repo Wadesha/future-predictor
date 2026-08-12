@@ -197,8 +197,6 @@ const App = {
     topicList.className = 'topic-list';
 
     const topicMap = {
-      'weather': 'extreme-weather',
-      'health': 'intermittent-fasting',
       'career': 'remote-work',
       'finance': 'housing-market',
       'tech': 'ai-replacement'
@@ -273,61 +271,20 @@ const App = {
       `;
       container.appendChild(header);
 
-      // Branch cards
-      const branchGrid = document.createElement('div');
-      branchGrid.className = 'branch-grid';
+      // Deep dive path indicator
+      const pathDiv = document.createElement('div');
+      pathDiv.className = 'deep-path';
+      pathDiv.id = 'deepPath';
+      pathDiv.innerHTML = `<span class="path-item">${topic.title}</span>`;
+      container.appendChild(pathDiv);
 
-      const userChoices = Storage.getChoices();
-      const selectedPredictionId = userChoices[topic.id];
+      // Layer 1: Branch cards
+      const layerSection = document.createElement('div');
+      layerSection.id = 'layerContainer';
+      container.appendChild(layerSection);
 
-      topic.predictions.forEach(p => {
-        const isSelected = p.id === selectedPredictionId;
-        const card = document.createElement('div');
-        card.className = 'branch-card' + (isSelected ? ' selected' : '');
-
-        const probClass = p.probability >= 60 ? 'prob-high' : p.probability >= 30 ? 'prob-mid' : 'prob-low';
-
-        card.innerHTML = `
-          <div class="branch-header">
-            <div class="branch-name">${p.branchName}</div>
-            <div class="probability ${probClass}">${p.probability}%</div>
-          </div>
-          <div class="conclusion">${p.conclusion}</div>
-          <ul class="evidence-list">
-            ${p.evidence.slice(0, 3).map(e => `<li>${e.title}</li>`).join('')}
-          </ul>
-          ${p.impact ? `<div class="impact">📌 ${p.impact}</div>` : ''}
-          <button class="select-btn ${isSelected ? 'selected' : 'select'}" data-prediction-id="${p.id}">
-            ${isSelected ? '✓ 已选择此分支' : '选择此分支'}
-          </button>
-          <div class="user-count">👥 ${p.userChoiceCount} 人已选择</div>
-        `;
-
-        card.querySelector('.select-btn').addEventListener('click', () => {
-          this.selectBranch(topic.id, p.id);
-        });
-
-        branchGrid.appendChild(card);
-      });
-      container.appendChild(branchGrid);
-
-      // Reasoning section (show first prediction's reasoning by default)
-      const reasoning = document.createElement('div');
-      reasoning.className = 'reasoning-section';
-      const firstPrediction = topic.predictions[0];
-      reasoning.innerHTML = `
-        <h3>🔍 推理链路 <span style="font-weight:400;font-size:0.813rem;color:var(--text-muted)">（${firstPrediction.branchName}）</span></h3>
-        ${firstPrediction.reasoning.map(r => `
-          <div class="reasoning-step">
-            <div class="step-num">${r.step}</div>
-            <div class="step-content">
-              <div class="step-desc">${r.description}</div>
-              <div class="step-ref">📊 ${r.dataRef}</div>
-            </div>
-          </div>
-        `).join('')}
-      `;
-      container.appendChild(reasoning);
+      // Render first layer
+      this.renderLayer(topic.predictions, topic.id, 1, topic);
 
       // Observation section
       const obsSection = document.createElement('div');
@@ -353,10 +310,8 @@ const App = {
       `;
       container.appendChild(obsSection);
 
-      // Render existing observations + user's
       this.renderObservations(topic);
 
-      // Publish observation
       document.getElementById('publishObs').addEventListener('click', () => {
         const input = document.getElementById('obsInput');
         const branch = document.getElementById('obsBranch');
@@ -379,7 +334,6 @@ const App = {
         Interaction.showToast('观察已发布');
       });
 
-      // Back button
       document.getElementById('topicBackBtn').addEventListener('click', () => {
         Interaction.showPage('home');
         App.renderHome();
@@ -390,6 +344,245 @@ const App = {
       console.error('Topic load error:', e);
       Interaction.showToast('加载话题失败');
     }
+  },
+
+  /* ===== Render a layer of predictions (recursive) ===== */
+  renderLayer(predictions, parentId, layerNum, topic) {
+    const container = document.getElementById('layerContainer');
+    const userChoices = Storage.getChoices();
+    const selectedId = userChoices[parentId];
+
+    // Layer title
+    const layerTitle = document.createElement('div');
+    layerTitle.style.cssText = 'margin:16px 0 8px;display:flex;align-items:center;gap:8px;';
+    layerTitle.innerHTML = `<span style="font-size:0.75rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:4px 10px;border-radius:10px;">第 ${layerNum} 层</span><span style="font-size:0.875rem;color:var(--text-secondary);">选择你倾向的分支，继续深挖</span>`;
+    container.appendChild(layerTitle);
+
+    // Branch cards
+    predictions.forEach(p => {
+      const isSelected = p.id === selectedId;
+      const probClass = p.probability >= 60 ? 'prob-high' : p.probability >= 30 ? 'prob-mid' : 'prob-low';
+
+      const card = document.createElement('div');
+      card.className = 'branch-card' + (isSelected ? ' selected' : '');
+      card.id = 'card-' + p.id;
+
+      card.innerHTML = `
+        <div class="branch-header">
+          <div class="branch-name">${p.branchName}</div>
+          <div class="probability ${probClass}">${p.probability}%</div>
+        </div>
+        <div class="conclusion">${p.conclusion}</div>
+        <ul class="evidence-list">
+          ${(p.evidence || []).slice(0, 3).map(e => `<li>${e.title}</li>`).join('')}
+        </ul>
+        ${p.impact ? `<div class="impact">📌 ${p.impact}</div>` : ''}
+        <button class="select-btn ${isSelected ? 'selected' : 'select'}" data-prediction-id="${p.id}">
+          ${isSelected ? '✓ 已选择此分支' : '选择此分支'}
+        </button>
+        <div class="user-count">👥 ${p.userChoiceCount || 0} 人已选择</div>
+      `;
+
+      card.querySelector('.select-btn').addEventListener('click', () => {
+        this.selectBranch(parentId, p.id);
+        this.updatePath(topic, p, layerNum);
+
+        // Remove deeper layers
+        const deeperLayers = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
+        deeperLayers.forEach(el => el.remove());
+
+        // Show reasoning for this branch
+        this.showReasoning(p);
+
+        // Show sub-questions if any
+        if (p.subQuestions && p.subQuestions.length > 0) {
+          this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic, p);
+        }
+      });
+
+      // Auto-expand if already selected
+      if (isSelected) {
+        setTimeout(() => {
+          this.updatePath(topic, p, layerNum);
+          this.showReasoning(p);
+          if (p.subQuestions && p.subQuestions.length > 0) {
+            this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic, p);
+          }
+        }, 0);
+      }
+
+      container.appendChild(card);
+    });
+  },
+
+  /* ===== Render sub-questions (next layer deep dive) ===== */
+  renderSubQuestions(subQuestions, parentId, layerNum, topic, parentPrediction) {
+    const container = document.getElementById('layerContainer');
+
+    subQuestions.forEach(sq => {
+      const sqDiv = document.createElement('div');
+      sqDiv.className = 'sub-question-container';
+      sqDiv.dataset.layer = layerNum;
+      sqDiv.id = 'subq-' + sq.id;
+
+      sqDiv.innerHTML = `
+        <div class="sub-question-header">
+          <span class="layer-badge">第 ${layerNum} 层</span>
+          <span class="title">🔍 ${sq.title}</span>
+        </div>
+        <div class="sub-question-body">
+          ${sq.description ? `<div class="sub-question-desc">${sq.description}</div>` : ''}
+          <div class="sub-branch-grid" id="sub-branches-${sq.id}"></div>
+        </div>
+      `;
+
+      container.appendChild(sqDiv);
+
+      const subGrid = sqDiv.querySelector(`#sub-branches-${sq.id}`);
+      const userChoices = Storage.getChoices();
+      const selectedSubId = userChoices[sq.id];
+
+      sq.predictions.forEach(sp => {
+        const isSubSelected = sp.id === selectedSubId;
+        const probClass = sp.probability >= 60 ? 'prob-high' : sp.probability >= 30 ? 'prob-mid' : 'prob-low';
+
+        const subCard = document.createElement('div');
+        subCard.className = 'sub-branch-card' + (isSubSelected ? ' selected' : '');
+
+        subCard.innerHTML = `
+          <div class="branch-header">
+            <div class="branch-name">${sp.branchName}</div>
+            <div class="probability ${probClass}">${sp.probability}%</div>
+          </div>
+          <div class="conclusion">${sp.conclusion}</div>
+          ${sp.impact ? `<div class="impact">📌 ${sp.impact}</div>` : ''}
+          <button class="select-btn ${isSubSelected ? 'selected' : 'select'}" data-sub-prediction-id="${sp.id}" data-sub-question-id="${sq.id}">
+            ${isSubSelected ? '✓ 已选择' : '选择此方向'}
+          </button>
+        `;
+
+        subCard.querySelector('.select-btn').addEventListener('click', () => {
+          // Save choice
+          Storage.saveChoice(sq.id, sp.id);
+          Interaction.showToast('已选择，继续深挖');
+
+          // Update UI
+          subGrid.querySelectorAll('.sub-branch-card').forEach(c => {
+            c.classList.remove('selected');
+            const btn = c.querySelector('.select-btn');
+            btn.className = 'select-btn select';
+            btn.textContent = '选择此方向';
+          });
+          subCard.classList.add('selected');
+          subCard.querySelector('.select-btn').className = 'select-btn selected';
+          subCard.querySelector('.select-btn').textContent = '✓ 已选择';
+
+          // Update path
+          this.updatePath(topic, sp, layerNum, sq.title);
+
+          // Remove deeper layers
+          const deeper = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
+          deeper.forEach(el => el.remove());
+
+          // Show reasoning
+          if (sp.reasoning) {
+            this.showReasoning(sp);
+          }
+
+          // Recurse: show sub-questions of this sub-prediction
+          if (sp.subQuestions && sp.subQuestions.length > 0) {
+            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+          }
+        });
+
+        // Auto-expand if already selected
+        if (isSubSelected) {
+          setTimeout(() => {
+            this.updatePath(topic, sp, layerNum, sq.title);
+            if (sp.reasoning) this.showReasoning(sp);
+            if (sp.subQuestions && sp.subQuestions.length > 0) {
+              this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+            }
+          }, 0);
+        }
+
+        subGrid.appendChild(subCard);
+      });
+    });
+  },
+
+  /* ===== Show reasoning section ===== */
+  showReasoning(prediction) {
+    let reasoningEl = document.getElementById('reasoningSection');
+    if (!reasoningEl) {
+      reasoningEl = document.createElement('div');
+      reasoningEl.id = 'reasoningSection';
+      reasoningEl.className = 'reasoning-section';
+      const container = document.getElementById('layerContainer');
+      container.appendChild(reasoningEl);
+    }
+
+    if (!prediction.reasoning || prediction.reasoning.length === 0) {
+      reasoningEl.style.display = 'none';
+      return;
+    }
+
+    reasoningEl.style.display = 'block';
+    reasoningEl.innerHTML = `
+      <h3>🔍 推理链路 <span style="font-weight:400;font-size:0.813rem;color:var(--text-muted)">（${prediction.branchName}）</span></h3>
+      ${prediction.reasoning.map(r => `
+        <div class="reasoning-step">
+          <div class="step-num">${r.step}</div>
+          <div class="step-content">
+            <div class="step-desc">${r.description}</div>
+            <div class="step-ref">📊 ${r.dataRef}</div>
+          </div>
+        </div>
+      `).join('')}
+    `;
+  },
+
+  /* ===== Update deep dive path ===== */
+  updatePath(topic, prediction, layerNum, subQuestionTitle) {
+    const pathDiv = document.getElementById('deepPath');
+    if (!pathDiv) return;
+
+    // Rebuild path up to current layer
+    const choices = Storage.getChoices();
+    let pathHTML = `<span class="path-item">${topic.title}</span>`;
+
+    // Walk through layers to build path
+    topic.predictions.forEach(p => {
+      if (choices[topic.id] === p.id) {
+        pathHTML += `<span class="path-arrow">→</span><span class="path-item">${p.branchName}</span>`;
+        if (p.subQuestions) {
+          p.subQuestions.forEach(sq => {
+            if (choices[sq.id]) {
+              pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sq.title}</span>`;
+              sq.predictions.forEach(sp => {
+                if (choices[sq.id] === sp.id) {
+                  pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp.branchName}</span>`;
+                  if (sp.subQuestions) {
+                    sp.subQuestions.forEach(sq2 => {
+                      if (choices[sq2.id]) {
+                        pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sq2.title}</span>`;
+                        sq2.predictions.forEach(sp2 => {
+                          if (choices[sq2.id] === sp2.id) {
+                            pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp2.branchName}</span>`;
+                          }
+                        });
+                      }
+                    });
+                  }
+                }
+              });
+            }
+          });
+        }
+      }
+    });
+
+    pathDiv.innerHTML = pathHTML;
   },
 
   renderObservations(topic) {
