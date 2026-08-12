@@ -14,13 +14,13 @@
       "probability": 45,
       "conclusion": "不是单纯的通胀或通缩，而是最恶毒的组合：物价在涨（因为供应链成本+货币超发），但经济在萎缩（因为AI失业+需求下降）。你的工资不涨但物价涨，现金贬值但资产也在跌。",
       "reasoning": [
-        {"step": 1, "description": "成本端推高物价：地缘冲突→能源涨价→运输成本→食品涨价。这些不因消费需求下降而停止", "dataRef": "IMF 2026 大宗商品价格展望"},
+        {"step": 1, "description": "成本端推高物价：中东战争推高能源价格，石油均价$78-89/桶，亚洲LNG价格上涨50%，亚洲零售汽油价格上涨30%——运输成本→食品涨价。这些不因消费需求下降而停止", "dataRef": "IMF 2026 大宗商品价格展望"},
         {"step": 2, "description": "需求端拉低增长：AI失业→消费萎缩→企业收入下降→裁员→消费更少。但物价不降因为成本刚性", "dataRef": "Bloomberg 经济预测模型 2026"},
         {"step": 3, "description": "1970年代美国滞胀持续了10年，最终靠沃尔克将利率加到20%才压住——代价是两次衰退", "dataRef": "美联储历史档案"},
-        {"step": 4, "description": "2026年已现端倪：核心CPI 3.2%但GDP增速仅1.1%，典型滞胀信号", "dataRef": "BEA 2026Q2 数据"}
+        {"step": 4, "description": "IMF 2026年7月更新：全球增长率下调至3.0%，但通胀从4.1%升至4.7%——通缩趋势已停止，滞胀风险上升。核心CPI 3.2%但GDP增速仅1.1%，典型滞胀信号", "dataRef": "IMF World Economic Outlook 2026年7月更新"}
       ],
       "evidence": [
-        {"type": "data", "title": "全球滞胀风险指标", "source": "IMF World Economic Outlook 2026", "url": "#"},
+        {"type": "data", "title": "全球滞胀风险指标", "source": "IMF World Economic Outlook 2026年7月更新", "url": "#"},
         {"type": "article", "title": "Welcome to stagflation 2.0", "source": "The Economist 2026", "url": "#"},
         {"type": "data", "title": "1970s stagflation playbook", "source": "Federal Reserve History", "url": "#"}
       ],
@@ -192,14 +192,14 @@
       "conclusion": "日本剧本全球重演。AI消灭就业→消费萎缩→物价下跌→企业利润下降→继续裁员→消费更少。通缩螺旋一旦形成，央行怎么印钱都没用——因为没人敢花钱。",
       "reasoning": [
         {"step": 1, "description": "日本过去30年：利率降到负的，CPI依然在0附近。印钱推不出通缩", "dataRef": "日本央行历史数据 1995-2025"},
-        {"step": 2, "description": "中国2026年CPI已降至0.3%，核心CPI仅0.1%，正在滑向通缩", "dataRef": "国家统计局 2026年7月CPI数据"},
+        {"step": 2, "description": "中国2026年7月CPI同比+0.5%，核心CPI同比+0.9%，PPI同比+3.5%——通缩压力缓解但内需仍弱。中国2025年CPI仅+0.1%接近通缩，2026年预期温和回升至0.9%。反内卷政策推动PPI从2025年-2.6%预期回升至2026年+0.5%", "dataRef": "国家统计局 2026年8月9日发布 / 招商证券国际 2026年中国经济展望 / CGTN 2026年1月CPI分析"},
         {"step": 3, "description": "全球人口增长率降至0.8%，发达国家老龄化→需求结构性下降，这不是周期性问题", "dataRef": "UN 人口展望 2026修订版"},
         {"step": 4, "description": "AI使生产成本趋近于零——数字产品边际成本为零，制造业自动化降低成本——通缩力量不可逆", "dataRef": "Brookings AI与价格水平研究"}
       ],
       "evidence": [
         {"type": "data", "title": "日本失去的三十年：通缩机制分析", "source": "Bank of Japan", "url": "#"},
         {"type": "article", "title": "The deflationary singularity: When AI meets aging", "source": "BIS Working Paper 2026", "url": "#"},
-        {"type": "data", "title": "全球人口与消费趋势", "source": "UN World Population Prospects 2026", "url": "#"}
+        {"type": "data", "title": "中国CPI/PPI数据", "source": "国家统计局 2026年8月9日发布 / 招商证券国际 2026年中国经济展望", "url": "#"}
       ],
       "userChoiceCount": 2956,
       "impact": "通缩中现金为王。不要负债，不要追高资产，持有现金等贬值",

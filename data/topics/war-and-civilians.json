@@ -147,15 +147,15 @@
       "probability": 30,
       "conclusion": "未来5年台海发生军事冲突的概率不是零。不一定全面开战，但封锁、导弹打击、有限军事行动的可能性在上升。一旦发生，对全球经济的冲击将远超俄乌战争。",
       "reasoning": [
-        {"step": 1, "description": "解放军2026年军演规模创纪录，'联合利剑'演习已逼近实战状态", "dataRef": "US Indo-Pacific Command 2026 评估报告"},
+        {"step": 1, "description": "解放军2026年军演规模创纪录，'联合利剑'演习已逼近实战状态。PLAN Type 052D驱逐舰确认可发射YJ-20反舰弹道导弹(射程1500-2000km, Mach 9)。PLA士兵在俄罗斯沃罗涅日军事基地接受无人机战争训练", "dataRef": "US Indo-Pacific Command 2026 评估报告 / ISW China & Taiwan Update 2026年7月31日"},
         {"step": 2, "description": "台湾生产全球65%先进芯片，全球40%芯片——任何军事动作都会导致全球科技产业停摆", "dataRef": "SIA 半导体产业报告 2026"},
-        {"step": 3, "description": "美国对台'战略模糊'正在转为'战略清晰'——这让擦枪走火概率上升", "dataRef": "CSIS 台海危机兵棋推演 2026"},
-        {"step": 4, "description": "历史教训：一战中没有任何一方想要全面战争，但连锁反应导致失控", "dataRef": "Christopher Clark《梦游者》分析"}
+        {"step": 3, "description": "CSIS 2023年兵推报告(24轮推演)：在美国立即介入、日本允许使用基地、台湾抵抗的前提下，美方阻止登陆成功率约92%。但CSIS 2026年5月新报告警告：美国关键弹药库存（THAAD/SM-3/Patriot）已在伊朗行动中消耗超50%。CSIS评估：台海冲突第一周，美方将耗尽部分远程导弹库存（JASSM 3000-5000枚、LRASM 450-1000枚、Tomahawk 400-1000枚）。SM-3 IIA生产周期超4年", "dataRef": "CSIS 'Epic Fury'后弹药评估 2026年5月 / Seth Jones简报"},
+        {"step": 4, "description": "台湾反舰导弹将在2029年初增至1800+枚（含850枚鱼叉+1000+枚自研雄风II/III）。2026年7月成立海岸作战指挥部。2025年11月日本首相高市早苗首次表态：'台湾有事可能构成日本存亡危机事态'。美国国会已批准5亿美元对台军援(FMF)，但140亿美元军售包仍在等特朗普批准。美方对台已签合同积压达320亿美元", "dataRef": "SecurityStudies.info 台湾安全分析报告 2026年7月 / 日本众议院预算委员会 2025年11月 / US House of Representatives 2026年7月 / CSIS 2026年5月"}
       ],
       "evidence": [
-        {"type": "data", "title": "台海军事平衡报告", "source": "US DoD 2026", "url": "#"},
+        {"type": "data", "title": "台海军事平衡报告", "source": "US DoD 2026 / ISW China & Taiwan Update 2026年7月31日", "url": "#"},
         {"type": "article", "title": "The Taiwan contingency: What happens to the global economy?", "source": "Bloomberg Economics 2026", "url": "#"},
-        {"type": "data", "title": "台海冲突兵棋推演结果", "source": "CSIS 2026", "url": "#"}
+        {"type": "data", "title": "台海冲突兵棋推演结果", "source": "CSIS 'Epic Fury'后弹药评估 2026年5月 / Seth Jones简报", "url": "#"}
       ],
       "userChoiceCount": 4321,
       "impact": "如果台海出事，全球股市可能暴跌30-50%，芯片短缺将比2021年严重10倍",

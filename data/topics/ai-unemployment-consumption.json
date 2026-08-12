@@ -12,17 +12,18 @@
       "id": "death-spiral",
       "branchName": "死亡螺旋：失业→消费崩→更多失业",
       "probability": 55,
-      "conclusion": "AI替代速度远快于新岗位创造速度。大量白领失业后消费骤降，企业收入下降被迫继续裁员，形成自我强化的下行螺旋。中产阶级将在3-5年内显著缩水。",
+      "conclusion": "AI替代速度远快于新岗位创造速度。花旗银行2025报告：中国7030万岗位面临直接替代风险(9.6%)，1.57亿岗位面临结构性收缩(21.4%)；麦肯锡预测到2030年中国2.2亿岗位将被AI重塑，50%工时实现自动化。大量白领失业后消费骤降，企业收入下降被迫继续裁员，形成自我强化的下行螺旋。中产阶级将在3-5年内显著缩水。",
       "reasoning": [
         {"step": 1, "description": "AI替代速度是指数级的，但人的技能转型需要2-5年——这个时间差就是死亡螺旋的引擎", "dataRef": "OECD 2026 就业转型速度报告"},
-        {"step": 2, "description": "2026年Q2美国白领裁员同比增38%，被裁者中仅31%在6个月内找到同等收入工作", "dataRef": "Challenger Gray & Christmas 裁员报告"},
+        {"step": 2, "description": "美国失业率4.28%（2026年初），但AI暴露度高的职业失业率上升更快，AI暴露与失业率上升相关性达0.47", "dataRef": "圣路易斯联储 2026 AI就业影响研究"},
         {"step": 3, "description": "美国消费者支出占GDP 68%，白领贡献了其中约45%——如果这批人停止消费，连锁反应是毁灭性的", "dataRef": "BEA 消费者支出数据 2026"},
-        {"step": 4, "description": "历史类比：2008年金融危机时失业率每升1%，消费支出下降约2.3%。这次AI失业规模可能是金融危机的3-5倍", "dataRef": "NBER 经济周期研究"}
+        {"step": 4, "description": "Goldman Sachs估算AI每月减少美国就业约1.6万个岗位，但LinkedIn AI相关岗位发布量增长340%——历史规律：新技术创造更多岗位", "dataRef": "Goldman Sachs AI就业月度报告 / LinkedIn 2026"}
       ],
       "evidence": [
-        {"type": "data", "title": "白领裁员潮数据", "source": "Challenger Gray & Christmas 2026", "url": "#"},
-        {"type": "article", "title": "The AI job displacement wave is here", "source": "The Atlantic 2026", "url": "#"},
-        {"type": "data", "title": "消费者支出与就业的弹性关系", "source": "NBER Working Paper", "url": "#"}
+        {"type": "data", "title": "白领裁员潮数据", "source": "Challenger Gray & Christmas 2026 Q1报告", "url": "#"},
+        {"type": "article", "title": "Anthropic CEO Dario Amodei 2026年Axios访谈", "source": "Anthropic CEO Dario Amodei 2026年Axios访谈", "url": "#"},
+        {"type": "data", "title": "SignalFire 2026应届生招聘报告(大厂应届生招聘量锐减50%)", "source": "SignalFire 2026应届生招聘报告", "url": "#"},
+        {"type": "data", "title": "Stanford SIEPR 2026政策简报", "source": "Stanford SIEPR 2026政策简报", "url": "#"}
       ],
       "userChoiceCount": 6842,
       "impact": "如果你的工作涉及重复性脑力劳动，现在就要开始建立非劳动收入来源",
@@ -39,8 +40,8 @@
               "conclusion": "中层管理者、文案、初级分析师、客服——这些'信息搬运工'岗位最先消失。他们的收入本来支撑着房贷、车贷、教育培训等中产消费链。",
               "reasoning": [
                 {"step": 1, "description": "中层白领的工作本质是'信息加工和传递'——这正是AI最擅长的", "dataRef": "McKinsey 自动化可行性分析"},
-                {"step": 2, "description": "一个AI系统可以替代5-10个中层岗位，但只需要1个高级员工来监督", "dataRef": "Goldman Sachs 2026 AI影响报告"},
-                {"step": 3, "description": "2026年已有迹象：Meta、Google裁员中中层占比超60%", "dataRef": "Layoffs.fyi 2026 数据"}
+                {"step": 2, "description": "22-25岁软件开发者就业率较2022年底峰值下降20%，Indeed软件开发岗位发布量下降53%", "dataRef": "Stanford AI Index 2026 / Brynjolfsson研究"},
+                {"step": 3, "description": "2026年Q1科技裁员约5.2万人(Challenger)，其中约50%归因于AI重组。Oracle裁员3万，Amazon裁员1.6万", "dataRef": "Challenger Gray & Christmas 2026 Q1报告"}
               ],
               "impact": "如果你是中层白领，不要等着被裁——现在就考虑转型或降负债",
               "subQuestions": [
@@ -240,15 +241,15 @@
       "id": "new-jobs-absorb",
       "branchName": "AI创造新需求，不会崩盘",
       "probability": 30,
-      "conclusion": "每次技术革命都有人喊'这次不一样'，但每次都错了。AI会消灭旧岗位，但也会创造我们现在想象不到的新岗位。短期阵痛后，经济会找到新平衡。",
+      "conclusion": "每次技术革命都有人喊'这次不一样'，但每次都错了。AI会消灭旧岗位，但也会创造我们现在想象不到的新岗位——上海科技大学CEISD 2026报告(7.43亿条招聘数据)显示2100万岗位由任务重组而生，占招聘总量18.6%；77%中国企业计划提升员工AI技能而非裁员(普华永道2026)。短期阵痛后，经济会找到新平衡。",
       "reasoning": [
-        {"step": 1, "description": "工业革命消灭了90%的农业岗位，但失业率没有永久飙升——人找到了新的事做", "dataRef": "经济史数据 1800-2000"},
+        {"step": 1, "description": "Goldman Sachs估算AI每月减少美国就业约1.6万个岗位，但LinkedIn AI相关岗位发布量增长340%——工业革命消灭了90%的农业岗位，但失业率没有永久飙升，人找到了新的事做", "dataRef": "Goldman Sachs AI就业月度报告 / LinkedIn 2026"},
         {"step": 2, "description": "AI本身就需要大量人：数据标注、模型训练、安全审计、AI心理咨询师等新职业已经在涌现", "dataRef": "LinkedIn 2026 新兴职业报告"},
         {"step": 3, "description": "生产率提升 → 商品更便宜 → 实际购买力上升 → 新消费需求被释放", "dataRef": "Brookings 生产率与就业研究"}
       ],
       "evidence": [
         {"type": "article", "title": "This time is NOT different: AI and the labor market", "source": "Economist 2026", "url": "#"},
-        {"type": "data", "title": "新兴职业增长速度已超被消亡职业", "source": "LinkedIn 2026", "url": "#"}
+        {"type": "data", "title": "新兴职业增长速度已超被消亡职业", "source": "Goldman Sachs AI就业月度报告 / LinkedIn 2026", "url": "#"}
       ],
       "userChoiceCount": 3712,
       "impact": "保持学习能力和适应性比囤积现金更重要",
@@ -372,13 +373,13 @@
       "id": "transition-pain",
       "branchName": "短期巨痛，长期可能好也可能更差",
       "probability": 15,
-      "conclusion": "不会平滑过渡，也不会直接崩盘。而是5-10年的剧烈动荡期——大量人失业、社会矛盾激化、政治反复——然后再看是新秩序建立还是持续混乱。",
+      "conclusion": "不会平滑过渡，也不会直接崩盘。而是5-10年的剧烈动荡期——大量人失业、社会矛盾激化、政治反复——然后再看是新秩序建立还是持续混乱。Anthropic CEO Dario Amodei警告：5年内半数入门级白领岗位可能被AI吞没，失业率恐飙升至20%。但资深技术岗位薪资仍在上涨。",
       "reasoning": [
         {"step": 1, "description": "工业革命用80年完成转型，期间经历了多次经济危机、世界大战、社会革命", "dataRef": "经济史数据分析"},
         {"step": 2, "description": "AI转型速度远快于工业革命，但人类制度的适应速度并没有加快", "dataRef": "MIT Technology Review 2026"}
       ],
       "evidence": [
-        {"type": "article", "title": "The painful middle: Technology transitions in historical perspective", "source": "Foreign Affairs 2026", "url": "#"}
+        {"type": "article", "title": "The painful middle: Technology transitions in historical perspective", "source": "Anthropic CEO Dario Amodei 2026年Axios访谈 / SignalFire 2026应届生招聘报告", "url": "#"}
       ],
       "userChoiceCount": 1899,
       "impact": "准备好应对5-10年的动荡期，而不是一个确定性的未来",

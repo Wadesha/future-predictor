@@ -15,14 +15,14 @@
       "conclusion": "现代社会对电力的依赖远超想象。一旦断电超过72小时，手机没电、超市收银瘫痪、加油站无法抽油、供水系统停转。大多数人没有3天以上的食物、水和现金储备。第3天开始，抢购和恐慌会出现。",
       "reasoning": [
         {"step": 1, "description": "城市供水依赖电动水泵——断电=断水。人均每天需要2升饮用水，家里水龙头不出水了你怎么办？", "dataRef": "FEMA 应急水源指南"},
-        {"step": 2, "description": "超市库存只够3天正常销量——一旦恐慌抢购，6小时内货架就会被扫空", "dataRef": "供应链韧性研究 GroMIT 2025"},
+        {"step": 2, "description": "FEMA调查：48%的美国人没有任何应急物资。90%的成年人认为灾难准备很重要，但只有46%真正有计划。只有26%拥有备用发电机。红十字会：全球仅30%家庭拥有应急包。超市库存只够3天正常销量——一旦恐慌抢购，6小时内货架就会被扫空", "dataRef": "FEMA National Household Survey 2025 / Talker Research 2025 / Red Cross / First Onsite Survey 2026"},
         {"step": 3, "description": "加油站电动泵无法工作——即使你有车也加不了油。电动车？充电桩也没电", "dataRef": "DOE 能源基础设施脆弱性评估"},
-        {"step": 4, "description": "2021年德州寒潮断电，4天内215人死亡。大部分死于一氧化碳中毒（室内烧炭取暖）和体温过低", "dataRef": "德州大学断电死亡分析报告"}
+        {"step": 4, "description": "2021年德州寒潮断电4天内215人死亡，主要死因：一氧化碳中毒(室内烧炭取暖)和体温过低", "dataRef": "UT Austin断电死亡分析报告"}
       ],
       "evidence": [
-        {"type": "data", "title": "2021德州断电事件分析", "source": "UT Austin", "url": "#"},
-        {"type": "article", "title": "When the grid goes down: 72 hours to chaos", "source": "The Atlantic 2025", "url": "#"},
-        {"type": "data", "title": "城市供应链韧性评估", "source": "GroMIT", "url": "#"}
+        {"type": "data", "title": "2021德州断电事件分析", "source": "UT Austin断电死亡分析报告", "url": "#"},
+        {"type": "data", "title": "FEMA National Household Survey 2025", "source": "FEMA National Household Survey 2025 / Talker Research 2025", "url": "#"},
+        {"type": "data", "title": "全球家庭应急准备率", "source": "Red Cross / First Onsite Survey 2026", "url": "#"}
       ],
       "userChoiceCount": 9421,
       "impact": "现在就准备：14天饮用水(每人至少28升)、不易腐食物、手电、电池、现金",
@@ -565,9 +565,10 @@
       "reasoning": [
         {"step": 1, "description": "卡特里娜飓风后第3天开始出现大规模抢劫，第5天出现武装团伙。警察系统崩溃", "dataRef": "2005 新奥尔良灾难社会学研究"},
         {"step": 2, "description": "委内瑞拉经济崩溃后，中产阶级开始在垃圾堆找食物。社会道德底线在饥饿中快速下沉", "dataRef": "CRISIS 委内瑞拉实地报告"},
-        {"step": 3, "description": " '正常化偏见'(Normalcy Bias)是最大敌人——人们总觉得'不会那么糟'，直到真的那么糟", "dataRef": "灾难心理学研究"}
+        {"step": 3, "description": "FEMA 2024年宣布90起重大灾难——平均每周近2起。80%美国成年人过去3年经历过严重风暴、洪水或断电。'正常化偏见'(Normalcy Bias)是最大敌人——人们总觉得'不会那么糟'，直到真的那么糟", "dataRef": "FEMA / Heluna Health 2024调查"}
       ],
       "evidence": [
+        {"type": "data", "title": "FEMA 2024年重大灾难统计", "source": "FEMA / Heluna Health 2024调查", "url": "#"},
         {"type": "article", "title": "The 7-day cliff: When society breaks down", "source": "The New Yorker 2025", "url": "#"},
         {"type": "data", "title": "卡特里娜飓风后社会秩序分析", "source": "Brookings Institution", "url": "#"}
       ],
