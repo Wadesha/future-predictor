@@ -42,48 +42,12 @@ const App = {
 
     // Hero
     const hero = document.createElement('div');
-    hero.className = 'hero-urgent';
+    hero.className = 'hero';
     hero.innerHTML = `
-      <h1>未来正在 <span>加速到来</span></h1>
-      <p>AI失业潮 · 物价崩还是涨 · 战争离你多远 · 灾难来了你能活几天</p>
-      <button class="cta-btn" onclick="document.getElementById('survivalQuiz').scrollIntoView({behavior:'smooth'})">
-        ⚡ 先测测你的生存指数
-      </button>
+      <h1>探索 <span>未来</span> 的可能性</h1>
+      <p>多层级深挖：每个话题不是给你一个结论，而是让你选择判断、一层层往深挖</p>
     `;
     container.appendChild(hero);
-
-    // Threat Dashboard
-    const threatTitle = document.createElement('h2');
-    threatTitle.className = 'section-title';
-    threatTitle.innerHTML = '🔴 全球风险实时面板';
-    container.appendChild(threatTitle);
-
-    const dashboard = document.createElement('div');
-    dashboard.className = 'threat-dashboard';
-    const threats = [
-      { icon: '🤖', name: 'AI失业潮', level: 'critical', prob: '55%', label: '高危' },
-      { icon: '💸', name: '滞胀风险', level: 'high', prob: '45%', label: '升高' },
-      { icon: '⚔️', name: '台海冲突', level: 'high', prob: '30%', label: '升高' },
-      { icon: '📦', name: '供应链断裂', level: 'high', prob: '70%', label: '升高' },
-      { icon: '🌐', name: '新冷战', level: 'moderate', prob: '15%', label: '中等' },
-      { icon: '🏚️', name: '房价下跌', level: 'moderate', prob: '45%', label: '中等' }
-    ];
-    threats.forEach(t => {
-      const card = document.createElement('div');
-      card.className = 'threat-card';
-      card.dataset.level = t.level;
-      card.innerHTML = `
-        <div class="threat-icon">${t.icon}</div>
-        <div class="threat-name">${t.name}</div>
-        <span class="threat-level">${t.label}</span>
-        <div class="threat-prob">${t.prob}</div>
-      `;
-      dashboard.appendChild(card);
-    });
-    container.appendChild(dashboard);
-
-    // Survival Quiz
-    this.renderSurvivalQuiz(container);
 
     // Scenarios
     const sectionTitle = document.createElement('h2');
