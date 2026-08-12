@@ -1,0 +1,66 @@
+[
+  {
+    "id": "weather",
+    "name": "天气出行",
+    "icon": "🌤️",
+    "description": "天气、交通、出行相关预测",
+    "color": "#3B82F6",
+    "sort": 1
+  },
+  {
+    "id": "health",
+    "name": "健康生活",
+    "icon": "💪",
+    "description": "身体状况、运动、饮食相关预测",
+    "color": "#10B981",
+    "sort": 2
+  },
+  {
+    "id": "career",
+    "name": "职场发展",
+    "icon": "💼",
+    "description": "职业选择、行业趋势相关预测",
+    "color": "#F59E0B",
+    "sort": 3
+  },
+  {
+    "id": "finance",
+    "name": "投资理财",
+    "icon": "💰",
+    "description": "投资、理财、经济相关预测",
+    "color": "#8B5CF6",
+    "sort": 4
+  },
+  {
+    "id": "tech",
+    "name": "科技趋势",
+    "icon": "🚀",
+    "description": "科技行业、产品发展预测",
+    "color": "#EC4899",
+    "sort": 5
+  },
+  {
+    "id": "education",
+    "name": "学习教育",
+    "icon": "📚",
+    "description": "教育、考试、技能相关预测",
+    "color": "#14B8A6",
+    "sort": 6
+  },
+  {
+    "id": "society",
+    "name": "社会民生",
+    "icon": "🌍",
+    "description": "社会政策、民生热点预测",
+    "color": "#EF4444",
+    "sort": 7
+  },
+  {
+    "id": "entertainment",
+    "name": "娱乐文化",
+    "icon": "🎬",
+    "description": "文化、娱乐、体育相关预测",
+    "color": "#F97316",
+    "sort": 8
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "id": "weather-beijing",
+  "title": "明天北京会下雨吗？",
+  "scenario": "weather",
+  "description": "基于最新的气象雷达数据、湿度监测和高压系统分析，预测明天北京市区的降雨概率。",
+  "tags": ["天气", "降雨", "北京", "通勤"],
+  "status": "active",
+  "participants": 1234,
+  "updated": "2026-08-12T14:00:00",
+  "predictions": [
+    {
+      "id": "rain-70",
+      "branchName": "气象雷达预测：降雨",
+      "probability": 70,
+      "conclusion": "明天北京有较大概率降雨，建议携带雨具出行。",
+      "reasoning": [
+        {"step": 1, "description": "雷达回波数据显示华北地区有中等强度降水云团正在向北京移动", "dataRef": "中国气象局雷达拼图 2026-08-12 13:00"},
+        {"step": 2, "description": "近地面湿度已达85%，接近饱和状态，满足降水条件", "dataRef": "北京城市气象站湿度监测数据"},
+        {"step": 3, "description": "历史同期数据显示类似气象条件下降雨概率为65-75%", "dataRef": "北京气象局历史数据库 2018-2025"},
+        {"step": 4, "description": "综合判断：明日北京降雨概率约70%，主要集中在午后时段", "dataRef": "综合多模式预报"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "中国气象局雷达拼图", "source": "中国气象局", "url": "#"},
+        {"type": "data", "title": "北京城市气象站湿度数据", "source": "北京市气象局", "url": "#"},
+        {"type": "article", "title": "华北地区雨季气候特征分析", "source": "气象学报 2025", "url": "#"}
+      ],
+      "userChoiceCount": 1523,
+      "impact": "需携带雨具，通勤时间可能增加15-20分钟"
+    },
+    {
+      "id": "sunny-30",
+      "branchName": "高压系统预测：晴天",
+      "probability": 30,
+      "conclusion": "明天北京以晴到多云为主，降雨可能性较低。",
+      "reasoning": [
+        {"step": 1, "description": "蒙古高压系统稳定维持，冷空气活动偏弱", "dataRef": "中央气象台地面天气图"},
+        {"step": 2, "description": "北京上空风速偏弱，不利于水汽输送和聚集", "dataRef": "北京探空站风速剖面数据"},
+        {"step": 3, "description": "无明显触发条件（如冷锋、低涡等）经过北京地区", "dataRef": "欧洲中期天气预报中心(ECMWF)模式"},
+        {"step": 4, "description": "综合判断：明日北京以晴为主，局部可能有零星小雨但概率较低", "dataRef": "综合多模式预报"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "ECMWF 全球预报模式", "source": "欧洲中期天气预报中心", "url": "#"},
+        {"type": "data", "title": "中央气象台地面天气图", "source": "中央气象台", "url": "#"},
+        {"type": "expert", "title": "北京市气象台首席预报员分析", "source": "北京电视台天气预报", "url": "#"}
+      ],
+      "userChoiceCount": 822,
+      "impact": "适合户外活动，无需特殊准备"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-1",
+      "author": "张三",
+      "content": "我在朝阳区看到云层很厚，补充空气湿度85%",
+      "type": "fact",
+      "timestamp": "2026-08-12T10:30:00",
+      "likes": 23,
+      "relatedPrediction": "rain-70"
+    },
+    {
+      "id": "obs-2",
+      "author": "李四",
+      "content": "我家老人说膝盖疼，感觉要变天，可能真要下雨",
+      "type": "opinion",
+      "timestamp": "2026-08-12T11:15:00",
+      "likes": 8,
+      "relatedPrediction": "rain-70"
+    },
+    {
+      "id": "obs-3",
+      "author": "王五",
+      "content": "查了未来几天的卫星云图，云系移动路径偏北，北京可能不受影响",
+      "type": "fact",
+      "timestamp": "2026-08-12T12:00:00",
+      "likes": 15,
+      "relatedPrediction": "sunny-30"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "ai-replacement",
+  "title": "AI 会取代程序员吗？",
+  "scenario": "tech",
+  "description": "随着AI编程助手（如Cursor、Copilot）和大型语言模型的快速发展，程序员这个职业的未来成为热议话题。",
+  "tags": ["AI", "程序员", "职业", "科技趋势"],
+  "status": "active",
+  "participants": 5678,
+  "updated": "2026-08-11T16:00:00",
+  "predictions": [
+    {
+      "id": "not-replace-5-10",
+      "branchName": "5-10年内不会完全取代",
+      "probability": 65,
+      "conclusion": "AI会大幅提升编程效率，但5-10年内不会完全取代程序员。程序员角色将从'写代码'转向'设计系统和AI协作'。",
+      "reasoning": [
+        {"step": 1, "description": "当前AI编程助手准确率约70-80%，复杂业务逻辑仍需人工设计", "dataRef": "GitHub Copilot 2026 年度报告"},
+        {"step": 2, "description": "系统架构设计、需求分析和跨团队协作等软技能AI难以替代", "dataRef": "Stack Overflow 2026 开发者调查"},
+        {"step": 3, "description": "企业级系统的安全审计、合规检查仍需人类专家负责", "dataRef": "Gartner 2026 技术趋势报告"},
+        {"step": 4, "description": "历史规律：新技术通常创造更多岗位而非完全替代（参考：互联网时代的到来）", "dataRef": "Bureau of Labor Statistics 就业数据"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "GitHub Copilot 年度报告", "source": "GitHub", "url": "#"},
+        {"type": "article", "title": "AI时代程序员技能转型路径", "source": "Harvard Business Review", "url": "#"},
+        {"type": "expert", "title": "Andrej Karpathy 对AI编程的评论", "source": "Twitter/X", "url": "#"}
+      ],
+      "userChoiceCount": 3210,
+      "impact": "建议程序员加强系统设计能力和AI工具使用技能"
+    },
+    {
+      "id": "partial-replace-3-5",
+      "branchName": "3-5年内初级岗位大幅减少",
+      "probability": 25,
+      "conclusion": "AI将首先替代初级程序员和重复性编码工作，3-5年内初级开发岗位减少50%以上。",
+      "reasoning": [
+        {"step": 1, "description": "AI编程能力每年提升约30%，2026年已能完成大部分CRUD和基础功能开发", "dataRef": "OpenAI Codex 能力评估报告"},
+        {"step": 2, "description": "多家科技公司已开始使用AI替代初级开发人员，人力成本降低40-60%", "dataRef": "TechCrunch 2026 行业调查"},
+        {"step": 3, "description": "低代码/无代码平台与AI结合，使非技术人员也能完成简单开发", "dataRef": "Forrester 低代码平台报告"},
+        {"step": 4, "description": "企业招聘需求变化：2026年高级工程师需求增长35%，初级岗位下降20%", "dataRef": "LinkedIn 2026 招聘数据"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "OpenAI Codex 能力评估", "source": "OpenAI", "url": "#"},
+        {"type": "article", "title": "科技公司开始用AI替代初级开发者", "source": "TechCrunch", "url": "#"},
+        {"type": "data", "title": "LinkedIn 2026 开发者招聘趋势", "source": "LinkedIn", "url": "#"}
+      ],
+      "userChoiceCount": 1560,
+      "impact": "初级程序员需尽快提升技能，转向高级开发和AI协作方向"
+    },
+    {
+      "id": "full-replace-10",
+      "branchName": "10年内全面替代",
+      "probability": 10,
+      "conclusion": "AI将在10年内全面替代人类程序员，编程将完全由AI完成。",
+      "reasoning": [
+        {"step": 1, "description": "AI技术呈指数级发展，2026年AI编程能力已达到中级工程师水平", "dataRef": "AI指数报告 2026"},
+        {"step": 2, "description": "AGI预计在2030年前后实现，届时AI将具备人类级别的理解和创造能力", "dataRef": "多位AI专家预测汇总"},
+        {"step": 3, "description": "自我改进的AI系统可以不断优化自身代码，形成正向循环", "dataRef": "DeepMind 自我改进AI研究"},
+        {"step": 4, "description": "历史证明：当技术成本足够低时，替代会快速发生（参考：自动驾驶对司机的影响）", "dataRef": "McKinsey 自动化影响报告"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "AGI 时间线预测综述", "source": "AI Impacts", "url": "#"},
+        {"type": "expert", "title": "Sam Altman 关于AI替代编程的预测", "source": "OpenAI Blog", "url": "#"},
+        {"type": "data", "title": "McKinsey 自动化对就业的影响", "source": "McKinsey Global Institute", "url": "#"}
+      ],
+      "userChoiceCount": 908,
+      "impact": "建议所有程序员开始规划职业转型，关注AI难以替代的领域"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-4",
+      "author": "资深Java开发",
+      "content": "我用了半年AI编程助手，效率确实提升了，但复杂业务逻辑还是得自己写。AI替代的是'码农'，不是'工程师'。",
+      "type": "opinion",
+      "timestamp": "2026-08-11T09:00:00",
+      "likes": 89,
+      "relatedPrediction": "not-replace-5-10"
+    },
+    {
+      "id": "obs-5",
+      "author": "CTO视角",
+      "content": "我们公司今年用AI替代了30%的外包开发，成本降低了50%。但核心团队反而扩招了，需要更多懂业务的高级工程师。",
+      "type": "fact",
+      "timestamp": "2026-08-11T14:30:00",
+      "likes": 67,
+      "relatedPrediction": "partial-replace-3-5"
+    }
+  ]
+}

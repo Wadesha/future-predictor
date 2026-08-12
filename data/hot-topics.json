@@ -1,0 +1,22 @@
+[
+  {
+    "id": "weather-beijing",
+    "title": "明天北京会下雨吗？",
+    "scenario": "weather",
+    "brief": "基于雷达数据和气象模型预测明日降雨概率",
+    "probability": 70,
+    "participants": 1234,
+    "updated": "2小时前",
+    "hot": true
+  },
+  {
+    "id": "ai-replacement",
+    "title": "AI 会取代程序员吗？",
+    "scenario": "tech",
+    "brief": "分析AI技术发展对各层级程序员的影响",
+    "probability": 35,
+    "participants": 5678,
+    "updated": "昨天",
+    "hot": true
+  }
+]
