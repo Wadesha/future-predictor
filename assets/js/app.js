@@ -42,12 +42,48 @@ const App = {
 
     // Hero
     const hero = document.createElement('div');
-    hero.className = 'hero';
+    hero.className = 'hero-urgent';
     hero.innerHTML = `
-      <h1>探索 <span>未来</span> 的可能性</h1>
-      <p>从你身边关切的日常场景出发，一步步探索不同分支下的预测与判断</p>
+      <h1>未来正在 <span>加速到来</span></h1>
+      <p>AI失业潮 · 物价崩还是涨 · 战争离你多远 · 灾难来了你能活几天</p>
+      <button class="cta-btn" onclick="document.getElementById('survivalQuiz').scrollIntoView({behavior:'smooth'})">
+        ⚡ 先测测你的生存指数
+      </button>
     `;
     container.appendChild(hero);
+
+    // Threat Dashboard
+    const threatTitle = document.createElement('h2');
+    threatTitle.className = 'section-title';
+    threatTitle.innerHTML = '🔴 全球风险实时面板';
+    container.appendChild(threatTitle);
+
+    const dashboard = document.createElement('div');
+    dashboard.className = 'threat-dashboard';
+    const threats = [
+      { icon: '🤖', name: 'AI失业潮', level: 'critical', prob: '55%', label: '高危' },
+      { icon: '💸', name: '滞胀风险', level: 'high', prob: '45%', label: '升高' },
+      { icon: '⚔️', name: '台海冲突', level: 'high', prob: '30%', label: '升高' },
+      { icon: '📦', name: '供应链断裂', level: 'high', prob: '70%', label: '升高' },
+      { icon: '🌐', name: '新冷战', level: 'moderate', prob: '15%', label: '中等' },
+      { icon: '🏚️', name: '房价下跌', level: 'moderate', prob: '45%', label: '中等' }
+    ];
+    threats.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 'threat-card';
+      card.dataset.level = t.level;
+      card.innerHTML = `
+        <div class="threat-icon">${t.icon}</div>
+        <div class="threat-name">${t.name}</div>
+        <span class="threat-level">${t.label}</span>
+        <div class="threat-prob">${t.prob}</div>
+      `;
+      dashboard.appendChild(card);
+    });
+    container.appendChild(dashboard);
+
+    // Survival Quiz
+    this.renderSurvivalQuiz(container);
 
     // Scenarios
     const sectionTitle = document.createElement('h2');
@@ -104,6 +140,169 @@ const App = {
       });
       container.appendChild(topicList);
     } catch {}
+  },
+
+  /* ===== Survival Quiz ===== */
+  renderSurvivalQuiz(container) {
+    const quizDiv = document.createElement('div');
+    quizDiv.className = 'survival-quiz';
+    quizDiv.id = 'survivalQuiz';
+    quizDiv.innerHTML = `
+      <h2>🧪 生存准备指数测试</h2>
+      <p class="subtitle">5个问题，测出你能在极端场景中撑多久。别骗自己，如实回答。</p>
+      <div id="quizQuestions"></div>
+      <div class="quiz-result" id="quizResult"></div>
+    `;
+    container.appendChild(quizDiv);
+
+    const questions = [
+      {
+        id: 'q1',
+        text: '你家有几天的不易腐食物储备（米面、罐头、压缩饼干）？',
+        options: [
+          { label: '3天以内', score: 0 },
+          { label: '3-7天', score: 1 },
+          { label: '1-2周', score: 2 },
+          { label: '2周以上', score: 3 }
+        ]
+      },
+      {
+        id: 'q2',
+        text: '如果现在断水，你知道家附近哪里有自然水源吗？',
+        options: [
+          { label: '完全不知道', score: 0 },
+          { label: '大概知道方向', score: 1 },
+          { label: '知道具体位置', score: 2 },
+          { label: '知道位置+会净化', score: 3 }
+        ]
+      },
+      {
+        id: 'q3',
+        text: '你家有应急物资吗？（手电、收音机、急救包、现金）',
+        options: [
+          { label: '什么都没有', score: 0 },
+          { label: '有手电和电池', score: 1 },
+          { label: '有手电+急救包', score: 2 },
+          { label: '全套应急包+现金', score: 3 }
+        ]
+      },
+      {
+        id: 'q4',
+        text: '你有慢性病需要长期服药吗？备用药量够多久？',
+        options: [
+          { label: '需要药但没备用', score: 0 },
+          { label: '够1-2周', score: 1 },
+          { label: '够1个月', score: 2 },
+          { label: '够3个月以上/不需要药', score: 3 }
+        ]
+      },
+      {
+        id: 'q5',
+        text: '你和家人约定过灾难集合点吗？有逃生路线吗？',
+        options: [
+          { label: '从没讨论过', score: 0 },
+          { label: '口头提过', score: 1 },
+          { label: '有1个集合点', score: 2 },
+          { label: '有3个集合点+路线', score: 3 }
+        ]
+      }
+    ];
+
+    const answers = {};
+    const questionsContainer = quizDiv.querySelector('#quizQuestions');
+
+    questions.forEach((q, qi) => {
+      const qDiv = document.createElement('div');
+      qDiv.className = 'quiz-question';
+      qDiv.innerHTML = `
+        <div class="q-text"><span class="q-num">${qi + 1}</span>${q.text}</div>
+        <div class="quiz-options">
+          ${q.options.map((opt, oi) => `
+            <div class="quiz-option" data-q="${qi}" data-score="${opt.score}">
+              <span>${opt.label}</span>
+              <span class="check">✓</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      qDiv.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const qIndex = parseInt(opt.dataset.q);
+          const score = parseInt(opt.dataset.score);
+          answers[qIndex] = score;
+
+          qDiv.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+
+          this.updateQuizResult(answers, questions.length);
+        });
+      });
+
+      questionsContainer.appendChild(qDiv);
+    });
+  },
+
+  updateQuizResult(answers, totalQs) {
+    const answered = Object.keys(answers).length;
+    if (answered < totalQs) return;
+
+    const totalScore = Object.values(answers).reduce((a, b) => a + b, 0);
+    const maxScore = totalQs * 3;
+    const percent = Math.round((totalScore / maxScore) * 100);
+
+    let days, desc, tips;
+    if (totalScore <= 4) {
+      days = '3-5天';
+      desc = '极度危险。你的准备几乎为零。';
+      tips = [
+        '这周末买14天的水和食物（成本不到500块）',
+        '打开地图标记家附近3个水源',
+        '买一个手摇收音机和急救包',
+        '如果有慢性病，多开1个月药量',
+        '今晚就和家人讨论灾难集合点'
+      ];
+    } else if (totalScore <= 8) {
+      days = '7-14天';
+      desc = '勉强能活，但很被动。';
+      tips = [
+        '食物和水储备加倍到2周以上',
+        '增加现金储备（至少5000元小面额纸币）',
+        '学习基础净水技能',
+        '准备一个安全房间和逃生路线'
+      ];
+    } else if (totalScore <= 12) {
+      days = '2-4周';
+      desc = '有基本准备，但还有缺口。';
+      tips = [
+        '储备扩展到1个月',
+        '和邻居建立互助网络',
+        '准备自卫和加固住所的工具',
+        '下载离线地图+打印纸质地图'
+      ];
+    } else {
+      days = '1个月+';
+      desc = '你的准备超过95%的人。';
+      tips = [
+        '考虑地理对冲：在不同地点存放物资',
+        '学习野外生存和急救技能',
+        '帮助身边的人做好准备——灾难中独活很难',
+        '定期检查和轮换储备物资'
+      ];
+    }
+
+    const resultDiv = document.getElementById('quizResult');
+    resultDiv.classList.add('show');
+    resultDiv.innerHTML = `
+      <div class="score-label">你的生存指数</div>
+      <div class="score-value">${percent}<span class="score-unit">/100</span></div>
+      <div class="score-desc">预计能撑：${days}　${desc}</div>
+      <ul class="score-tips">
+        ${tips.map(t => `<li>${t}</li>`).join('')}
+      </ul>
+      <button class="quiz-retake-btn" onclick="location.reload()">重新测试</button>
+    `;
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
   },
 
   /* ===== Scenarios Page ===== */
@@ -201,6 +400,8 @@ const App = {
       'finance': 'inflation-or-deflation',
       'society': 'war-and-civilians'
     };
+    // Disaster topic shows for multiple scenarios
+    const disasterScenarios = ['society', 'weather', 'health'];
 
     try {
       let topics = [];
@@ -208,6 +409,11 @@ const App = {
       if (topicId) {
         const t = await DataLoader.loadTopic(topicId);
         topics.push(t);
+      }
+      // Add disaster topic for relevant scenarios
+      if (disasterScenarios.includes(scenario.id)) {
+        const dt = await DataLoader.loadTopic('extreme-disaster-survival');
+        topics.push(dt);
       }
 
       if (topics.length === 0) {
@@ -708,7 +914,14 @@ const App = {
             'economic-war-impact': '💹 经济战对钱包的影响',
             'what-happens-economy': '📉 台海冲突后全球经济会怎样？',
             'civilian-survival': '🎒 普通人该准备什么？',
-            'which-side': '🤔 该选哪一边？'
+            'which-side': '🤔 该选哪一边？',
+            'extreme-disaster-survival': '🆘 如果极端灾难明天发生，你能活几天？',
+            'water-crisis': '💧 断水了你怎么活？',
+            'food-collapse': '🍽️ 超市空了你能撑几天？',
+            'no-communication': '📱 手机没信号了你怎么办？',
+            'purify-water': '🚰 4种净水方法你会几种？',
+            'medicine-shortage': '💊 你的药断了怎么办？',
+            'self-defense': '🛡️ 灾难中怎么保护自己？'
           })[topicId] || topicId}</div>
           <div>
             <span class="record-result ${resultClass}">${resultLabel}</span>

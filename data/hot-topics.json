@@ -28,5 +28,15 @@
     "participants": 15643,
     "updated": "6小时前",
     "hot": true
+  },
+  {
+    "id": "extreme-disaster-survival",
+    "title": "如果极端灾难明天发生，你能活几天？",
+    "scenario": "society",
+    "brief": "断电断水断粮断网断药——你家的准备够你撑多久？5个问题测出你的生存指数",
+    "probability": 80,
+    "participants": 18792,
+    "updated": "1小时前",
+    "hot": true
   }
 ]

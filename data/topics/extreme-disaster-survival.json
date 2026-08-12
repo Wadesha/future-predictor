@@ -1,0 +1,302 @@
+{
+  "id": "extreme-disaster-survival",
+  "title": "如果极端灾难明天发生，你能活几天？",
+  "scenario": "society",
+  "description": "不是电影剧本。地震、洪水、断电、断网、供应链中断——这些正在世界各地真实发生。当超市空了、手机没信号、ATM取不出钱的时候，你的知识储备够你撑多久？这个话题不是吓你，是让你想清楚：你现在准备了几层？",
+  "tags": ["灾难求生", "应急准备", "生存技能", "极端场景"],
+  "status": "active",
+  "participants": 18792,
+  "updated": "2026-08-12T12:00:00",
+  "predictions": [
+    {
+      "id": "grid-down-72h",
+      "branchName": "断电断网72小时：90%的人会崩溃",
+      "probability": 80,
+      "conclusion": "现代社会对电力的依赖远超想象。一旦断电超过72小时，手机没电、超市收银瘫痪、加油站无法抽油、供水系统停转。大多数人没有3天以上的食物、水和现金储备。第3天开始，抢购和恐慌会出现。",
+      "reasoning": [
+        {"step": 1, "description": "城市供水依赖电动水泵——断电=断水。人均每天需要2升饮用水，家里水龙头不出水了你怎么办？", "dataRef": "FEMA 应急水源指南"},
+        {"step": 2, "description": "超市库存只够3天正常销量——一旦恐慌抢购，6小时内货架就会被扫空", "dataRef": "供应链韧性研究 GroMIT 2025"},
+        {"step": 3, "description": "加油站电动泵无法工作——即使你有车也加不了油。电动车？充电桩也没电", "dataRef": "DOE 能源基础设施脆弱性评估"},
+        {"step": 4, "description": "2021年德州寒潮断电，4天内215人死亡。大部分死于一氧化碳中毒（室内烧炭取暖）和体温过低", "dataRef": "德州大学断电死亡分析报告"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "2021德州断电事件分析", "source": "UT Austin", "url": "#"},
+        {"type": "article", "title": "When the grid goes down: 72 hours to chaos", "source": "The Atlantic 2025", "url": "#"},
+        {"type": "data", "title": "城市供应链韧性评估", "source": "GroMIT", "url": "#"}
+      ],
+      "userChoiceCount": 9421,
+      "impact": "现在就准备：14天饮用水(每人至少28升)、不易腐食物、手电、电池、现金",
+      "subQuestions": [
+        {
+          "id": "water-crisis",
+          "title": "断水了你怎么活？",
+          "description": "断电后最多24小时就会断水。没有水你只能活3天。你知道你家附近哪里有水源吗？你知道怎么净化水吗？",
+          "predictions": [
+            {
+              "id": "know-water-source",
+              "branchName": "知道水源+会净化=能撑2周",
+              "probability": 45,
+              "conclusion": "如果你知道家附近3公里内的自然水源（河流/湖泊/泉水），并且会用净水片或煮沸消毒，你的生存时间从3天延长到2周以上。但90%的城市人不知道答案。",
+              "reasoning": [
+                {"step": 1, "description": "人没有食物可以活3周，没有水只能活3天。水是第一优先级", "dataRef": "生存三三法则"},
+                {"step": 2, "description": "城市河流/湖泊水不能直接喝——必须煮沸1分钟或用净水片处理", "dataRef": "CDC 饮用水净化指南"},
+                {"step": 3, "description": "热水器里有40-80升水，马桶水箱有10升——这些是断水后的第一水源", "dataRef": "FEMA 家庭应急水源"}
+              ],
+              "impact": "现在就做：打开地图标记你家附近3个水源，买一盒净水片放家里",
+              "subQuestions": [
+                {
+                  "id": "purify-water",
+                  "title": "4种净水方法你会几种？",
+                  "description": "如果没有净水片，你还能用什么方法让脏水变可饮用？",
+                  "predictions": [
+                    {
+                      "id": "boiling-best",
+                      "branchName": "煮沸：最简单最可靠",
+                      "probability": 50,
+                      "conclusion": "煮沸1分钟（高海拔3分钟）可以杀死几乎所有病原体。只要有火源和容器，这是最可靠的净水方法。",
+                      "reasoning": [
+                        {"step": 1, "description": "煮沸杀灭细菌、病毒、寄生虫——覆盖99.9%病原体", "dataRef": "WHO 饮用水安全标准"},
+                        {"step": 2, "description": "但煮沸不能去除化学污染物——如果水有化学污染需要活性炭过滤", "dataRef": "EPA 水处理指南"}
+                      ],
+                      "impact": "家里备一个户外炉具+几个气罐，成本不到200块"
+                    },
+                    {
+                      "id": "diy-filter",
+                      "branchName": "DIY过滤器：砂石+木炭+布",
+                      "probability": 30,
+                      "conclusion": "用塑料瓶+砂子+碎木炭+碎石+棉布可以做简易过滤器。不能100%杀菌但能去除大部分杂质和异味，配合煮沸最安全。",
+                      "reasoning": [
+                        {"step": 1, "description": "木炭的微孔可以吸附杂质和部分细菌——这是古代就有的技术", "dataRef": "水处理历史研究"},
+                        {"step": 2, "description": "分层过滤：粗石→细砂→木炭→细砂→棉布，每层3-5厘米", "dataRef": "野外生存手册"}
+                      ],
+                      "impact": "学这个技能成本为零，但关键时刻能救命"
+                    },
+                    {
+                      "id": "solar-distill",
+                      "branchName": "太阳能蒸馏：最被动但最安全",
+                      "probability": 20,
+                      "conclusion": "用透明塑料膜+容器+阳光，可以蒸馏出纯净水。速度慢（每天1-2升），但产出的水可以直接喝，不需要额外消毒。",
+                      "reasoning": [
+                        {"step": 1, "description": "蒸发-冷凝原理：阳光蒸发脏水→水蒸气在塑料膜上凝结→干净水滴入收集容器", "dataRef": "太阳能蒸馏技术手册"}
+                      ],
+                      "impact": "适合长期生存场景，不适合紧急情况"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "dont-know-water",
+              "branchName": "不知道水源=3天后开始绝望",
+              "probability": 55,
+              "conclusion": "如果你现在问自己'我家附近哪里有自然水源'，答不上来的话，灾难发生时你有3天时间找到答案。第4天开始脱水，第5天器官衰竭。这不是吓你，这是生理极限。",
+              "reasoning": [
+                {"step": 1, "description": "脱水3天后：头痛、头晕、心跳加速、尿量骤减。5天后：器官衰竭，意识模糊", "dataRef": "梅奥诊所脱水症状"},
+                {"step": 2, "description": "城市人90%不知道3公里内的自然水源位置——这个数字来自随机调查", "dataRef": "城市应急准备调查 2025"}
+              ],
+              "impact": "花5分钟现在就打开地图查一下你家附近的水源——这不是多此一举"
+            }
+          ]
+        },
+        {
+          "id": "food-collapse",
+          "title": "超市空了你能撑几天？",
+          "description": "现代城市食品库存只够3天。如果供应链中断，你家冰箱和橱柜里的食物够吃多久？你知道哪些野生植物可以吃吗？",
+          "predictions": [
+            {
+              "id": "pantry-2-weeks",
+              "branchName": "储备充足：能撑2周以上",
+              "probability": 25,
+              "conclusion": "如果你家里有米面、罐头、脱水食品、压缩饼干等储备，且能控制每人每天1500卡路里，你能撑2周。但只有25%的家庭有超过2周的食物储备。",
+              "reasoning": [
+                {"step": 1, "description": "成人每天需要2000卡路里正常活动，应急时1500卡可以维持基本生存", "dataRef": "FAO 营养需求标准"},
+                {"step": 2, "description": "10公斤大米=约35000卡=一人23天口粮。一箱压缩饼干(24块)=约12000卡=8天口粮", "dataRef": "应急食品热量计算"},
+                {"step": 3, "description": "关键原则：先吃冰箱里易腐的，再吃冷冻的，最后吃常温储备", "dataRef": "FEMA 食品管理指南"}
+              ],
+              "impact": "买20公斤米/面+一箱罐头+一箱压缩饼干，总成本不到300块，够一家三口吃2周"
+            },
+            {
+              "id": "pantry-3-days",
+              "branchName": "家里只有3天食物：危险",
+              "probability": 55,
+              "conclusion": "大多数城市家庭的常温食物储备只有3-5天。如果灾难发生在你刚吃完外卖的晚上，你可能只有2天的食物。第4天开始饥饿导致判断力下降，做出危险决策。",
+              "reasoning": [
+                {"step": 1, "description": "饥饿48小时后：血糖下降→判断力下降→容易做出冲动和错误的决策", "dataRef": "饥饿对认知功能影响研究"},
+                {"step": 2, "description": "饥饿72小时后：身体开始分解肌肉供能→体力急剧下降→行动能力受限", "dataRef": "生理学饥饿阶段研究"}
+              ],
+              "impact": "这周末就去买两周的应急食物，放在固定位置，每半年检查一次保质期"
+            },
+            {
+              "id": "forage-skills",
+              "branchName": "知道野外觅食=生存时间翻倍",
+              "probability": 20,
+              "conclusion": "如果你认识5种以上本地常见可食用野生植物，你的食物来源就不再只靠储备。蒲公英、车前草、野蒜、桑葚、榆钱——这些在城市公园里就有。",
+              "reasoning": [
+                {"step": 1, "description": "蒲公英全株可食，维生素C含量是橙子的2倍。城市草坪上到处都是", "dataRef": "USDA 植物营养数据库"},
+                {"step": 2, "description": "但误食有毒植物的风险很高——不认识的植物绝对不要吃", "dataRef": "中毒控制中心数据"}
+              ],
+              "impact": "下载一个植物识别App，周末去公园练习辨认5种可食用植物"
+            }
+          ]
+        },
+        {
+          "id": "no-communication",
+          "title": "手机没信号了你怎么办？",
+          "description": "灾难中通信基础设施往往最先崩溃。没有手机=无法求救、无法获取信息、无法联系家人。你有备用通讯方案吗？",
+          "predictions": [
+            {
+              "id": "radio-lifeline",
+              "branchName": "收音机是生命线",
+              "probability": 60,
+              "conclusion": "当蜂窝网络崩溃时，FM/AM广播仍然能工作——因为发射塔功率大、覆盖广、不依赖互联网。一台手摇/太阳能收音机能让你获取外界信息，包括避难所位置、救援进展、危险区域。",
+              "reasoning": [
+                {"step": 1, "description": "FM广播覆盖范围50-100公里，AM可达数百公里——不依赖互联网", "dataRef": "FCC 广播覆盖标准"},
+                {"step": 2, "description": "日本每个家庭都有收音机——这是311大地震后的教训", "dataRef": "日本总务省应急通信指南"},
+                {"step": 3, "description": "手摇收音机不需要电池——摇1分钟可听10分钟。太阳能款更佳", "dataRef": "Emergency Radio Buyer's Guide"}
+              ],
+              "impact": "买一个手摇太阳能收音机放家里，成本100-200块，永远不会过时"
+            },
+            {
+              "id": "offline-maps",
+              "branchName": "离线地图+预设集合点",
+              "probability": 40,
+              "conclusion": "没有网络意味着地图App无法使用。提前下载离线地图、标记家庭集合点、规划3条逃生路线，这些准备在断网时就是你的导航系统。",
+              "reasoning": [
+                {"step": 1, "description": "Google Maps/高德地图都支持离线下载——但大多数人没有提前下载", "dataRef": "手机离线地图使用调查"},
+                {"step": 2, "description": "家庭集合点：选一个近的（小区门口）、一个远的（另一个城区的亲友家）、一个最远的（其他城市）", "dataRef": "FEMA 家庭应急计划"}
+              ],
+              "impact": "今天就做：下载离线地图+和家人约定3个集合点+打印一份纸质地图"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supply-chain-collapse",
+      "branchName": "供应链中断：比你想象的更脆弱",
+      "probability": 70,
+      "conclusion": "现代供应链是高度优化的机器——意味着几乎没有冗余。任何节点中断都会引发连锁反应。2021年苏伊士运河堵塞6天就导致全球贸易损失540亿美元。真正的灾难可能让供应链中断数周。",
+      "reasoning": [
+        {"step": 1, "description": "JIT(准时制)库存意味着超市货架上就是你城市3天的食物。没有仓库缓冲", "dataRef": "MIT 供应链脆弱性研究"},
+        {"step": 2, "description": "药品供应链更脆弱：很多基础药物只有2-3周的库存。慢性病患者断药2周就可能出事", "dataRef": "FDA 药品短缺报告 2026"},
+        {"step": 3, "description": "化肥→粮食→食品：如果化肥供应链断了（天然气是化肥原料），下一季粮食产量直接腰斩", "dataRef": "FAO 粮食安全报告 2026"},
+        {"step": 4, "description": "2020年疫情已经演示过一遍了——卫生纸、口罩、消毒液全部抢空。下次可能轮到水和药", "dataRef": " pandemic供应链分析"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "全球供应链脆弱性指数", "source": "MIT CTL 2026", "url": "#"},
+        {"type": "article", "title": "The just-in-time supply chain is a just-in-time bomb", "source": "Wired 2025", "url": "#"}
+      ],
+      "userChoiceCount": 6823,
+      "impact": "慢性病患者：至少备1-3个月药量。所有家庭：储备2周以上生活必需品",
+      "subQuestions": [
+        {
+          "id": "medicine-shortage",
+          "title": "你的药断了怎么办？",
+          "description": "如果你或家人有慢性病（高血压、糖尿病、哮喘），断药可能比灾难本身更致命。你有备用药吗？",
+          "predictions": [
+            {
+              "id": "stockpile-meds",
+              "branchName": "囤3个月药量=给自己3个月缓冲",
+              "probability": 65,
+              "conclusion": "如果你需要长期服药，现在就想办法多开1-3个月的量。不是囤药，是给自己买保险。断药的风险远大于多买药的成本。",
+              "reasoning": [
+                {"step": 1, "description": "高血压停药3天：血压反弹，中风风险增加3倍", "dataRef": "AHA 高血压管理指南"},
+                {"step": 2, "description": "糖尿病停药1周：血糖失控，可能引发酮症酸中毒——危及生命", "dataRef": "ADA 糖尿病应急指南"},
+                {"step": 3, "description": "哮喘停药：随时可能急性发作，没有急救药就是等死", "dataRef": "AAAAI 哮喘管理指南"}
+              ],
+              "impact": "跟医生说明情况，多开1-3个月药量。或者用互联网药店多买一些"
+            },
+            {
+              "id": "natural-alternatives",
+              "branchName": "了解应急替代方案",
+              "probability": 35,
+              "conclusion": "万一真的断药了，你需要知道一些应急替代方案。比如低血糖时吃糖、高血压时减盐和静卧。这些不是长期方案，但能争取时间。",
+              "reasoning": [
+                {"step": 1, "description": "低血糖应急：15克快速糖（3块糖/半杯果汁），15分钟后复测", "dataRef": "ADA 低血糖处理指南"},
+                {"step": 2, "description": "哮喘急性发作无药时：喝咖啡（咖啡因有轻微支气管扩张作用）能争取1-2小时", "dataRef": "Cochrane 咖啡因与哮喘研究"}
+              ],
+              "impact": "查一下你或家人所用药物的应急替代方案，记在手机备忘录里"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social-order-breakdown",
+      "branchName": "社会秩序崩溃：第7天开始人人自危",
+      "probability": 50,
+      "conclusion": "灾难发生后有一个残酷的窗口期：前3天人们还讲秩序和道德，第4-7天食物和水开始紧缺，第7天以后如果政府救援还没到，社会秩序会迅速瓦解。抢劫、暴力、邻里反目——人性在饥饿面前不堪一击。",
+      "reasoning": [
+        {"step": 1, "description": "卡特里娜飓风后第3天开始出现大规模抢劫，第5天出现武装团伙。警察系统崩溃", "dataRef": "2005 新奥尔良灾难社会学研究"},
+        {"step": 2, "description": "委内瑞拉经济崩溃后，中产阶级开始在垃圾堆找食物。社会道德底线在饥饿中快速下沉", "dataRef": "CRISIS 委内瑞拉实地报告"},
+        {"step": 3, "description": " '正常化偏见'(Normalcy Bias)是最大敌人——人们总觉得'不会那么糟'，直到真的那么糟", "dataRef": "灾难心理学研究"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "The 7-day cliff: When society breaks down", "source": "The New Yorker 2025", "url": "#"},
+        {"type": "data", "title": "卡特里娜飓风后社会秩序分析", "source": "Brookings Institution", "url": "#"}
+      ],
+      "userChoiceCount": 5234,
+      "impact": "不要指望别人来救你。准备自卫手段、组建邻居互助网络、保持低调",
+      "subQuestions": [
+        {
+          "id": "self-defense",
+          "title": "灾难中怎么保护自己和家人？",
+          "description": "当有人来抢你的食物和水时，你怎么办？靠报警？警察可能已经瘫痪了。这不是电影情节，是每一个重大灾难中都会发生的现实。",
+          "predictions": [
+            {
+              "id": "community-defense",
+              "branchName": "邻里联防比个人武力更有效",
+              "probability": 60,
+              "conclusion": "独户防御在灾乱中几乎不可能成功。最有效的安全策略是提前和邻居建立信任关系，灾难时组成联防小组——人多眼多，分工巡逻、共享资源。",
+              "reasoning": [
+                {"step": 1, "description": "卡特里娜飓风中，预先组织起来的社区损失最小——邻里互助比等待救援有效10倍", "dataRef": "社区韧性研究"},
+                {"step": 2, "description": "现在就认识你左右邻居和楼上楼下。灾难时你不认识的人不会帮你", "dataRef": "社区灾害应对研究"}
+              ],
+              "impact": "今天就做：敲开邻居的门，互相加个微信。灾难时这就是你的安全网"
+            },
+            {
+              "id": "hardening-home",
+              "branchName": "加固住所：推迟而非对抗",
+              "probability": 40,
+              "conclusion": "住所安全的目标不是抵抗武装进攻，而是推迟入侵者足够长时间让你逃跑或隐藏。加固门窗、准备安全房间、有逃生路线——这些比武器更重要。",
+              "reasoning": [
+                {"step": 1, "description": "入侵者不会在一个门上花超过2分钟——如果门扛住了，他们会换目标", "dataRef": "犯罪学入侵行为研究"},
+                {"step": 2, "description": "安全房间：选一个有锁、有逃生出口、有通讯工具的房间作为最后避难所", "dataRef": "FEMA 住所加固指南"}
+              ],
+              "impact": "花200块买个门加固件+准备一个安全房间+规划2条逃生路线"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-dis-1",
+      "author": "经历过台风的人",
+      "content": "2023年台风直接把我们小区淹了，断电断水4天。超市第一天就被抢空。我家靠热水器里的存水和柜子里3包泡面活了3天。第4天军队来救的时候我都快哭了。",
+      "type": "fact",
+      "timestamp": "2026-08-10T18:30:00",
+      "likes": 1234,
+      "relatedPrediction": "grid-down-72h"
+    },
+    {
+      "id": "obs-dis-2",
+      "author": "急诊科医生",
+      "content": "灾难后送来的病人，80%不是被灾难直接伤害的，而是断药、断水、断电导致的间接伤害。慢性病人断药是最大杀手——很多人以为自己'药够吃'其实根本不够。",
+      "type": "fact",
+      "timestamp": "2026-08-11T09:15:00",
+      "likes": 892,
+      "relatedPrediction": "supply-chain-collapse"
+    },
+    {
+      "id": "obs-dis-3",
+      "author": "在城市独居的95后",
+      "content": "说实话看完这些我有点慌。我家里食物大概只够吃2天，水只有冰箱里半箱矿泉水，药一颗都没有。如果明天就出事，我可能连3天都撑不过去。",
+      "type": "opinion",
+      "timestamp": "2026-08-11T22:40:00",
+      "likes": 645,
+      "relatedPrediction": "grid-down-72h"
+    }
+  ]
+}

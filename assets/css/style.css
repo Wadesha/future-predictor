@@ -8,6 +8,8 @@
   --success: #10B981; --warning: #F59E0B; --danger: #EF4444;
   --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
   --shadow-lg: 0 4px 6px rgba(0,0,0,0.07), 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-glow: 0 0 20px rgba(59,130,246,0.15);
+  --shadow-danger: 0 0 20px rgba(239,68,68,0.15);
   --radius: 12px; --radius-sm: 8px; --radius-lg: 16px;
   --transition: 0.2s ease;
 }
@@ -354,6 +356,163 @@ a:hover { color: var(--primary-dark); }
 }
 .expand-trigger:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
 .expand-trigger:disabled { opacity: 0.5; cursor: default; }
+
+/* ===== Survival Quiz ===== */
+.survival-quiz {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: var(--radius-lg); padding: 28px; margin: 24px 0;
+  color: #e2e8f0; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+}
+.survival-quiz::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+}
+.survival-quiz h2 {
+  font-size: 1.25rem; margin-bottom: 4px; color: white;
+  display: flex; align-items: center; gap: 8px;
+}
+.survival-quiz .subtitle { font-size: 0.813rem; color: #94a3b8; margin-bottom: 20px; }
+
+.quiz-question {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
+  transition: var(--transition);
+}
+.quiz-question:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+.quiz-question .q-text { font-size: 0.938rem; margin-bottom: 10px; font-weight: 600; }
+.quiz-question .q-text .q-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--primary); color: white; font-size: 0.75rem; margin-right: 8px;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 6px; }
+.quiz-option {
+  padding: 10px 14px; border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  color: #cbd5e1; font-size: 0.875rem; cursor: pointer; transition: var(--transition);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.quiz-option:hover { background: rgba(59,130,246,0.15); border-color: var(--primary); }
+.quiz-option.selected {
+  background: rgba(59,130,246,0.25); border-color: var(--primary); color: white;
+}
+.quiz-option .check { opacity: 0; font-size: 1rem; }
+.quiz-option.selected .check { opacity: 1; }
+
+.quiz-result {
+  margin-top: 20px; padding: 20px; border-radius: var(--radius);
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  text-align: center; display: none;
+}
+.quiz-result.show { display: block; animation: fadeIn 0.5s ease; }
+.quiz-result .score-label { font-size: 0.813rem; color: #94a3b8; margin-bottom: 8px; }
+.quiz-result .score-value {
+  font-size: 3rem; font-weight: 800; line-height: 1;
+  background: linear-gradient(135deg, var(--danger), var(--warning));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.quiz-result .score-unit { font-size: 1rem; color: #94a3b8; }
+.quiz-result .score-desc { font-size: 0.938rem; margin-top: 12px; font-weight: 600; }
+.quiz-result .score-tips {
+  font-size: 0.813rem; color: #cbd5e1; margin-top: 8px;
+  text-align: left; padding: 12px; background: rgba(255,255,255,0.03);
+  border-radius: var(--radius-sm); line-height: 1.8;
+}
+.quiz-result .score-tips li { margin-bottom: 4px; list-style: none; }
+.quiz-result .score-tips li::before { content: "▸ "; color: var(--warning); }
+.quiz-retake-btn {
+  margin-top: 16px; padding: 10px 24px;
+  background: var(--primary); color: white; border: none;
+  border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 600; cursor: pointer;
+}
+
+/* ===== Threat Level Dashboard ===== */
+.threat-dashboard {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px; margin: 20px 0;
+}
+.threat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px; text-align: center;
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.threat-card::before {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: var(--border); transition: var(--transition);
+}
+.threat-card[data-level="critical"]::before { background: var(--danger); box-shadow: 0 0 10px var(--danger); }
+.threat-card[data-level="high"]::before { background: var(--warning); }
+.threat-card[data-level="moderate"]::before { background: #FBBF24; }
+.threat-card[data-level="low"]::before { background: var(--success); }
+.threat-card[data-level="critical"] { border-color: rgba(239,68,68,0.3); box-shadow: var(--shadow-danger); }
+.threat-card .threat-icon { font-size: 1.5rem; margin-bottom: 6px; }
+.threat-card .threat-name { font-size: 0.813rem; font-weight: 600; margin-bottom: 4px; }
+.threat-card .threat-level {
+  font-size: 0.75rem; padding: 2px 10px; border-radius: 10px;
+  display: inline-block; font-weight: 700;
+}
+.threat-card[data-level="critical"] .threat-level { background: #FEF2F2; color: var(--danger); }
+.threat-card[data-level="high"] .threat-level { background: #FFFBEB; color: var(--warning); }
+.threat-card[data-level="moderate"] .threat-level { background: #FEF3C7; color: #D97706; }
+.threat-card[data-level="low"] .threat-level { background: #ECFDF5; color: var(--success); }
+.threat-card .threat-prob { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-top: 6px; }
+
+/* ===== Immersive Animations ===== */
+@keyframes pulse-danger {
+  0%, 100% { box-shadow: 0 0 5px rgba(239,68,68,0.2); }
+  50% { box-shadow: 0 0 20px rgba(239,68,68,0.4); }
+}
+.branch-card[data-critical="true"] { animation: pulse-danger 2s infinite; }
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.probability { animation: count-up 0.4s ease; }
+
+/* Urgent hero */
+.hero-urgent {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  color: white; border-radius: var(--radius-lg); padding: 28px;
+  margin: 20px 0; text-align: center; position: relative; overflow: hidden;
+}
+.hero-urgent::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 60%);
+  animation: rotate-bg 20s linear infinite;
+}
+@keyframes rotate-bg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.hero-urgent h1 { font-size: 1.5rem; font-weight: 800; position: relative; }
+.hero-urgent h1 span {
+  background: linear-gradient(135deg, var(--danger), var(--warning));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-urgent p { color: #94a3b8; font-size: 0.875rem; margin-top: 8px; position: relative; }
+.hero-urgent .cta-btn {
+  display: inline-block; margin-top: 16px; padding: 12px 32px;
+  background: linear-gradient(135deg, var(--danger), #DC2626); color: white;
+  border-radius: var(--radius); font-weight: 700; font-size: 0.938rem;
+  cursor: pointer; border: none; position: relative;
+  transition: var(--transition); text-decoration: none;
+}
+.hero-urgent .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+
+/* Progress indicator for deep dive */
+.deep-progress-bar {
+  height: 4px; background: var(--border); border-radius: 2px;
+  overflow: hidden; margin: 8px 0 16px;
+}
+.deep-progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--primary), #8B5CF6);
+  border-radius: 2px; transition: width 0.5s ease;
+}
+
+/* Impact callout with urgency */
+.impact {
+  border-left: 3px solid var(--warning) !important;
+  background: #FFFBEB !important;
+}
+.impact::before { content: "⚡ "; }
 
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar { width: 6px; }
