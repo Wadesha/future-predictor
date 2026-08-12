@@ -40,7 +40,6 @@ const App = {
     const container = document.getElementById('homeContent');
     container.innerHTML = '';
 
-    // Hero
     const hero = document.createElement('div');
     hero.className = 'hero';
     hero.innerHTML = `
@@ -49,7 +48,6 @@ const App = {
     `;
     container.appendChild(hero);
 
-    // Scenarios
     const sectionTitle = document.createElement('h2');
     sectionTitle.className = 'section-title';
     sectionTitle.innerHTML = '📍 选择一个场景开始探索';
@@ -73,7 +71,6 @@ const App = {
     });
     container.appendChild(grid);
 
-    // Hot topics
     try {
       const hotTopics = await DataLoader.loadHotTopics();
       const hotTitle = document.createElement('h2');
@@ -106,169 +103,6 @@ const App = {
     } catch {}
   },
 
-  /* ===== Survival Quiz ===== */
-  renderSurvivalQuiz(container) {
-    const quizDiv = document.createElement('div');
-    quizDiv.className = 'survival-quiz';
-    quizDiv.id = 'survivalQuiz';
-    quizDiv.innerHTML = `
-      <h2>🧪 生存准备指数测试</h2>
-      <p class="subtitle">5个问题，测出你能在极端场景中撑多久。别骗自己，如实回答。</p>
-      <div id="quizQuestions"></div>
-      <div class="quiz-result" id="quizResult"></div>
-    `;
-    container.appendChild(quizDiv);
-
-    const questions = [
-      {
-        id: 'q1',
-        text: '你家有几天的不易腐食物储备（米面、罐头、压缩饼干）？',
-        options: [
-          { label: '3天以内', score: 0 },
-          { label: '3-7天', score: 1 },
-          { label: '1-2周', score: 2 },
-          { label: '2周以上', score: 3 }
-        ]
-      },
-      {
-        id: 'q2',
-        text: '如果现在断水，你知道家附近哪里有自然水源吗？',
-        options: [
-          { label: '完全不知道', score: 0 },
-          { label: '大概知道方向', score: 1 },
-          { label: '知道具体位置', score: 2 },
-          { label: '知道位置+会净化', score: 3 }
-        ]
-      },
-      {
-        id: 'q3',
-        text: '你家有应急物资吗？（手电、收音机、急救包、现金）',
-        options: [
-          { label: '什么都没有', score: 0 },
-          { label: '有手电和电池', score: 1 },
-          { label: '有手电+急救包', score: 2 },
-          { label: '全套应急包+现金', score: 3 }
-        ]
-      },
-      {
-        id: 'q4',
-        text: '你有慢性病需要长期服药吗？备用药量够多久？',
-        options: [
-          { label: '需要药但没备用', score: 0 },
-          { label: '够1-2周', score: 1 },
-          { label: '够1个月', score: 2 },
-          { label: '够3个月以上/不需要药', score: 3 }
-        ]
-      },
-      {
-        id: 'q5',
-        text: '你和家人约定过灾难集合点吗？有逃生路线吗？',
-        options: [
-          { label: '从没讨论过', score: 0 },
-          { label: '口头提过', score: 1 },
-          { label: '有1个集合点', score: 2 },
-          { label: '有3个集合点+路线', score: 3 }
-        ]
-      }
-    ];
-
-    const answers = {};
-    const questionsContainer = quizDiv.querySelector('#quizQuestions');
-
-    questions.forEach((q, qi) => {
-      const qDiv = document.createElement('div');
-      qDiv.className = 'quiz-question';
-      qDiv.innerHTML = `
-        <div class="q-text"><span class="q-num">${qi + 1}</span>${q.text}</div>
-        <div class="quiz-options">
-          ${q.options.map((opt, oi) => `
-            <div class="quiz-option" data-q="${qi}" data-score="${opt.score}">
-              <span>${opt.label}</span>
-              <span class="check">✓</span>
-            </div>
-          `).join('')}
-        </div>
-      `;
-
-      qDiv.querySelectorAll('.quiz-option').forEach(opt => {
-        opt.addEventListener('click', () => {
-          const qIndex = parseInt(opt.dataset.q);
-          const score = parseInt(opt.dataset.score);
-          answers[qIndex] = score;
-
-          qDiv.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
-
-          this.updateQuizResult(answers, questions.length);
-        });
-      });
-
-      questionsContainer.appendChild(qDiv);
-    });
-  },
-
-  updateQuizResult(answers, totalQs) {
-    const answered = Object.keys(answers).length;
-    if (answered < totalQs) return;
-
-    const totalScore = Object.values(answers).reduce((a, b) => a + b, 0);
-    const maxScore = totalQs * 3;
-    const percent = Math.round((totalScore / maxScore) * 100);
-
-    let days, desc, tips;
-    if (totalScore <= 4) {
-      days = '3-5天';
-      desc = '极度危险。你的准备几乎为零。';
-      tips = [
-        '这周末买14天的水和食物（成本不到500块）',
-        '打开地图标记家附近3个水源',
-        '买一个手摇收音机和急救包',
-        '如果有慢性病，多开1个月药量',
-        '今晚就和家人讨论灾难集合点'
-      ];
-    } else if (totalScore <= 8) {
-      days = '7-14天';
-      desc = '勉强能活，但很被动。';
-      tips = [
-        '食物和水储备加倍到2周以上',
-        '增加现金储备（至少5000元小面额纸币）',
-        '学习基础净水技能',
-        '准备一个安全房间和逃生路线'
-      ];
-    } else if (totalScore <= 12) {
-      days = '2-4周';
-      desc = '有基本准备，但还有缺口。';
-      tips = [
-        '储备扩展到1个月',
-        '和邻居建立互助网络',
-        '准备自卫和加固住所的工具',
-        '下载离线地图+打印纸质地图'
-      ];
-    } else {
-      days = '1个月+';
-      desc = '你的准备超过95%的人。';
-      tips = [
-        '考虑地理对冲：在不同地点存放物资',
-        '学习野外生存和急救技能',
-        '帮助身边的人做好准备——灾难中独活很难',
-        '定期检查和轮换储备物资'
-      ];
-    }
-
-    const resultDiv = document.getElementById('quizResult');
-    resultDiv.classList.add('show');
-    resultDiv.innerHTML = `
-      <div class="score-label">你的生存指数</div>
-      <div class="score-value">${percent}<span class="score-unit">/100</span></div>
-      <div class="score-desc">预计能撑：${days}　${desc}</div>
-      <ul class="score-tips">
-        ${tips.map(t => `<li>${t}</li>`).join('')}
-      </ul>
-      <button class="quiz-retake-btn" onclick="location.reload()">重新测试</button>
-    `;
-    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  },
-
   /* ===== Scenarios Page ===== */
   renderScenarios(activeScenarioId) {
     const container = document.getElementById('scenariosContent');
@@ -287,10 +121,9 @@ const App = {
 
     const title = document.createElement('h2');
     title.className = 'section-title';
-    let activeScenario = null;
 
     if (activeScenarioId) {
-      activeScenario = this.scenarios.find(s => s.id === activeScenarioId);
+      const activeScenario = this.scenarios.find(s => s.id === activeScenarioId);
       title.innerHTML = `${activeScenario ? activeScenario.icon + ' ' : ''} 场景筛选`;
       container.appendChild(title);
 
@@ -303,51 +136,51 @@ const App = {
         filterChips.appendChild(chip);
       });
       container.appendChild(filterChips);
-    } else {
-      title.textContent = '🗂️ 所有场景';
-      container.appendChild(title);
-    }
 
-    const grid = document.createElement('div');
-    grid.className = 'scenario-grid';
+      const grid = document.createElement('div');
+      grid.className = 'scenario-grid';
+      this.scenarios.filter(s => s.id === activeScenarioId).forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'scenario-card';
+        card.style.borderColor = s.color;
+        card.innerHTML = `
+          <div class="icon">${s.icon}</div>
+          <div class="name">${s.name}</div>
+          <div class="desc">${s.description}</div>
+        `;
+        card.addEventListener('click', () => this.showTopicList(s));
+        grid.appendChild(card);
+      });
+      container.appendChild(grid);
 
-    const scenariosToRender = activeScenarioId
-      ? this.scenarios.filter(s => s.id === activeScenarioId)
-      : this.scenarios;
-
-    scenariosToRender.forEach(s => {
-      const card = document.createElement('div');
-      card.className = 'scenario-card';
-      card.style.borderColor = activeScenarioId ? s.color : undefined;
-      card.innerHTML = `
-        <div class="icon">${s.icon}</div>
-        <div class="name">${s.name}</div>
-        <div class="desc">${s.description}</div>
-      `;
-      card.addEventListener('click', () => this.showTopicList(s));
-      grid.appendChild(card);
-    });
-    container.appendChild(grid);
-
-    if (activeScenarioId) {
       const topicSection = document.createElement('div');
       topicSection.id = 'scenarioTopicList';
       container.appendChild(topicSection);
-      this.showTopicList(activeScenario || scenariosToRender[0]);
+      this.showTopicList(activeScenario);
+    } else {
+      title.textContent = '🗂️ 所有场景';
+      container.appendChild(title);
+
+      const grid = document.createElement('div');
+      grid.className = 'scenario-grid';
+      this.scenarios.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'scenario-card';
+        card.innerHTML = `
+          <div class="icon">${s.icon}</div>
+          <div class="name">${s.name}</div>
+          <div class="desc">${s.description}</div>
+        `;
+        card.addEventListener('click', () => this.showTopicList(s));
+        grid.appendChild(card);
+      });
+      container.appendChild(grid);
     }
   },
 
   async showTopicList(scenario) {
-    const container = document.getElementById('scenarioTopicList') ||
-      document.getElementById('scenariosContent');
-    const listDiv = document.getElementById('scenarioTopicList') ||
-      (() => {
-        const div = document.createElement('div');
-        div.id = 'scenarioTopicList';
-        container.appendChild(div);
-        return div;
-      })();
-
+    const listDiv = document.getElementById('scenarioTopicList');
+    if (!listDiv) return;
     listDiv.innerHTML = '';
 
     const title = document.createElement('h3');
@@ -355,29 +188,21 @@ const App = {
     title.textContent = `${scenario.icon} ${scenario.name} 话题`;
     listDiv.appendChild(title);
 
-    // Load topics for this scenario - show all topics or filter by scenario
     const topicList = document.createElement('div');
     topicList.className = 'topic-list';
 
     const topicMap = {
-      'tech': 'ai-unemployment-consumption',
-      'finance': 'inflation-or-deflation',
-      'society': 'war-and-civilians'
+      'tech': ['ai-unemployment-consumption'],
+      'finance': ['inflation-or-deflation'],
+      'society': ['war-and-civilians', 'extreme-disaster-survival']
     };
-    // Disaster topic shows for multiple scenarios
-    const disasterScenarios = ['society', 'weather', 'health'];
 
     try {
       let topics = [];
-      const topicId = topicMap[scenario.id];
-      if (topicId) {
-        const t = await DataLoader.loadTopic(topicId);
+      const topicIds = topicMap[scenario.id] || [];
+      for (const tid of topicIds) {
+        const t = await DataLoader.loadTopic(tid);
         topics.push(t);
-      }
-      // Add disaster topic for relevant scenarios
-      if (disasterScenarios.includes(scenario.id)) {
-        const dt = await DataLoader.loadTopic('extreme-disaster-survival');
-        topics.push(dt);
       }
 
       if (topics.length === 0) {
@@ -395,7 +220,7 @@ const App = {
           <div class="left">
             <div class="title">${t.title}</div>
             <div class="meta">
-              <span>👥 ${t.participants || t.predictions[0]?.userChoiceCount || 0} 人参与</span>
+              <span>👥 ${t.participants || 0} 人参与</span>
               <span>🕐 ${new Date(t.updated).toLocaleDateString()} 更新</span>
               <span>🏷️ ${t.tags.slice(0, 3).join(' · ')}</span>
             </div>
@@ -441,22 +266,23 @@ const App = {
       `;
       container.appendChild(header);
 
-      // Deep dive path indicator
+      // Path indicator
       const pathDiv = document.createElement('div');
       pathDiv.className = 'deep-path';
       pathDiv.id = 'deepPath';
       pathDiv.innerHTML = `<span class="path-item">${topic.title}</span>`;
       container.appendChild(pathDiv);
 
-      // Layer 1: Branch cards
+      // Layer container — all dynamic content goes here
       const layerSection = document.createElement('div');
       layerSection.id = 'layerContainer';
       container.appendChild(layerSection);
 
-      // Render first layer
+      // Render layer 1
       this.renderLayer(topic.predictions, topic.id, 1, topic);
 
       // Observation section
+      const allBranches = this.collectAllBranches(topic);
       const obsSection = document.createElement('div');
       obsSection.className = 'observation-section';
       obsSection.innerHTML = `
@@ -466,7 +292,7 @@ const App = {
           <div class="obs-controls">
             <select id="obsBranch">
               <option value="">选择关联分支</option>
-              ${topic.predictions.map(p => `<option value="${p.id}">${p.branchName}</option>`).join('')}
+              ${allBranches.map(b => `<option value="${b.id}">${b.name}</option>`).join('')}
             </select>
             <select id="obsType">
               <option value="fact">事实补充</option>
@@ -480,7 +306,7 @@ const App = {
       `;
       container.appendChild(obsSection);
 
-      this.renderObservations(topic);
+      this.renderObservations(topic, allBranches);
 
       document.getElementById('publishObs').addEventListener('click', () => {
         const input = document.getElementById('obsInput');
@@ -499,7 +325,7 @@ const App = {
           relatedPrediction: branch.value || undefined
         };
         Storage.addObservation(obs);
-        this.renderObservations(topic);
+        this.renderObservations(topic, allBranches);
         input.value = '';
         Interaction.showToast('观察已发布');
       });
@@ -516,19 +342,36 @@ const App = {
     }
   },
 
-  /* ===== Render a layer of predictions (recursive) ===== */
+  /* ===== Collect all branch names across all layers (for observation dropdown) ===== */
+  collectAllBranches(topic) {
+    const branches = [];
+    const walk = (predictions) => {
+      if (!predictions) return;
+      predictions.forEach(p => {
+        branches.push({ id: p.id, name: p.branchName });
+        if (p.subQuestions) {
+          p.subQuestions.forEach(sq => {
+            walk(sq.predictions);
+          });
+        }
+      });
+    };
+    walk(topic.predictions);
+    return branches;
+  },
+
+  /* ===== Render layer 1 branch cards ===== */
   renderLayer(predictions, parentId, layerNum, topic) {
     const container = document.getElementById('layerContainer');
     const userChoices = Storage.getChoices();
     const selectedId = userChoices[parentId];
 
-    // Layer title
+    // Layer label
     const layerTitle = document.createElement('div');
     layerTitle.style.cssText = 'margin:16px 0 8px;display:flex;align-items:center;gap:8px;';
     layerTitle.innerHTML = `<span style="font-size:0.75rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:4px 10px;border-radius:10px;">第 ${layerNum} 层</span><span style="font-size:0.875rem;color:var(--text-secondary);">选择你倾向的分支，继续深挖</span>`;
     container.appendChild(layerTitle);
 
-    // Branch cards
     predictions.forEach(p => {
       const isSelected = p.id === selectedId;
       const probClass = p.probability >= 60 ? 'prob-high' : p.probability >= 30 ? 'prob-mid' : 'prob-low';
@@ -551,48 +394,105 @@ const App = {
           ${isSelected ? '✓ 已选择此分支' : '选择此分支'}
         </button>
         <div class="user-count">👥 ${p.userChoiceCount || 0} 人已选择</div>
+        <div class="reasoning-inline" id="reasoning-${p.id}" style="display:none;"></div>
       `;
 
       card.querySelector('.select-btn').addEventListener('click', () => {
-        this.selectBranch(parentId, p.id);
-        this.updatePath(topic, p, layerNum);
-
-        // Remove deeper layers
-        const deeperLayers = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
-        deeperLayers.forEach(el => el.remove());
-
-        // Show reasoning for this branch
-        this.showReasoning(p);
-
-        // Show sub-questions if any
-        if (p.subQuestions && p.subQuestions.length > 0) {
-          this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic, p);
-        }
+        this.selectBranch(parentId, p.id, topic, layerNum);
       });
+
+      container.appendChild(card);
 
       // Auto-expand if already selected
       if (isSelected) {
         setTimeout(() => {
-          this.updatePath(topic, p, layerNum);
-          this.showReasoning(p);
+          this.showInlineReasoning(p);
+          this.updatePath(topic);
           if (p.subQuestions && p.subQuestions.length > 0) {
-            this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic, p);
+            this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic);
           }
         }, 0);
       }
-
-      container.appendChild(card);
     });
+  },
+
+  /* ===== Select a layer-1 branch ===== */
+  selectBranch(topicId, predictionId, topic, layerNum) {
+    Storage.saveChoice(topicId, predictionId);
+    Interaction.showToast('已选择该分支');
+
+    // Update card UI
+    document.querySelectorAll('.branch-card').forEach(card => {
+      card.classList.remove('selected');
+      const btn = card.querySelector('.select-btn');
+      if (btn.dataset.predictionId === predictionId) {
+        card.classList.add('selected');
+        btn.className = 'select-btn selected';
+        btn.textContent = '✓ 已选择此分支';
+      } else {
+        btn.className = 'select-btn select';
+        btn.textContent = '选择此分支';
+      }
+    });
+
+    // Find the selected prediction
+    const p = topic.predictions.find(pred => pred.id === predictionId);
+    if (!p) return;
+
+    // Remove all deeper layers (layer 2+)
+    const container = document.getElementById('layerContainer');
+    container.querySelectorAll('[data-layer]').forEach(el => el.remove());
+    // Also remove old reasoning sections
+    container.querySelectorAll('.reasoning-inline').forEach(el => {
+      if (el.id !== 'reasoning-' + predictionId) el.style.display = 'none';
+    });
+
+    // Show reasoning inline
+    this.showInlineReasoning(p);
+    this.updatePath(topic);
+
+    // Show sub-questions
+    if (p.subQuestions && p.subQuestions.length > 0) {
+      this.renderSubQuestions(p.subQuestions, p.id, layerNum + 1, topic);
+    }
+  },
+
+  /* ===== Show reasoning inline within a branch card ===== */
+  showInlineReasoning(prediction) {
+    const el = document.getElementById('reasoning-' + prediction.id);
+    if (!el) return;
+
+    if (!prediction.reasoning || prediction.reasoning.length === 0) {
+      el.style.display = 'none';
+      return;
+    }
+
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div class="reasoning-section" style="margin-top:12px;">
+        <h3 style="font-size:0.875rem;margin-bottom:8px;">🔍 推理链路 <span style="font-weight:400;font-size:0.75rem;color:var(--text-muted)">（${prediction.branchName}）</span></h3>
+        ${prediction.reasoning.map(r => `
+          <div class="reasoning-step">
+            <div class="step-num">${r.step}</div>
+            <div class="step-content">
+              <div class="step-desc">${r.description}</div>
+              <div class="step-ref">📊 ${r.dataRef}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
   },
 
   /* ===== Render single sub-question (no tabs) ===== */
   renderSingleSubQuestion(sq, layerNum, topic) {
     const container = document.getElementById('layerContainer');
+    const userChoices = Storage.getChoices();
+    const selectedSubId = userChoices[sq.id];
 
     const sqDiv = document.createElement('div');
     sqDiv.className = 'sub-question-container';
     sqDiv.dataset.layer = layerNum;
-    sqDiv.id = 'subq-' + sq.id;
 
     sqDiv.innerHTML = `
       <div class="sub-question-header">
@@ -608,8 +508,6 @@ const App = {
     container.appendChild(sqDiv);
 
     const subGrid = sqDiv.querySelector(`#sub-branches-${sq.id}`);
-    const userChoices = Storage.getChoices();
-    const selectedSubId = userChoices[sq.id];
 
     sq.predictions.forEach(sp => {
       const isSubSelected = sp.id === selectedSubId;
@@ -625,9 +523,10 @@ const App = {
         </div>
         <div class="conclusion">${sp.conclusion}</div>
         ${sp.impact ? `<div class="impact">📌 ${sp.impact}</div>` : ''}
-        <button class="select-btn ${isSubSelected ? 'selected' : 'select'}" data-sub-prediction-id="${sp.id}" data-sub-question-id="${sq.id}">
+        <button class="select-btn ${isSubSelected ? 'selected' : 'select'}">
           ${isSubSelected ? '✓ 已选择' : '选择此方向'}
         </button>
+        <div class="reasoning-inline" id="reasoning-${sp.id}" style="display:none;"></div>
       `;
 
       subCard.querySelector('.select-btn').addEventListener('click', () => {
@@ -644,28 +543,26 @@ const App = {
         subCard.querySelector('.select-btn').className = 'select-btn selected';
         subCard.querySelector('.select-btn').textContent = '✓ 已选择';
 
-        this.updatePath(topic, sp, layerNum, sq.title);
-
         // Remove deeper layers
-        const deeper = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
-        deeper.forEach(el => el.remove());
+        container.querySelectorAll(`[data-layer="${layerNum + 1}"]`).forEach(el => el.remove());
 
-        if (sp.reasoning) {
-          this.showReasoning(sp);
-        }
+        // Show reasoning inline
+        this.showInlineReasoning(sp);
+        this.updatePath(topic);
 
+        // Show next layer
         if (sp.subQuestions && sp.subQuestions.length > 0) {
-          this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+          this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic);
         }
       });
 
       // Auto-expand if already selected
       if (isSubSelected) {
         setTimeout(() => {
-          this.updatePath(topic, sp, layerNum, sq.title);
-          if (sp.reasoning) this.showReasoning(sp);
+          this.showInlineReasoning(sp);
+          this.updatePath(topic);
           if (sp.subQuestions && sp.subQuestions.length > 0) {
-            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic);
           }
         }, 0);
       }
@@ -674,37 +571,33 @@ const App = {
     });
   },
 
-  /* ===== Render sub-questions (next layer deep dive) ===== */
-  renderSubQuestions(subQuestions, parentId, layerNum, topic, parentPrediction) {
-    const container = document.getElementById('layerContainer');
-
-    // If only one sub-question, render directly without tabs
+  /* ===== Render sub-questions (with tabs if multiple) ===== */
+  renderSubQuestions(subQuestions, parentId, layerNum, topic) {
+    // Single sub-question: no tabs
     if (subQuestions.length === 1) {
       this.renderSingleSubQuestion(subQuestions[0], layerNum, topic);
       return;
     }
 
-    // Create a tab container for sub-questions
+    // Multiple sub-questions: tabbed interface
+    const container = document.getElementById('layerContainer');
+    const userChoices = Storage.getChoices();
+
     const tabWrapper = document.createElement('div');
     tabWrapper.className = 'sub-question-tabs';
     tabWrapper.dataset.layer = layerNum;
 
-    // Create tab buttons
     const tabBar = document.createElement('div');
     tabBar.className = 'sq-tab-bar';
 
-    // Create content area
     const contentArea = document.createElement('div');
     contentArea.className = 'sq-content-area';
 
-    const userChoices = Storage.getChoices();
     let hasPreSelected = false;
 
-    subQuestions.forEach((sq, sqIndex) => {
-      // Create tab button
+    subQuestions.forEach(sq => {
       const tabBtn = document.createElement('button');
       tabBtn.className = 'sq-tab-btn';
-      tabBtn.dataset.sqId = sq.id;
       const selectedSubId = userChoices[sq.id];
       const hasSelection = selectedSubId && sq.predictions.some(p => p.id === selectedSubId);
       if (hasSelection) {
@@ -713,10 +606,8 @@ const App = {
       }
       tabBtn.textContent = sq.title;
 
-      // Create content panel
       const panel = document.createElement('div');
       panel.className = 'sq-panel';
-      panel.id = 'sq-panel-' + sq.id;
       panel.style.display = 'none';
 
       panel.innerHTML = `
@@ -730,7 +621,6 @@ const App = {
         </div>
       `;
 
-      // Tab click: show this panel, hide others
       tabBtn.addEventListener('click', () => {
         tabBar.querySelectorAll('.sq-tab-btn').forEach(b => b.classList.remove('active'));
         contentArea.querySelectorAll('.sq-panel').forEach(p => p.style.display = 'none');
@@ -741,7 +631,6 @@ const App = {
       tabBar.appendChild(tabBtn);
       contentArea.appendChild(panel);
 
-      // Render predictions into the panel
       const subGrid = panel.querySelector(`#sub-branches-${sq.id}`);
 
       sq.predictions.forEach(sp => {
@@ -758,9 +647,10 @@ const App = {
           </div>
           <div class="conclusion">${sp.conclusion}</div>
           ${sp.impact ? `<div class="impact">📌 ${sp.impact}</div>` : ''}
-          <button class="select-btn ${isSubSelected ? 'selected' : 'select'}" data-sub-prediction-id="${sp.id}" data-sub-question-id="${sq.id}">
+          <button class="select-btn ${isSubSelected ? 'selected' : 'select'}">
             ${isSubSelected ? '✓ 已选择' : '选择此方向'}
           </button>
+          <div class="reasoning-inline" id="reasoning-${sp.id}" style="display:none;"></div>
         `;
 
         subCard.querySelector('.select-btn').addEventListener('click', () => {
@@ -779,22 +669,16 @@ const App = {
 
           tabBtn.classList.add('has-selection');
 
-          this.updatePath(topic, sp, layerNum, sq.title);
+          container.querySelectorAll(`[data-layer="${layerNum + 1}"]`).forEach(el => el.remove());
 
-          // Remove deeper layers
-          const deeper = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
-          deeper.forEach(el => el.remove());
-
-          if (sp.reasoning) {
-            this.showReasoning(sp);
-          }
+          this.showInlineReasoning(sp);
+          this.updatePath(topic);
 
           if (sp.subQuestions && sp.subQuestions.length > 0) {
-            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic);
           }
         });
 
-        // Auto-expand: only activate the tab that has a selection, but DON'T overwrite parent reasoning
         if (isSubSelected && !hasPreSelected) {
           hasPreSelected = true;
           setTimeout(() => {
@@ -802,8 +686,11 @@ const App = {
             contentArea.querySelectorAll('.sq-panel').forEach(p => p.style.display = 'none');
             tabBtn.classList.add('active');
             panel.style.display = 'block';
-            // Don't call showReasoning here - keep parent's reasoning visible
-            // Don't auto-expand deeper layers either - let user click
+            this.showInlineReasoning(sp);
+            this.updatePath(topic);
+            if (sp.subQuestions && sp.subQuestions.length > 0) {
+              this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic);
+            }
           }, 0);
         }
 
@@ -811,7 +698,6 @@ const App = {
       });
     });
 
-    // If no pre-selected tab, activate the first one
     if (!hasPreSelected) {
       const firstBtn = tabBar.querySelector('.sq-tab-btn');
       if (firstBtn) firstBtn.classList.add('active');
@@ -824,95 +710,85 @@ const App = {
     container.appendChild(tabWrapper);
   },
 
-  /* ===== Show reasoning section ===== */
-  showReasoning(prediction) {
-    let reasoningEl = document.getElementById('reasoningSection');
-    if (!reasoningEl) {
-      reasoningEl = document.createElement('div');
-      reasoningEl.id = 'reasoningSection';
-      reasoningEl.className = 'reasoning-section';
-      const container = document.getElementById('layerContainer');
-      container.appendChild(reasoningEl);
-    }
-
-    // Move reasoning to end of container so it follows the current context
-    const container = document.getElementById('layerContainer');
-    container.appendChild(reasoningEl);
-
-    if (!prediction.reasoning || prediction.reasoning.length === 0) {
-      reasoningEl.style.display = 'none';
-      return;
-    }
-
-    reasoningEl.style.display = 'block';
-    reasoningEl.innerHTML = `
-      <h3>🔍 推理链路 <span style="font-weight:400;font-size:0.813rem;color:var(--text-muted)">（${prediction.branchName}）</span></h3>
-      ${prediction.reasoning.map(r => `
-        <div class="reasoning-step">
-          <div class="step-num">${r.step}</div>
-          <div class="step-content">
-            <div class="step-desc">${r.description}</div>
-            <div class="step-ref">📊 ${r.dataRef}</div>
-          </div>
-        </div>
-      `).join('')}
-    `;
-  },
-
-  /* ===== Update deep dive path ===== */
-  updatePath(topic, prediction, layerNum, subQuestionTitle) {
+  /* ===== Update path indicator (recursive) ===== */
+  updatePath(topic) {
     const pathDiv = document.getElementById('deepPath');
     if (!pathDiv) return;
 
-    // Rebuild path up to current layer
     const choices = Storage.getChoices();
     let pathHTML = `<span class="path-item">${topic.title}</span>`;
 
-    // Walk through layers to build path
-    topic.predictions.forEach(p => {
-      if (choices[topic.id] === p.id) {
+    const walkPredictions = (predictions, depth) => {
+      if (!predictions) return;
+      predictions.forEach(p => {
+        // Check if this prediction was selected by any sub-question
+        const parentKey = Object.keys(choices).find(k => choices[k] === p.id);
+        if (!parentKey) return;
+
+        pathHTML += `<span class="path-arrow">→</span><span class="path-item">${p.branchName}</span>`;
+
+        if (p.subQuestions) {
+          p.subQuestions.forEach(sq => {
+            if (choices[sq.id]) {
+              walkPredictions(sq.predictions, depth + 1);
+            }
+          });
+        }
+      });
+    };
+
+    // Start with layer 1
+    const layer1Choice = choices[topic.id];
+    if (layer1Choice) {
+      const p = topic.predictions.find(pred => pred.id === layer1Choice);
+      if (p) {
         pathHTML += `<span class="path-arrow">→</span><span class="path-item">${p.branchName}</span>`;
         if (p.subQuestions) {
           p.subQuestions.forEach(sq => {
             if (choices[sq.id]) {
-              pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sq.title}</span>`;
-              sq.predictions.forEach(sp => {
-                if (choices[sq.id] === sp.id) {
-                  pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp.branchName}</span>`;
-                  if (sp.subQuestions) {
-                    sp.subQuestions.forEach(sq2 => {
-                      if (choices[sq2.id]) {
-                        pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sq2.title}</span>`;
-                        sq2.predictions.forEach(sp2 => {
-                          if (choices[sq2.id] === sp2.id) {
-                            pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp2.branchName}</span>`;
-                          }
-                        });
+              const sp = sq.predictions.find(pred => pred.id === choices[sq.id]);
+              if (sp) {
+                pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp.branchName}</span>`;
+                if (sp.subQuestions) {
+                  sp.subQuestions.forEach(sq2 => {
+                    if (choices[sq2.id]) {
+                      const sp2 = sq2.predictions.find(pred => pred.id === choices[sq2.id]);
+                      if (sp2) {
+                        pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp2.branchName}</span>`;
+                        if (sp2.subQuestions) {
+                          sp2.subQuestions.forEach(sq3 => {
+                            if (choices[sq3.id]) {
+                              const sp3 = sq3.predictions.find(pred => pred.id === choices[sq3.id]);
+                              if (sp3) {
+                                pathHTML += `<span class="path-arrow">→</span><span class="path-item">${sp3.branchName}</span>`;
+                              }
+                            }
+                          });
+                        }
                       }
-                    });
-                  }
+                    }
+                  });
                 }
-              });
+              }
             }
           });
         }
       }
-    });
+    }
 
     pathDiv.innerHTML = pathHTML;
   },
 
-  renderObservations(topic) {
+  /* ===== Render observations ===== */
+  renderObservations(topic, allBranches) {
     const obsList = document.getElementById('obsList');
     if (!obsList) return;
 
     const allObservations = [
       ...Storage.getObservations().filter(o => {
-        // Show observations related to this topic or all user observations
-        const relatedToTopic = topic.predictions.some(p => p.id === o.relatedPrediction);
-        return relatedToTopic || !o.relatedPrediction;
+        return topic.predictions.some(p => p.id === o.relatedPrediction) || !o.relatedPrediction;
       }),
-      ...topic.observations
+      ...(topic.observations || [])
     ];
 
     if (allObservations.length === 0) {
@@ -920,39 +796,23 @@ const App = {
       return;
     }
 
-    obsList.innerHTML = allObservations.map(o => `
-      <div class="obs-item">
-        <div class="obs-header">
-          <span class="obs-author">${o.author}</span>
-          <span class="obs-type obs-type-${o.type}">${o.type === 'fact' ? '事实' : o.type === 'opinion' ? '观点' : '疑问'}</span>
+    obsList.innerHTML = allObservations.map(o => {
+      const branchName = allBranches.find(b => b.id === o.relatedPrediction)?.name || '';
+      return `
+        <div class="obs-item">
+          <div class="obs-header">
+            <span class="obs-author">${o.author}</span>
+            <span class="obs-type obs-type-${o.type}">${o.type === 'fact' ? '事实' : o.type === 'opinion' ? '观点' : '疑问'}</span>
+          </div>
+          <div class="obs-content">${o.content}</div>
+          <div class="obs-footer">
+            <span>🕐 ${new Date(o.timestamp).toLocaleDateString()}</span>
+            ${branchName ? `<span>🔗 ${branchName}</span>` : ''}
+            <span class="obs-likes" onclick="Interaction.showToast('👍 已点赞')">❤️ ${o.likes}</span>
+          </div>
         </div>
-        <div class="obs-content">${o.content}</div>
-        <div class="obs-footer">
-          <span>🕐 ${new Date(o.timestamp).toLocaleDateString()}</span>
-          ${o.relatedPrediction ? `<span>🔗 ${topic.predictions.find(p => p.id === o.relatedPrediction)?.branchName || ''}</span>` : ''}
-          <span class="obs-likes" onclick="Interaction.showToast('👍 已点赞')">❤️ ${o.likes}</span>
-        </div>
-      </div>
-    `).join('');
-  },
-
-  selectBranch(topicId, predictionId) {
-    Storage.saveChoice(topicId, predictionId);
-    Interaction.showToast('已选择该分支，预测结果将纳入你的个人评分');
-
-    // Update UI
-    document.querySelectorAll('.branch-card').forEach(card => {
-      card.classList.remove('selected');
-      const btn = card.querySelector('.select-btn');
-      if (btn.dataset.predictionId === predictionId) {
-        card.classList.add('selected');
-        btn.className = 'select-btn selected';
-        btn.textContent = '✓ 已选择此分支';
-      } else {
-        btn.className = 'select-btn select';
-        btn.textContent = '选择此分支';
-      }
-    });
+      `;
+    }).join('');
   },
 
   /* ===== Profile Page ===== */
@@ -985,12 +845,10 @@ const App = {
           </div>
         </div>
       </div>
-
       <div class="record-tabs">
         <span class="record-tab active">我参与的</span>
         <span class="record-tab">我的观察 (${userObs.length})</span>
       </div>
-
       <div id="profileRecords" class="record-list"></div>
     `;
 
@@ -1001,39 +859,21 @@ const App = {
       return;
     }
 
-    // Show user's choices
     const results = Storage.getResults();
+    const topicLabels = {
+      'ai-unemployment-consumption': '🚀 AI引发大规模失业后，消费会崩盘吗？',
+      'inflation-or-deflation': '💰 未来3年：物价会飞涨还是通缩崩盘？',
+      'war-and-civilians': '🌍 大规模战争离普通人有多远？',
+      'extreme-disaster-survival': '🆘 如果极端灾难明天发生，你能活几天？'
+    };
+
     recordsDiv.innerHTML = Object.entries(choices).map(([topicId, choice]) => {
       const result = results[topicId];
       const resultLabel = result === undefined ? '待验证' : result.correct ? '✓ 正确' : '✗ 错误';
       const resultClass = result === undefined ? 'result-pending' : result.correct ? 'result-correct' : 'result-wrong';
       return `
         <div class="record-item">
-          <div class="record-title">${({
-            'ai-unemployment-consumption': '🚀 AI引发大规模失业后，消费会崩盘吗？',
-            'inflation-or-deflation': '💰 未来3年：物价会飞涨还是通缩崩盘？',
-            'war-and-civilians': '🌍 大规模战争离普通人有多远？',
-            'which-jobs-safe': '🔍 哪些岗位最先被冲击？',
-            'chain-reaction': '⚡ 消费崩盘的链式反应',
-            'can-ubi-save': '💵 UBI能救命吗？',
-            'what-new-jobs': '🆕 AI时代会出现什么新岗位？',
-            'how-to-survive-transition': '🛡️ 怎么扛过动荡期？',
-            'what-to-hold': '📊 滞胀环境下该持有什么？',
-            'gold-vs-crypto': '🥇 黄金还是比特币？',
-            'japan-repeat': '🇨🇳 中国会重演日本失去的三十年吗？',
-            'which-currency-dies-first': '💱 哪个货币先出问题？',
-            'economic-war-impact': '💹 经济战对钱包的影响',
-            'what-happens-economy': '📉 台海冲突后全球经济会怎样？',
-            'civilian-survival': '🎒 普通人该准备什么？',
-            'which-side': '🤔 该选哪一边？',
-            'extreme-disaster-survival': '🆘 如果极端灾难明天发生，你能活几天？',
-            'water-crisis': '💧 断水了你怎么活？',
-            'food-collapse': '🍽️ 超市空了你能撑几天？',
-            'no-communication': '📱 手机没信号了你怎么办？',
-            'purify-water': '🚰 4种净水方法你会几种？',
-            'medicine-shortage': '💊 你的药断了怎么办？',
-            'self-defense': '🛡️ 灾难中怎么保护自己？'
-          })[topicId] || topicId}</div>
+          <div class="record-title">${topicLabels[topicId] || topicId}</div>
           <div>
             <span class="record-result ${resultClass}">${resultLabel}</span>
           </div>

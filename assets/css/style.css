@@ -157,9 +157,12 @@ a:hover { color: var(--primary-dark); }
 .branch-card .user-count { text-align: center; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); }
 
 /* ===== Reasoning Section ===== */
+.reasoning-inline {
+  margin-top: 12px;
+}
 .reasoning-section {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 20px; margin: 20px 0;
+  border-radius: var(--radius); padding: 16px; margin: 0;
 }
 .reasoning-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 .reasoning-step {
