@@ -589,13 +589,42 @@ const App = {
   renderSubQuestions(subQuestions, parentId, layerNum, topic, parentPrediction) {
     const container = document.getElementById('layerContainer');
 
-    subQuestions.forEach(sq => {
-      const sqDiv = document.createElement('div');
-      sqDiv.className = 'sub-question-container';
-      sqDiv.dataset.layer = layerNum;
-      sqDiv.id = 'subq-' + sq.id;
+    // Create a tab container for sub-questions
+    const tabWrapper = document.createElement('div');
+    tabWrapper.className = 'sub-question-tabs';
+    tabWrapper.dataset.layer = layerNum;
 
-      sqDiv.innerHTML = `
+    // Create tab buttons
+    const tabBar = document.createElement('div');
+    tabBar.className = 'sq-tab-bar';
+
+    // Create content area
+    const contentArea = document.createElement('div');
+    contentArea.className = 'sq-content-area';
+
+    const userChoices = Storage.getChoices();
+    let hasPreSelected = false;
+
+    subQuestions.forEach((sq, sqIndex) => {
+      // Create tab button
+      const tabBtn = document.createElement('button');
+      tabBtn.className = 'sq-tab-btn';
+      tabBtn.dataset.sqId = sq.id;
+      const selectedSubId = userChoices[sq.id];
+      const hasSelection = selectedSubId && sq.predictions.some(p => p.id === selectedSubId);
+      if (hasSelection) {
+        tabBtn.classList.add('has-selection');
+        hasPreSelected = true;
+      }
+      tabBtn.textContent = sq.title;
+
+      // Create content panel
+      const panel = document.createElement('div');
+      panel.className = 'sq-panel';
+      panel.id = 'sq-panel-' + sq.id;
+      panel.style.display = 'none';
+
+      panel.innerHTML = `
         <div class="sub-question-header">
           <span class="layer-badge">第 ${layerNum} 层</span>
           <span class="title">🔍 ${sq.title}</span>
@@ -606,11 +635,19 @@ const App = {
         </div>
       `;
 
-      container.appendChild(sqDiv);
+      // Tab click: show this panel, hide others
+      tabBtn.addEventListener('click', () => {
+        tabBar.querySelectorAll('.sq-tab-btn').forEach(b => b.classList.remove('active'));
+        contentArea.querySelectorAll('.sq-panel').forEach(p => p.style.display = 'none');
+        tabBtn.classList.add('active');
+        panel.style.display = 'block';
+      });
 
-      const subGrid = sqDiv.querySelector(`#sub-branches-${sq.id}`);
-      const userChoices = Storage.getChoices();
-      const selectedSubId = userChoices[sq.id];
+      tabBar.appendChild(tabBtn);
+      contentArea.appendChild(panel);
+
+      // Render predictions into the panel
+      const subGrid = panel.querySelector(`#sub-branches-${sq.id}`);
 
       sq.predictions.forEach(sp => {
         const isSubSelected = sp.id === selectedSubId;
@@ -632,11 +669,9 @@ const App = {
         `;
 
         subCard.querySelector('.select-btn').addEventListener('click', () => {
-          // Save choice
           Storage.saveChoice(sq.id, sp.id);
           Interaction.showToast('已选择，继续深挖');
 
-          // Update UI
           subGrid.querySelectorAll('.sub-branch-card').forEach(c => {
             c.classList.remove('selected');
             const btn = c.querySelector('.select-btn');
@@ -647,38 +682,51 @@ const App = {
           subCard.querySelector('.select-btn').className = 'select-btn selected';
           subCard.querySelector('.select-btn').textContent = '✓ 已选择';
 
-          // Update path
+          tabBtn.classList.add('has-selection');
+
           this.updatePath(topic, sp, layerNum, sq.title);
 
           // Remove deeper layers
           const deeper = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
           deeper.forEach(el => el.remove());
 
-          // Show reasoning
           if (sp.reasoning) {
             this.showReasoning(sp);
           }
 
-          // Recurse: show sub-questions of this sub-prediction
           if (sp.subQuestions && sp.subQuestions.length > 0) {
             this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
           }
         });
 
-        // Auto-expand if already selected
-        if (isSubSelected) {
+        // Auto-expand: only activate the tab that has a selection, but DON'T overwrite parent reasoning
+        if (isSubSelected && !hasPreSelected) {
+          hasPreSelected = true;
           setTimeout(() => {
-            this.updatePath(topic, sp, layerNum, sq.title);
-            if (sp.reasoning) this.showReasoning(sp);
-            if (sp.subQuestions && sp.subQuestions.length > 0) {
-              this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
-            }
+            tabBar.querySelectorAll('.sq-tab-btn').forEach(b => b.classList.remove('active'));
+            contentArea.querySelectorAll('.sq-panel').forEach(p => p.style.display = 'none');
+            tabBtn.classList.add('active');
+            panel.style.display = 'block';
+            // Don't call showReasoning here - keep parent's reasoning visible
+            // Don't auto-expand deeper layers either - let user click
           }, 0);
         }
 
         subGrid.appendChild(subCard);
       });
     });
+
+    // If no pre-selected tab, activate the first one
+    if (!hasPreSelected) {
+      const firstBtn = tabBar.querySelector('.sq-tab-btn');
+      if (firstBtn) firstBtn.classList.add('active');
+      const firstPanel = contentArea.querySelector('.sq-panel');
+      if (firstPanel) firstPanel.style.display = 'block';
+    }
+
+    tabWrapper.appendChild(tabBar);
+    tabWrapper.appendChild(contentArea);
+    container.appendChild(tabWrapper);
   },
 
   /* ===== Show reasoning section ===== */
@@ -691,6 +739,10 @@ const App = {
       const container = document.getElementById('layerContainer');
       container.appendChild(reasoningEl);
     }
+
+    // Move reasoning to end of container so it follows the current context
+    const container = document.getElementById('layerContainer');
+    container.appendChild(reasoningEl);
 
     if (!prediction.reasoning || prediction.reasoning.length === 0) {
       reasoningEl.style.display = 'none';
