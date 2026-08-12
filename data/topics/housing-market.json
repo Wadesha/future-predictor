@@ -1,0 +1,70 @@
+{
+  "id": "housing-market",
+  "title": "2027年一线城市房价会回暖吗？",
+  "scenario": "finance",
+  "description": "2022年以来中国房地产市场持续调整，一线城市房价也出现松动。2027年能否企稳回暖，还是继续下行？",
+  "tags": ["房产", "房价", "一线城市", "投资"],
+  "status": "active",
+  "participants": 8923,
+  "updated": "2026-08-12T09:00:00",
+  "predictions": [
+    {
+      "id": "stabilize-rebound",
+      "branchName": "企稳回暖：2027年一线城市房价温和上涨",
+      "probability": 55,
+      "conclusion": "2027年一线城市房价将企稳，核心区域（北京三环内、上海内环等）可能出现5-10%的温和上涨。",
+      "reasoning": [
+        {"step": 1, "description": "政策面已经出现拐点：取消限购、降低首付比例、下调房贷利率等政策组合拳效果逐步显现", "dataRef": "央行2026年二季度货币政策执行报告"},
+        {"step": 2, "description": "一线城市人口净流入持续，北京上海每年新增常住人口约15-20万，刚需支撑强劲", "dataRef": "国家统计局2025年人口数据"},
+        {"step": 3, "description": "新房供应量降至近10年最低，2026年一线城市住宅用地供应同比减少25%", "dataRef": "自然资源部2026年土地供应数据"},
+        {"step": 4, "description": "历史规律：中国房地产市场调整周期通常为3-4年，本轮调整自2022年开始，2027年将进入回升期", "dataRef": "中指研究院历史数据分析"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "央行2026年二季度货币政策执行报告", "source": "中国人民银行", "url": "#"},
+        {"type": "data", "title": "2025年重点城市人口变动情况", "source": "国家统计局", "url": "#"},
+        {"type": "article", "title": "中国房地产市场周期分析：历史对比与未来展望", "source": "中指研究院 2026", "url": "#"}
+      ],
+      "userChoiceCount": 4100,
+      "impact": "有自住需求的购房者可在2026年底至2027年初关注核心区域入市机会"
+    },
+    {
+      "id": "continue-decline",
+      "branchName": "持续下行：房价还有10-15%下跌空间",
+      "probability": 45,
+      "conclusion": "2027年一线城市房价将继续下跌10-15%，市场信心修复需要更长时间，\"房住不炒\"时代已到来。",
+      "reasoning": [
+        {"step": 1, "description": "居民杠杆率已达62%，接近发达国家水平，继续加杠杆空间有限", "dataRef": "国际清算银行(BIS) 2026年居民杠杆率报告"},
+        {"step": 2, "description": "人口结构拐点：2025年中国人口首次负增长，长期需求基础正在削弱", "dataRef": "国家统计局2025年人口普查数据"},
+        {"step": 3, "description": "租售比仍处于2%以下，远低于国际公认的合理水平（4-5%），估值有向下修正空间", "dataRef": "链家2026年租金回报率报告"},
+        {"step": 4, "description": "日本、美国的历史经验表明：房地产泡沫破裂后，价格调整周期通常持续5-10年", "dataRef": "IMF 全球住房市场比较研究"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "BIS 2026 居民杠杆率国际比较", "source": "国际清算银行", "url": "#"},
+        {"type": "data", "title": "中国人口负增长时代：影响与应对", "source": "国家统计局", "url": "#"},
+        {"type": "article", "title": "Lessons from global housing busts: What China can expect", "source": "IMF Working Paper 2026", "url": "#"}
+      ],
+      "userChoiceCount": 4823,
+      "impact": "投资性购房需谨慎，持有现金或配置其他资产可能是更优选择"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-hm1",
+      "author": "房产中介老李",
+      "content": "2026年成交量确实比去年多了，但都是降价换来的。业主心态分化，急售的降价10-15%很快能成交，不着急的就挂着。",
+      "type": "fact",
+      "timestamp": "2026-08-08T14:00:00",
+      "likes": 92,
+      "relatedPrediction": "continue-decline"
+    },
+    {
+      "id": "obs-hm2",
+      "author": "宏观经济研究员",
+      "content": "房价不只是供需问题，更是信心问题。如果经济增速能稳住5%以上，大家收入预期改善了，房价自然就稳了。",
+      "type": "opinion",
+      "timestamp": "2026-08-10T10:20:00",
+      "likes": 56,
+      "relatedPrediction": "stabilize-rebound"
+    }
+  ]
+}

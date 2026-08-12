@@ -1,12 +1,12 @@
 [
   {
-    "id": "weather-beijing",
-    "title": "明天北京会下雨吗？",
+    "id": "extreme-weather",
+    "title": "未来5年极端天气会越来越频繁吗？",
     "scenario": "weather",
-    "brief": "基于雷达数据和气象模型预测明日降雨概率",
-    "probability": 70,
-    "participants": 1234,
-    "updated": "2小时前",
+    "brief": "全球变暖背景下，极端天气频发趋势会持续加剧还是迎来转折？",
+    "probability": 75,
+    "participants": 3241,
+    "updated": "2天前",
     "hot": true
   },
   {
@@ -17,6 +17,36 @@
     "probability": 35,
     "participants": 5678,
     "updated": "昨天",
+    "hot": true
+  },
+  {
+    "id": "housing-market",
+    "title": "2027年一线城市房价会回暖吗？",
+    "scenario": "finance",
+    "brief": "政策转向vs人口拐点，市场博弈何去何从",
+    "probability": 55,
+    "participants": 8923,
+    "updated": "3小时前",
+    "hot": true
+  },
+  {
+    "id": "remote-work",
+    "title": "远程办公会成为未来主流工作模式吗？",
+    "scenario": "career",
+    "brief": "混合办公 vs 回办公室，未来工作模式走向何方",
+    "probability": 65,
+    "participants": 6789,
+    "updated": "昨天",
+    "hot": true
+  },
+  {
+    "id": "intermittent-fasting",
+    "title": "间歇性断食真的能延缓衰老吗？",
+    "scenario": "health",
+    "brief": "科学争议：断食的抗衰老效果有多大？",
+    "probability": 60,
+    "participants": 4567,
+    "updated": "3天前",
     "hot": true
   }
 ]

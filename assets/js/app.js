@@ -92,7 +92,7 @@ const App = {
             <div class="title">${t.title}</div>
             <div class="meta">
               <span>${scenario ? scenario.icon + ' ' + scenario.name : ''}</span>
-              <span>🌧️ ${t.probability}% 概率</span>
+              <span>📊 ${t.probability}% 概率</span>
               <span>👥 ${t.participants} 人参与</span>
               <span>🕐 ${t.updated}</span>
             </div>
@@ -196,13 +196,19 @@ const App = {
     const topicList = document.createElement('div');
     topicList.className = 'topic-list';
 
+    const topicMap = {
+      'weather': 'extreme-weather',
+      'health': 'intermittent-fasting',
+      'career': 'remote-work',
+      'finance': 'housing-market',
+      'tech': 'ai-replacement'
+    };
+
     try {
       let topics = [];
-      if (scenario.id === 'weather') {
-        const t = await DataLoader.loadTopic('weather-beijing');
-        topics.push(t);
-      } else if (scenario.id === 'tech') {
-        const t = await DataLoader.loadTopic('ai-replacement');
+      const topicId = topicMap[scenario.id];
+      if (topicId) {
+        const t = await DataLoader.loadTopic(topicId);
         topics.push(t);
       }
 
@@ -375,8 +381,8 @@ const App = {
 
       // Back button
       document.getElementById('topicBackBtn').addEventListener('click', () => {
-        Interaction.showPage('scenarios');
-        App.renderScenarios(topic.scenario);
+        Interaction.showPage('home');
+        App.renderHome();
       });
 
       Interaction.showPage('topic');
@@ -493,7 +499,13 @@ const App = {
       const resultClass = result === undefined ? 'result-pending' : result.correct ? 'result-correct' : 'result-wrong';
       return `
         <div class="record-item">
-          <div class="record-title">${topicId === 'weather-beijing' ? '🌤️ 明天北京会下雨吗？' : topicId === 'ai-replacement' ? '🚀 AI 会取代程序员吗？' : topicId}</div>
+          <div class="record-title">${({
+            'extreme-weather': '🌤️ 未来5年极端天气会越来越频繁吗？',
+            'ai-replacement': '🚀 AI 会取代程序员吗？',
+            'intermittent-fasting': '💪 间歇性断食真的能延缓衰老吗？',
+            'remote-work': '💼 远程办公会成为未来主流工作模式吗？',
+            'housing-market': '💰 2027年一线城市房价会回暖吗？'
+          })[topicId] || topicId}</div>
           <div>
             <span class="record-result ${resultClass}">${resultLabel}</span>
           </div>

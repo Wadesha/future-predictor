@@ -1,0 +1,70 @@
+{
+  "id": "intermittent-fasting",
+  "title": "间歇性断食真的能延缓衰老吗？",
+  "scenario": "health",
+  "description": "间歇性断食（16:8、5:2等模式）近年成为热门健康话题。支持者声称它能延寿、改善代谢，但科学界对此仍有争议。",
+  "tags": ["健康", "饮食", "断食", "抗衰老"],
+  "status": "active",
+  "participants": 4567,
+  "updated": "2026-08-09T08:00:00",
+  "predictions": [
+    {
+      "id": "effective-for-aging",
+      "branchName": "确有效果：断食能延缓衰老进程",
+      "probability": 60,
+      "conclusion": "间歇性断食通过激活自噬机制、改善代谢健康，确实能在一定程度上延缓衰老，但效果因人而异且需长期坚持。",
+      "reasoning": [
+        {"step": 1, "description": "动物实验显示：限制热量摄入可延长多种模式生物寿命20-40%", "dataRef": "Cell Metabolism 2025 综述"},
+        {"step": 2, "description": "人体临床试验：16:8断食12周后，参与者炎症标志物（CRP、IL-6）下降30-40%", "dataRef": "NEJM 2026 间歇性断食临床试验"},
+        {"step": 3, "description": "断食诱导的自噬机制可清除衰老细胞和异常蛋白，这是抗衰老的核心通路之一", "dataRef": "Nature Reviews Molecular Cell Biology"},
+        {"step": 4, "description": "长期断食者（>2年）的端粒长度比同龄人长8-10%，端粒缩短是衰老的关键标志", "dataRef": "Aging Cell 2026 队列研究"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "Intermittent fasting and longevity: From model organisms to humans", "source": "Cell Metabolism 2025", "url": "#"},
+        {"type": "data", "title": "间歇性断食对炎症标志物的影响：随机对照试验", "source": "NEJM 2026", "url": "#"},
+        {"type": "expert", "title": "Dr. David Sinclair 关于断食与抗衰老的公开论述", "source": "Harvard Medical School", "url": "#"}
+      ],
+      "userChoiceCount": 2400,
+      "impact": "建议在医生指导下尝试16:8断食模式，配合营养均衡的饮食"
+    },
+    {
+      "id": "overhyped",
+      "branchName": "被过度炒作：效果有限且有风险",
+      "probability": 40,
+      "conclusion": "间歇性断食的抗衰老效果被过分夸大，现有证据多为短期或动物实验，长期效果和安全性尚不明确。",
+      "reasoning": [
+        {"step": 1, "description": "绝大多数长寿研究来自动物模型（小鼠、线虫），与人类的衰老机制差异显著", "dataRef": "Science 2025 评论文章"},
+        {"step": 2, "description": "人体最长随访仅2年，缺乏真正意义上的寿命终点数据", "dataRef": "JAMA Internal Medicine 2026 系统综述"},
+        {"step": 3, "description": "断食可能导致肌肉流失、营养摄入不足、饮食紊乱等风险，尤其对女性和老年人", "dataRef": "American Journal of Clinical Nutrition 2025"},
+        {"step": 4, "description": "近年研究显示：断食的代谢改善效果可能主要来自热量减少本身，而非断食时间窗口", "dataRef": "Cell Reports Medicine 2026 对照研究"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "The hype and hope of intermittent fasting", "source": "Science 2025", "url": "#"},
+        {"type": "data", "title": "Intermittent fasting: What does the evidence really say?", "source": "JAMA Internal Medicine 2026", "url": "#"},
+        {"type": "article", "title": "Calorie restriction vs time-restricted feeding: A head-to-head trial", "source": "Cell Reports Medicine 2026", "url": "#"}
+      ],
+      "userChoiceCount": 2167,
+      "impact": "关注均衡饮食和热量控制本身即可，无需盲目追求断食模式"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-if1",
+      "author": "营养师小王",
+      "content": "我做了2年16:8，体重稳定了，精力也好了。但我的客户中有人出现低血糖和脱发，不是每个人都适合。",
+      "type": "opinion",
+      "timestamp": "2026-08-01T11:20:00",
+      "likes": 67,
+      "relatedPrediction": "effective-for-aging"
+    },
+    {
+      "id": "obs-if2",
+      "author": "生化博士",
+      "content": "自噬机制确实存在，但人体内自噬激活程度远不如小鼠。断食16小时对人体的自噬激活效果可能被高估了。",
+      "type": "fact",
+      "timestamp": "2026-08-05T16:45:00",
+      "likes": 51,
+      "relatedPrediction": "overhyped"
+    }
+  ]
+}

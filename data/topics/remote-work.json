@@ -1,0 +1,70 @@
+{
+  "id": "remote-work",
+  "title": "远程办公会成为未来主流工作模式吗？",
+  "scenario": "career",
+  "description": "后疫情时代，各大公司对远程办公态度分化。有人预测混合办公将是常态，也有人认为办公室文化会回归。",
+  "tags": ["职场", "远程办公", "工作模式", "未来趋势"],
+  "status": "active",
+  "participants": 6789,
+  "updated": "2026-08-11T15:00:00",
+  "predictions": [
+    {
+      "id": "hybrid-mainstream",
+      "branchName": "混合办公成为主流",
+      "probability": 65,
+      "conclusion": "未来3-5年，混合办公（每周2-3天远程）将成为大多数白领岗位的标准模式，完全回办公室和完全远程都会减少。",
+      "reasoning": [
+        {"step": 1, "description": "2026年全球调查显示：78%的知识工作者期望混合办公，仅12%愿意全职到办公室", "dataRef": "McKinsey 2026 未来工作调查"},
+        {"step": 2, "description": "实施混合办公的企业报告员工满意度提升25%，离职率降低18%", "dataRef": "Stanford WFH Research 2026"},
+        {"step": 3, "description": "企业房地产成本优化需求：减少办公空间可节省20-40%的运营成本", "dataRef": "JLL 2026 企业房地产趋势报告"},
+        {"step": 4, "description": "技术基础设施成熟：VR协作、异步办公工具、AI助手使远程协作效率接近面对面", "dataRef": "Gartner 2026 数字化工作场所技术预测"}
+      ],
+      "evidence": [
+        {"type": "data", "title": "McKinsey 2026 未来工作全球调查", "source": "McKinsey Global Institute", "url": "#"},
+        {"type": "article", "title": "The hybrid work revolution: What we learned from 5 years of WFH", "source": "Harvard Business Review 2026", "url": "#"},
+        {"type": "data", "title": "JLL 2026 全球企业房地产趋势", "source": "JLL", "url": "#"}
+      ],
+      "userChoiceCount": 3520,
+      "impact": "个人需培养异步沟通和自律能力；企业需重新设计绩效考核和管理方式"
+    },
+    {
+      "id": "return-to-office",
+      "branchName": "办公室文化强势回归",
+      "probability": 35,
+      "conclusion": "2026-2028年将出现明显的\"回办公室\"趋势，尤其金融、法律等传统行业，远程办公将退回到疫情前水平。",
+      "reasoning": [
+        {"step": 1, "description": "2025-2026年，高盛、摩根大通、亚马逊等巨头已要求员工每周回办公室5天", "dataRef": "Bloomberg 2026 报道"},
+        {"step": 2, "description": "调查显示：应届生和初级员工在远程环境下成长速度比在办公室慢30-40%", "dataRef": "MIT Sloan 2026 组织行为研究"},
+        {"step": 3, "description": "创新和团队凝聚力需要偶发碰撞，远程环境下的\"水冷器效应\"损失难以量化但显著", "dataRef": "Microsoft Workplace Intelligence 2026"},
+        {"step": 4, "description": "经济下行期，企业更倾向于强化管理控制，远程办公被视为管理盲区", "dataRef": "The Economist 2026 职场分析"}
+      ],
+      "evidence": [
+        {"type": "article", "title": "Wall Street calls workers back to the office", "source": "Bloomberg 2026", "url": "#"},
+        {"type": "data", "title": "The career cost of remote work for junior employees", "source": "MIT Sloan Management Review 2026", "url": "#"},
+        {"type": "data", "title": "Microsoft Workplace Intelligence Report 2026", "source": "Microsoft", "url": "#"}
+      ],
+      "userChoiceCount": 3269,
+      "impact": "建议初级员工优先选择有办公室文化的公司以获得更快的职业成长"
+    }
+  ],
+  "observations": [
+    {
+      "id": "obs-rw1",
+      "author": "产品经理",
+      "content": "我们公司实行混合办公2年了，最大的问题是跨时区开会。早上7点或晚上10点的会越来越多，burnout风险增加了。",
+      "type": "fact",
+      "timestamp": "2026-08-10T09:15:00",
+      "likes": 78,
+      "relatedPrediction": "hybrid-mainstream"
+    },
+    {
+      "id": "obs-rw2",
+      "author": "HR总监",
+      "content": "我们要求回办公室后，确实有几个顶尖人才离职了，但新人融入速度快了很多。短期阵痛，长期看利大于弊。",
+      "type": "opinion",
+      "timestamp": "2026-08-11T10:30:00",
+      "likes": 43,
+      "relatedPrediction": "return-to-office"
+    }
+  ]
+}
