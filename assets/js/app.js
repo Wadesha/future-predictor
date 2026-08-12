@@ -585,9 +585,104 @@ const App = {
     });
   },
 
+  /* ===== Render single sub-question (no tabs) ===== */
+  renderSingleSubQuestion(sq, layerNum, topic) {
+    const container = document.getElementById('layerContainer');
+
+    const sqDiv = document.createElement('div');
+    sqDiv.className = 'sub-question-container';
+    sqDiv.dataset.layer = layerNum;
+    sqDiv.id = 'subq-' + sq.id;
+
+    sqDiv.innerHTML = `
+      <div class="sub-question-header">
+        <span class="layer-badge">第 ${layerNum} 层</span>
+        <span class="title">🔍 ${sq.title}</span>
+      </div>
+      <div class="sub-question-body">
+        ${sq.description ? `<div class="sub-question-desc">${sq.description}</div>` : ''}
+        <div class="sub-branch-grid" id="sub-branches-${sq.id}"></div>
+      </div>
+    `;
+
+    container.appendChild(sqDiv);
+
+    const subGrid = sqDiv.querySelector(`#sub-branches-${sq.id}`);
+    const userChoices = Storage.getChoices();
+    const selectedSubId = userChoices[sq.id];
+
+    sq.predictions.forEach(sp => {
+      const isSubSelected = sp.id === selectedSubId;
+      const probClass = sp.probability >= 60 ? 'prob-high' : sp.probability >= 30 ? 'prob-mid' : 'prob-low';
+
+      const subCard = document.createElement('div');
+      subCard.className = 'sub-branch-card' + (isSubSelected ? ' selected' : '');
+
+      subCard.innerHTML = `
+        <div class="branch-header">
+          <div class="branch-name">${sp.branchName}</div>
+          <div class="probability ${probClass}">${sp.probability}%</div>
+        </div>
+        <div class="conclusion">${sp.conclusion}</div>
+        ${sp.impact ? `<div class="impact">📌 ${sp.impact}</div>` : ''}
+        <button class="select-btn ${isSubSelected ? 'selected' : 'select'}" data-sub-prediction-id="${sp.id}" data-sub-question-id="${sq.id}">
+          ${isSubSelected ? '✓ 已选择' : '选择此方向'}
+        </button>
+      `;
+
+      subCard.querySelector('.select-btn').addEventListener('click', () => {
+        Storage.saveChoice(sq.id, sp.id);
+        Interaction.showToast('已选择，继续深挖');
+
+        subGrid.querySelectorAll('.sub-branch-card').forEach(c => {
+          c.classList.remove('selected');
+          const btn = c.querySelector('.select-btn');
+          btn.className = 'select-btn select';
+          btn.textContent = '选择此方向';
+        });
+        subCard.classList.add('selected');
+        subCard.querySelector('.select-btn').className = 'select-btn selected';
+        subCard.querySelector('.select-btn').textContent = '✓ 已选择';
+
+        this.updatePath(topic, sp, layerNum, sq.title);
+
+        // Remove deeper layers
+        const deeper = container.querySelectorAll(`[data-layer="${layerNum + 1}"]`);
+        deeper.forEach(el => el.remove());
+
+        if (sp.reasoning) {
+          this.showReasoning(sp);
+        }
+
+        if (sp.subQuestions && sp.subQuestions.length > 0) {
+          this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+        }
+      });
+
+      // Auto-expand if already selected
+      if (isSubSelected) {
+        setTimeout(() => {
+          this.updatePath(topic, sp, layerNum, sq.title);
+          if (sp.reasoning) this.showReasoning(sp);
+          if (sp.subQuestions && sp.subQuestions.length > 0) {
+            this.renderSubQuestions(sp.subQuestions, sp.id, layerNum + 1, topic, sp);
+          }
+        }, 0);
+      }
+
+      subGrid.appendChild(subCard);
+    });
+  },
+
   /* ===== Render sub-questions (next layer deep dive) ===== */
   renderSubQuestions(subQuestions, parentId, layerNum, topic, parentPrediction) {
     const container = document.getElementById('layerContainer');
+
+    // If only one sub-question, render directly without tabs
+    if (subQuestions.length === 1) {
+      this.renderSingleSubQuestion(subQuestions[0], layerNum, topic);
+      return;
+    }
 
     // Create a tab container for sub-questions
     const tabWrapper = document.createElement('div');
